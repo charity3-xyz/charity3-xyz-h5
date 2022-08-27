@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { autoBind } from 'jsdk/autoBind';
-import { Button } from '@mui/material';
-import { Header } from '../../components/Header';
-import { walletService } from '../../services/blockchain/wallet';
+import { Stack, Container, Typography } from '@mui/material';
 import { App } from '../../components/App';
+import { Button } from '../../components/button';
 
 /**
  * 首页
@@ -14,11 +13,22 @@ import { App } from '../../components/App';
 @autoBind
 export class Home extends Component<any, any> {
   render() {
-    const { accountAddress } = walletService;
     return (
       <App>
-        <Header />
-        <Button onClick={walletService.connect}>{accountAddress ? accountAddress : 'connect'}</Button>
+        {/* banner */}
+        <Container sx={{ height: 'calc(100vh - 70px)', display: 'flex', flexDirection: 'column', paddingTop: 20 }}>
+          <Typography variant="h3">Charity3</Typography>
+          <Typography>基于Web3技术实现的慈善项目，让您的爱心真正落实,让有需要帮助的人得到帮助。</Typography>
+          <Typography>一切公开透明,接受全球Web3用户监督</Typography>
+
+          <Stack spacing={1} direction="row" mt={3}>
+            <Button variant="contained">{'我需要帮助'}</Button>
+            <Button href="/project-list" variant="outlined">
+              {'捐助ta人'}
+            </Button>
+            <Button>{'我要参与监督'}</Button>
+          </Stack>
+        </Container>
       </App>
     );
   }

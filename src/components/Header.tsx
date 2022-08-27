@@ -13,17 +13,12 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { walletService } from '../services/blockchain/wallet';
-
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['慈善项目', '项目监督', '关于我们'];
 const settings = ['Logout'];
 
 export const Header = observer(function Header() {
-  const { accountAddress } = walletService;
-
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -43,10 +38,12 @@ export const Header = observer(function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="transparent">
       <Container maxWidth={false}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* logo */}
+          {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
+          {/* brand name */}
           <Typography
             variant="h6"
             noWrap
@@ -55,9 +52,7 @@ export const Header = observer(function Header() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}>
@@ -119,7 +114,7 @@ export const Header = observer(function Header() {
           {/*  大屏导航 */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(page => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
                 {page}
               </Button>
             ))}

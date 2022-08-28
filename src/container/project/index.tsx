@@ -4,7 +4,7 @@ import { App } from '../../components/App';
 /**
  * 项目列表
  */
-export class ProjectList extends Component<any, any> {
+export class ProjectHome extends Component<any, any> {
   render() {
     return <App></App>;
   }

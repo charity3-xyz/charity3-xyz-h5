@@ -4,6 +4,7 @@ import { autoBind } from 'jsdk/autoBind';
 import { Stack, Container, Typography } from '@mui/material';
 import { App } from '../../components/App';
 import { Button } from '../../components/button';
+import { path } from '../../constants/route';
 
 /**
  * 首页
@@ -22,8 +23,10 @@ export class Home extends Component<any, any> {
           <Typography>一切公开透明,接受全球Web3用户监督</Typography>
 
           <Stack spacing={1} direction="row" mt={3}>
-            <Button variant="contained">{'我需要帮助'}</Button>
-            <Button href="/project-list" variant="outlined">
+            <Button href={path.projectNew} variant="contained">
+              {'我需要帮助'}
+            </Button>
+            <Button href={path.project} variant="outlined">
               {'捐助ta人'}
             </Button>
             <Button>{'我要参与监督'}</Button>

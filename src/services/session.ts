@@ -7,6 +7,11 @@ import { makePersistable } from 'mobx-persist-store';
 export class SessionService {
   loading = false;
 
+  /**
+   * 登录用户信息
+   */
+  user = undefined;
+
   constructor() {
     makeAutoObservable(this, undefined, {
       autoBind: true,

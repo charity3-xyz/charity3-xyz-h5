@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@aomi/common-service@^1.0.5-Alpha.26":
+  version "1.0.5-Alpha.26"
+  resolved "https://registry.yarnpkg.com/@aomi/common-service/-/common-service-1.0.5-Alpha.26.tgz#0481d84d3a166556119c59d76ea14a1d6df39885"
+  integrity sha512-0qfxPjQEYE28gfw6lbWNNS7qu3oBsHOcQli/xbNRgS4RS+VmC1AmT31H89OExIipA3jjXLE6eDYn+Zfll2/5yQ==
+
+"@aomi/utils@1.0.1-Alpha.5-cjs":
+  version "1.0.1-Alpha.5-cjs"
+  resolved "https://registry.yarnpkg.com/@aomi/utils/-/utils-1.0.1-Alpha.5-cjs.tgz#b809ebab9e8e02c1ee651b7f9b0669be6e29d698"
+  integrity sha512-XL5D9ygyjZnfhWc1rLjuLYKoVUMCVJPYzB6AWkHSUJ/rN0B0T4fCSH5Sj01gQk0vkUcI1bOOpYXPQxcSV1WVEQ==
+
 "@babel/code-frame@^7.0.0":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"

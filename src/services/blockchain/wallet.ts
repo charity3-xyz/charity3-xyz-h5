@@ -43,6 +43,17 @@ export class WalletService {
     }
   }
 
+  async sign(message: string): Promise<string> {
+    if (!this.walletInstalled) {
+      console.log('钱包未安装');
+      return '';
+    }
+    const provider = providerService.get();
+
+    const signer = provider.getSigner();
+    return await signer.signMessage(message);
+  }
+
   async getNft() {}
 }
 

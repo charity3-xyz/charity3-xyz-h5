@@ -4,6 +4,7 @@ import getErrMsg from '@aomi/common-service/utils/getErrMsg';
 import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
 import { ServiceError } from '@aomi/common-service/exception/ServiceError';
 import SessionKey from '../constants/SessionKey';
+import { toastService } from '../services/toast';
 
 export type Options = {
   /**
@@ -72,10 +73,7 @@ export async function execute({
   // 1000状态码
   if (status === ErrorCode.UNAUTHORIZED) {
     if (autoUnAuthorize) {
-      // notification.error({
-      //   message: '登录信息失效或者未登录',
-      //   description: msg,
-      // });
+      toastService.error(msg);
       // sessionService.logout();
     }
     throw new ServiceError({ status, payload, describe });
@@ -83,16 +81,9 @@ export async function execute({
 
   if (ErrorCode.SUCCESS === status) {
     if (typeof successTip === 'boolean') {
-      // successTip &&
-      //   notification.success({
-      //     message: '请求成功',
-      //     description: msg,
-      //   });
+      successTip && toastService.success(msg);
     } else if ((params.method || HttpMethod.GET).toLowerCase() !== 'get') {
-      // notification.success({
-      //   message: '请求成功',
-      //   description: msg,
-      // });
+      toastService.success(msg);
     }
     // successPop && navigationServices.goBack();
     return payload;
@@ -100,10 +91,7 @@ export async function execute({
     if (status === ErrorCode.CUSTOM_ERROR) {
       msg = payload ? `[${payload.status}] ${payload.message}` : describe;
     }
-    // notification.error({
-    //   message: '请求处理失败',
-    //   description: msg,
-    // });
+    toastService.error(msg ?? '');
   }
 
   if (ErrorCode.SUCCESS !== status) {

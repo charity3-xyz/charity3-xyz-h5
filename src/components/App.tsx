@@ -19,7 +19,13 @@ export type AppProps = (ContainerProps | BoxProps | StackProps) & {
   showHeader?: boolean;
 };
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    success: {
+      main: '#44E371',
+    },
+  },
+});
 
 /**
  * 基础应用

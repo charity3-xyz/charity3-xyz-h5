@@ -16,6 +16,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '../components/button';
 import { path } from '../constants/route';
+import { sessionService } from '../services/session';
 
 const pages = ['Home', 'Product', 'Pricing', 'Contact'];
 const settings = ['Logout'];
@@ -23,7 +24,6 @@ const settings = ['Logout'];
 export const Header = observer(function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [isLogin, setIslogin] = React.useState<boolean>(false);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,10 +40,7 @@ export const Header = observer(function Header() {
     setAnchorElUser(null);
   };
 
-  React.useEffect(() => {
-    //调取登录接口，判断用户是否登录
-    setIslogin(false);
-  }, []);
+  const { user } = sessionService;
 
   return (
     <AppBar position="static" color="transparent">
@@ -131,7 +128,7 @@ export const Header = observer(function Header() {
           {/* 未登录：未登录展示login及我要求助按钮 */}
           {/* 已登录：右侧头像和头像下拉框的设置 */}
           {/* flexGrow 是干嘛的 */}
-          {isLogin ? (
+          {user ? (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

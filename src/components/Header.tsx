@@ -12,18 +12,8 @@ import {
   Toolbar,
   Tooltip,
   Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  TextField,
-  InputLabel,
-  FormControl,
-  Link,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 
 import { Button } from '../components/button';
 import { path } from '../constants/route';
@@ -32,12 +22,14 @@ import { sessionService } from '../services/session';
 const pages = ['Home', 'Product', 'Pricing', 'Contact'];
 const settings = ['Logout'];
 
-import style from './index.module.scss';
+import { LoginUp } from './LoginUp';
+import { LoginIn } from './LoginIn';
 
 export const Header = observer(function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [showDialog, setShowDialog] = React.useState<boolean>(true);
+  const [showSignUp, setShowSignUp] = React.useState<boolean>(false);
+  const [showSignIn, setShowSignIn] = React.useState<boolean>(false);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -52,6 +44,16 @@ export const Header = observer(function Header() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const goLoginIn = () => {
+    setShowSignUp(false);
+    setShowSignIn(true);
+  };
+
+  const goLoginUp = () => {
+    setShowSignIn(false);
+    setShowSignUp(true);
   };
 
   const { user } = sessionService;
@@ -142,7 +144,6 @@ export const Header = observer(function Header() {
 
             {/* 未登录：未登录展示login及我要求助按钮 */}
             {/* 已登录：右侧头像和头像下拉框的设置 */}
-            {/* flexGrow 是干嘛的 */}
             {user ? (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
@@ -174,10 +175,7 @@ export const Header = observer(function Header() {
               </Box>
             ) : (
               <Box sx={{ flexGrow: 0 }}>
-                {/* <Link href="#" underline="none" color="inherit" mr={2}>
-                {'Login'}
-              </Link> */}
-                <MButton key="login" onClick={() => setShowDialog(true)}>
+                <MButton key="login" onClick={() => setShowSignUp(true)}>
                   {'Login'}
                 </MButton>
                 <Button href={path.projectNew} variant="contained" color={'success'}>
@@ -188,71 +186,21 @@ export const Header = observer(function Header() {
           </Toolbar>
         </Container>
       </AppBar>
-      <Dialog onClose={() => setShowDialog(false)} open={showDialog} className={style.dialog}>
-        <DialogTitle>
-          求助登记
-          <IconButton
-            aria-label="close"
-            onClick={() => setShowDialog(false)}
-            sx={{ position: 'absolute', right: 8, top: 8, color: theme => theme.palette.grey[500] }}>
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
-        <DialogContent>
-          <Container>
-            <InputLabel shrink htmlFor="name">
-              姓名
-            </InputLabel>
-            <TextField
-              id="name"
-              autoFocus
-              margin="dense"
-              type="name"
-              fullWidth
-              variant="standard"
-              placeholder="请输入姓名"
-            />
-            <InputLabel shrink htmlFor="id">
-              证件号码
-            </InputLabel>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="id"
-              type="name"
-              fullWidth
-              variant="standard"
-              placeholder="请输入证件号码"
-            />
-            <InputLabel shrink htmlFor="pwd">
-              设置密码
-            </InputLabel>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="pwd"
-              type="name"
-              fullWidth
-              variant="standard"
-              placeholder="密码长度8—16位，需包含字母、数字"
-            />
-          </Container>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            variant="contained"
-            color={'success'}
-            onClick={() => {
-              console.log(2222);
-            }}>
-            立即登记
-          </Button>
-        </DialogActions>
-        <Container className={style.link}>
-          已有账号直接
-          <Link href="#">登录</Link>
-        </Container>
-      </Dialog>
+      {/* 注册弹窗 */}
+      <LoginUp
+        open={showSignUp}
+        onClose={() => setShowSignUp(false)}
+        onOk={() => console.log(111)}
+        goLoginIn={goLoginIn}
+      />
+
+      {/* 登录弹窗 */}
+      <LoginIn
+        open={showSignIn}
+        onClose={() => setShowSignIn(false)}
+        onOk={() => console.log(111)}
+        goLoginUp={goLoginUp}
+      />
     </>
   );
 });

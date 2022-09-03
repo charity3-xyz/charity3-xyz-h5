@@ -18,16 +18,16 @@ import { FailedDialog } from './Dialog/FailedDialog';
 
 import style from './index.module.scss';
 
-export const LoginUp = observer(function LoginUp({
+export const LoginIn = observer(function LoginIn({
   open,
   onClose,
   onOk,
-  goLoginIn,
+  goLoginUp,
 }: {
   open: boolean;
   onClose: any;
   onOk: any;
-  goLoginIn: any;
+  goLoginUp: any;
 }) {
   const [showRepay, setShowRepay] = useState<boolean>(false);
   const [showFialedDialog, setShowFialedDialog] = useState<boolean>(false);
@@ -36,7 +36,7 @@ export const LoginUp = observer(function LoginUp({
     <>
       <Dialog onClose={onClose} open={open} className={style.dialog}>
         <DialogTitle>
-          求助登记
+          登录
           <IconButton
             aria-label="close"
             onClick={onClose}
@@ -46,18 +46,6 @@ export const LoginUp = observer(function LoginUp({
         </DialogTitle>
         <DialogContent>
           <Container>
-            <InputLabel shrink htmlFor="name">
-              姓名
-            </InputLabel>
-            <TextField
-              id="name"
-              autoFocus
-              margin="dense"
-              type="name"
-              fullWidth
-              variant="standard"
-              placeholder="请输入姓名"
-            />
             <InputLabel shrink htmlFor="id">
               证件号码
             </InputLabel>
@@ -71,7 +59,7 @@ export const LoginUp = observer(function LoginUp({
               placeholder="请输入证件号码"
             />
             <InputLabel shrink htmlFor="pwd">
-              设置密码
+              密码
             </InputLabel>
             <TextField
               autoFocus
@@ -86,17 +74,16 @@ export const LoginUp = observer(function LoginUp({
         </DialogContent>
         <DialogActions>
           <Button variant="contained" color={'success'} onClick={onOk}>
-            立即登记
+            登录
           </Button>
         </DialogActions>
         <Container className={style.link}>
-          已有账号直接
-          <Link href="#" onClick={goLoginIn}>
-            登录
+          没有账号
+          <Link href="#" onClick={goLoginUp}>
+            立即注册
           </Link>
         </Container>
       </Dialog>
-
       {/* 认领人物 */}
       <SuccessDialog onClose={() => setShowRepay(false)} open={showRepay} onOk={() => console.log('onko====>')} />
 

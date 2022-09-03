@@ -3,7 +3,8 @@
 
   :global {
     .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
-      width: 450px !important;
+      width: 450px;
+      border-radius: 12px;
     }
     .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
         text-align: center;
@@ -46,5 +47,13 @@
       color: #44E371;
     }
   }
+  }
+  .tipsDialog {
+    :global {
+      .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+        width: 450px;
+        border-radius: 12px;
+      }
+    }
   }
   

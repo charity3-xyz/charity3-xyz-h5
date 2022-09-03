@@ -1,0 +1,50 @@
+
+  .dialog {
+
+  :global {
+    .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+      width: 450px !important;
+    }
+    .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
+        text-align: center;
+    }
+    .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
+      font-size: 2rem !important;
+      font-weight: 700;
+    }
+    .css-1a1fmpi-MuiInputBase-root-MuiInput-root:before {display: none !important;}
+    .css-1a1fmpi-MuiInputBase-root-MuiInput-root:after {display: none !important;}
+    .css-1z10yd4-MuiFormControl-root-MuiTextField-root {margin-bottom: 0}
+    .css-ypiqx9-MuiDialogContent-root {
+      padding: 0 !important;
+      .css-1x51dt5-MuiInputBase-input-MuiInput-input  {
+        border-radius: 8px;
+        padding: 12px;
+        border: none;
+        background-color: #F5F7FA;
+        font-size: 1.20rem;
+        margin-bottom: 20px;
+      }
+    }
+    .css-hlj6pa-MuiDialogActions-root {
+      padding: 20px 24px 12px;
+      justify-content: center;
+      button {
+        width: 100%;
+        padding: 10px 32px;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .link {
+    font-size: 0.9rem;
+    color: #757575;
+    padding-bottom: 28px;
+    a {
+      color: #44E371;
+    }
+  }
+  }
+  

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { App } from '../../components/App';
 
 /**
- * 项目列表
+ * 捐赠者项目首页
  */
 export class ProjectHome extends Component<any, any> {
   render() {
-    return <App></App>;
+    return <App>捐赠者项目首页页面</App>;
   }
 }

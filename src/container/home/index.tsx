@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { autoBind } from 'jsdk/autoBind';
-import { Stack, Container, Typography } from '@mui/material';
+import { Stack, Container, Typography, Link, Card, CardContent } from '@mui/material';
 import { App } from '../../components/App';
 import { Button } from '../../components/button';
 import { path } from '../../constants/route';
@@ -31,6 +31,38 @@ export class Home extends Component<any, any> {
             </Button>
             <Button>{'我要参与监督'}</Button>
           </Stack>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <div>
+                <Link href="/help">求助者项目首页</Link>
+              </div>
+              <div>
+                <Link href="/help/new">求助者申请捐助</Link>
+              </div>
+              <div>
+                <Link href="/help/detail">求助者捐助详情</Link>
+              </div>
+              <div>
+                <Link href="/help/list">求助者项目列表</Link>
+              </div>
+            </CardContent>
+          </Card>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <div>
+                <Link href="/donate">捐赠者项目首页</Link>
+              </div>
+              <div>
+                <Link href="/donate/new">捐赠者申请捐助</Link>
+              </div>
+              <div>
+                <Link href="/donate/detail">捐赠者捐助详情</Link>
+              </div>
+              <div>
+                <Link href="/donate/list">捐赠者项目列表</Link>
+              </div>
+            </CardContent>
+          </Card>
         </Container>
       </App>
     );

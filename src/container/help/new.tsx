@@ -41,7 +41,7 @@ const fields: Array<TextFieldProps> = [
 ];
 
 /**
- * 发起募捐
+ * 求助者发起募捐
  */
 @observer
 @autoBind

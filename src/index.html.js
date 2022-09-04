@@ -23,7 +23,7 @@ module.exports = function ({ htmlWebpackPlugin }) {
     };
   </script>
 </head>
-<body>
+<body style="background: #f5f6f7">
 <noscript>
   您的浏览器需要启用JavaScript才能访问该网页.<br/>
   You need to enable JavaScript to this app.

@@ -30,7 +30,7 @@ import { List as DonateList } from './container/donate/list';
 import { New as DonateNew } from './container/donate/new';
 import { ProjectHome as HelpHome } from './container/help';
 import { Detail as HelpDetail } from './container/help/detail';
-import { List as HelpList } from './container/help/list';
+import { SeekHelpList as HelpList } from './container/help/list';
 import { ProjectNew } from './container/help/new';
 import { Home } from './container/home';
 import { Storage } from './core/Storage';

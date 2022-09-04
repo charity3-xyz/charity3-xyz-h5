@@ -53,7 +53,8 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}>
+      {...other}
+    >
       {value === index && (
         <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>
@@ -114,8 +115,8 @@ export const ProjectHome = observer(function ProjectHome() {
     });
   };
 
-  function handlePageChange(_: any, page: number) {
-    projectService.next(page - 1);
+  function handlePageChange(_: any, p: number) {
+    projectService.next(p - 1);
   }
 
   return (

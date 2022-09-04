@@ -14,7 +14,7 @@ export class SessionService {
   /**
    * 登录用户信息
    */
-  user = {};
+  user = undefined;
 
   constructor() {
     makeAutoObservable(this, undefined, {
@@ -23,6 +23,8 @@ export class SessionService {
     makePersistable(this, {
       name: 'SessionStore',
       properties: ['user'],
+    }).then(() => {
+      console.log('load session');
     });
   }
 
@@ -76,6 +78,10 @@ ${token.id}`;
    * @param args
    */
   async getLoginUp(args: Record<string, any>) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
     try {
       this.user = await execute({
         url: Url.loginUp,
@@ -83,7 +89,7 @@ ${token.id}`;
         body: { ...args },
       });
     } finally {
-      this.user = {};
+      this.loading = false;
     }
   }
 

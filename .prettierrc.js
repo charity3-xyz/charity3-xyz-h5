@@ -1,6 +1,5 @@
 module.exports = {
   bracketSpacing: true,
-  jsxBracketSameLine: true,
   trailingComma: 'all',
   arrowParens: 'avoid',
   // 字符串使用单引号

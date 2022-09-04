@@ -37,7 +37,8 @@ export const LoginUp = observer(function LoginUp({
         <IconButton
           aria-label="close"
           onClick={onClose}
-          sx={{ position: 'absolute', right: 8, top: 8, color: theme => theme.palette.grey[500] }}>
+          sx={{ position: 'absolute', right: 8, top: 8, color: theme => theme.palette.grey[500] }}
+        >
           <CloseIcon />
         </IconButton>
       </DialogTitle>
@@ -108,7 +109,8 @@ export const LoginUp = observer(function LoginUp({
           color={'success'}
           onClick={() => {
             onOk(form);
-          }}>
+          }}
+        >
           立即登记
         </Button>
       </DialogActions>

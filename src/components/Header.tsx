@@ -86,7 +86,8 @@ export const Header = observer(function Header() {
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
-              }}>
+              }}
+            >
               {'Charity3'}
             </Typography>
             {/* 小屏幕 */}
@@ -97,7 +98,8 @@ export const Header = observer(function Header() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit">
+                color="inherit"
+              >
                 <MenuIcon />
               </IconButton>
               <Menu
@@ -116,7 +118,8 @@ export const Header = observer(function Header() {
                 onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: 'block', md: 'none' },
-                }}>
+                }}
+              >
                 {pages.map(page => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
@@ -139,7 +142,8 @@ export const Header = observer(function Header() {
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
-              }}>
+              }}
+            >
               {'Charity3'}
             </Typography>
             {/*  大屏导航 */}
@@ -174,7 +178,8 @@ export const Header = observer(function Header() {
                     horizontal: 'right',
                   }}
                   open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}>
+                  onClose={handleCloseUserMenu}
+                >
                   {settings.map(setting => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                       <Typography textAlign="center">{setting}</Typography>

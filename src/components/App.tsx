@@ -1,34 +1,18 @@
 import React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
   Alert,
   Box,
   BoxProps,
   CircularProgress,
   ContainerProps,
-  CssBaseline,
   Modal,
   Snackbar,
   StackProps,
   Typography,
 } from '@mui/material';
-import { configure } from 'mobx';
 import { observer } from 'mobx-react';
-import { configurePersistable } from 'mobx-persist-store';
 import { toastService } from '../services/toast';
 import { Header } from './Header';
-
-configurePersistable(
-  {
-    storage: global.sessionStorage,
-    // debugMode: __DEV__,
-  },
-  {
-    delay: 0,
-  },
-);
-// mobx 配置
-configure({ enforceActions: 'never' });
 
 export type AppProps = (ContainerProps | BoxProps | StackProps) & {
   /**
@@ -42,14 +26,6 @@ export type AppProps = (ContainerProps | BoxProps | StackProps) & {
   RootComponent?: any;
   showHeader?: boolean;
 };
-
-const theme = createTheme({
-  palette: {
-    success: {
-      main: '#44E371',
-    },
-  },
-});
 
 /**
  * 基础应用
@@ -66,15 +42,15 @@ export const App = observer(function App({
 }: React.PropsWithChildren<AppProps>) {
   const { status, open, message } = toastService;
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <main>
       {showHeader && <Header />}
       <RootComponent {...props}>{children}</RootComponent>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={open}
         autoHideDuration={3000}
-        onClose={toastService.close}>
+        onClose={toastService.close}
+      >
         <Alert onClose={toastService.close} severity={status} sx={{ width: '100%' }}>
           {message}
         </Alert>
@@ -87,6 +63,6 @@ export const App = observer(function App({
           </Box>
         </Box>
       </Modal>
-    </ThemeProvider>
+    </main>
   );
 });

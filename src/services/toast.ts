@@ -1,9 +1,7 @@
 import { makeAutoObservable, observable } from 'mobx';
 import { AlertColor } from '@mui/material/Alert/Alert';
 
-
 export class ToastService {
-
   @observable
   open = false;
 
@@ -18,7 +16,7 @@ export class ToastService {
 
   constructor() {
     makeAutoObservable(this, undefined, {
-      autoBind: true
+      autoBind: true,
     });
   }
 
@@ -47,7 +45,6 @@ export class ToastService {
   close() {
     this.open = false;
   }
-
 }
 
 export const toastService = new ToastService();

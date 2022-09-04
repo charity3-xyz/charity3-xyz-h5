@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import { App } from '../../components/App';
 import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
-import { withRouter } from 'next/router';
 import {
   Box,
   Container,
-  Stack,
   FormLabel,
   Grid,
-  TextField,
-  TextFieldProps,
-  Typography,
   InputAdornment,
   MenuItem,
   Paper,
+  Stack,
+  TextField,
+  Typography,
 } from '@mui/material';
-import { sessionService } from '../../services/session';
-import { path } from '../../constants/route';
 
 import style from './index.module.scss';
 
@@ -44,7 +40,6 @@ const currencies = [
  */
 @observer
 @autoBind
-@(withRouter as any)
 export class ProjectNew extends Component<any, any> {
   componentDidMount() {
     // const { user } = sessionService;
@@ -180,7 +175,7 @@ export class ProjectNew extends Component<any, any> {
           </Box>
         </Paper>
 
-        {/* 
+        {/*
         <Stack spacing={3} mt={3}>
           {fields.map(({ ...field }, index) => {
             return <TextField key={index} {...field} />;

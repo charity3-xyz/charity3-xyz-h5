@@ -21,39 +21,6 @@ import { path } from '../../constants/route';
 
 import style from './index.module.scss';
 
-const fields: Array<TextFieldProps> = [
-  {
-    label: '受捐人姓名',
-    helperText: '',
-    required: true,
-  },
-  {
-    label: '受捐人ID',
-    required: true,
-  },
-  {
-    label: '病症',
-  },
-  {
-    label: '病情描述',
-    multiline: true,
-  },
-  {
-    label: '预计治疗时间',
-    type: 'number',
-  },
-  {
-    label: '联系电话',
-  },
-  {
-    label: 'Email',
-  },
-  {
-    label: '居住证明',
-    type: 'file',
-  },
-];
-
 const currencies = [
   {
     value: 'USD',

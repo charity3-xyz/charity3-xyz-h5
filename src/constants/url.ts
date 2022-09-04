@@ -10,4 +10,7 @@ const api = 'http://localhost:3000/api';
 export const Url = {
   web3Auth: `${api}/system/session/web3`,
   project: `${api}/projects`,
+  loginUp: `${api}/users`,
+  loginIn: `${api}/system/session`,
+  addProject: `${api}/projects/medicals`,
 };

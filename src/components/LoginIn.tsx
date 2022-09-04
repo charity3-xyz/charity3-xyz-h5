@@ -13,8 +13,6 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '../components/button';
-import { SuccessDialog } from './Dialog/SuccessDialog';
-import { FailedDialog } from './Dialog/FailedDialog';
 
 import style from './index.module.scss';
 
@@ -29,8 +27,7 @@ export const LoginIn = observer(function LoginIn({
   onOk: any;
   goLoginUp: any;
 }) {
-  const [showRepay, setShowRepay] = useState<boolean>(false);
-  const [showFialedDialog, setShowFialedDialog] = useState<boolean>(false);
+  const [form, setForm] = useState<any>({ name: '', idNo: '', password: '' });
 
   return (
     <>
@@ -84,15 +81,6 @@ export const LoginIn = observer(function LoginIn({
           </Link>
         </Container>
       </Dialog>
-      {/* 认领人物 */}
-      <SuccessDialog onClose={() => setShowRepay(false)} open={showRepay} onOk={() => console.log('onko====>')} />
-
-      {/* 节点已满 */}
-      <FailedDialog
-        onClose={() => setShowFialedDialog(false)}
-        open={showFialedDialog}
-        onOk={() => console.log('onok====>')}
-      />
     </>
   );
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { isEmpty } from 'lodash';
 import {
   AppBar,
   Avatar,
@@ -14,16 +15,15 @@ import {
   Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import { Button } from '../components/button';
 import { path } from '../constants/route';
 import { sessionService } from '../services/session';
-
 const pages = ['Home', 'Product', 'Pricing', 'Contact'];
 const settings = ['Logout'];
 
 import { LoginUp } from './LoginUp';
 import { LoginIn } from './LoginIn';
+import { toJS } from 'mobx';
 
 export const Header = observer(function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -56,8 +56,19 @@ export const Header = observer(function Header() {
     setShowSignUp(true);
   };
 
-  const { user } = sessionService;
+  const loginUp = (args: any) => {
+    sessionService.getLoginUp(args);
+    setShowSignUp(false);
+  };
 
+  const loginIn = (args: any) => {
+    console.log('args====>', args);
+    return;
+    sessionService.getLoginIn(args);
+  };
+
+  const { user } = sessionService;
+  console.log(222, toJS(user));
   return (
     <>
       <AppBar position="static" color="transparent">
@@ -144,7 +155,7 @@ export const Header = observer(function Header() {
 
             {/* 未登录：未登录展示login及我要求助按钮 */}
             {/* 已登录：右侧头像和头像下拉框的设置 */}
-            {user ? (
+            {!isEmpty(user) ? (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -187,20 +198,10 @@ export const Header = observer(function Header() {
         </Container>
       </AppBar>
       {/* 注册弹窗 */}
-      <LoginUp
-        open={showSignUp}
-        onClose={() => setShowSignUp(false)}
-        onOk={() => console.log(111)}
-        goLoginIn={goLoginIn}
-      />
+      <LoginUp open={showSignUp} onClose={() => setShowSignUp(false)} onOk={loginUp} goLoginIn={goLoginIn} />
 
       {/* 登录弹窗 */}
-      <LoginIn
-        open={showSignIn}
-        onClose={() => setShowSignIn(false)}
-        onOk={() => console.log(111)}
-        goLoginUp={goLoginUp}
-      />
+      <LoginIn open={showSignIn} onClose={() => setShowSignIn(false)} onOk={loginIn} goLoginUp={goLoginUp} />
     </>
   );
 });

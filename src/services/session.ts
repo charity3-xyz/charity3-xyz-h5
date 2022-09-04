@@ -14,7 +14,7 @@ export class SessionService {
   /**
    * 登录用户信息
    */
-  user = undefined;
+  user = {};
 
   constructor() {
     makeAutoObservable(this, undefined, {
@@ -22,7 +22,7 @@ export class SessionService {
     });
     makePersistable(this, {
       name: 'SessionStore',
-      properties: [],
+      properties: ['user'],
     });
   }
 
@@ -68,6 +68,37 @@ ${token.id}`;
       console.log(`登录成功: ${res}`);
     } finally {
       this.loading = false;
+    }
+  }
+
+  /**
+   * 获取注册信息
+   * @param args
+   */
+  async getLoginUp(args: Record<string, any>) {
+    try {
+      this.user = await execute({
+        url: Url.loginUp,
+        method: HttpMethod.POST,
+        body: { ...args },
+      });
+    } finally {
+      this.user = {};
+    }
+  }
+
+  // 登录
+  async getLoginIn(args: Record<string, any>) {
+    try {
+      this.user = await execute({
+        url: Url.loginIn,
+        method: HttpMethod.POST,
+        body: { args },
+      });
+
+      console.log('login in ====>', this.user);
+    } finally {
+      this.user = {};
     }
   }
 }

@@ -39,13 +39,19 @@ export class ProjectService {
   /**
    * 下一页
    */
-  next() {
-    if (this.page.last) {
+  next(page?: number) {
+    let nextPage;
+    if (typeof page === 'number' && page >= 0) {
+      nextPage = page;
+    } else if (this.page.last) {
       return;
+    } else {
+      nextPage = this.page.number + 1;
     }
+
     this.query({
       ...this.searchParams,
-      page: this.page.number + 1,
+      page: nextPage,
     });
   }
 }

@@ -115,7 +115,7 @@ export const ProjectHome = observer(function ProjectHome() {
   };
 
   function handlePageChange(_: any, page: number) {
-    console.log(page);
+    projectService.next(page - 1);
   }
 
   return (

@@ -1,12 +1,13 @@
 import { makeAutoObservable } from 'mobx';
+import { DEFAULT_PAGE, Page } from '@aomi/common-service/Page';
 import { execute } from '../core/Request';
 import { Url } from '../constants/url';
-import { DEFAULT_PAGE, Page } from '@aomi/common-service/Page';
+import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
 
 /**
- * 公共项目服务
+ * 用户项目
  */
-export class ProjectService {
+export class UserProjectService {
   loading = false;
 
   page: Page<any> = DEFAULT_PAGE;
@@ -31,7 +32,7 @@ export class ProjectService {
     this.searchParams = args;
     try {
       this.page = await execute({
-        url: Url.project,
+        url: Url.userProject,
         body: args,
       });
     } finally {
@@ -57,6 +58,26 @@ export class ProjectService {
       page: nextPage,
     });
   }
+
+  /**
+   * 创建医疗项目
+   * @param args 请求参数
+   */
+  async createMedical(args: any) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
+    try {
+      await execute({
+        url: `${Url.userProject}/medicals`,
+        method: HttpMethod.POST,
+        body: args,
+      });
+    } finally {
+      this.loading = false;
+    }
+  }
 }
 
-export const projectService = new ProjectService();
+export const userProjectService = new UserProjectService();

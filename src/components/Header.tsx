@@ -19,7 +19,7 @@ import { Button } from '../components/button';
 import { path } from '../constants/route';
 import { sessionService } from '../services/session';
 
-const pages = ['Home', 'Product', 'Pricing', 'Contact'];
+const pages = ['Home', '募捐项目', '慈善公示监督', '行业失信名单'];
 const settings = ['Logout'];
 
 import { LoginUp } from './LoginUp';

@@ -1,3 +1,3 @@
-import { List } from '../../src/container/help/list';
+import { SeekHelpList } from '../../src/container/help/list';
 
-export default List;
+export default SeekHelpList;

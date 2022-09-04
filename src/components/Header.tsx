@@ -8,6 +8,7 @@ import {
   Button as MButton,
   Container,
   IconButton,
+  Link,
   Menu,
   MenuItem,
   Toolbar,
@@ -18,8 +19,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '../components/button';
 import { path } from '../constants/route';
 import { sessionService } from '../services/session';
+import { useHistory } from 'react-router-dom';
 
-const pages = ['Home', '募捐项目', '慈善公示监督', '行业失信名单'];
+const pages = [
+  { title: 'Home', url: '/' },
+  { title: '募捐项目', url: '/help' },
+  { title: '慈善公示监督', url: '/donate' },
+  { title: '行业失信名单', url: '/' },
+];
 const settings = ['Logout'];
 
 import { LoginUp } from './LoginUp';
@@ -32,6 +39,7 @@ export const Header = observer(function Header() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [showSignUp, setShowSignUp] = React.useState<boolean>(false);
   const [showSignIn, setShowSignIn] = React.useState<boolean>(false);
+  let history = useHistory();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,8 +48,9 @@ export const Header = observer(function Header() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (url: string) => {
     setAnchorElNav(null);
+    history.push(url);
   };
 
   const handleCloseUserMenu = () => {
@@ -125,8 +134,8 @@ export const Header = observer(function Header() {
                   }}
                 >
                   {pages.map(page => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                    <MenuItem key={page.url} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">{page.title}</Typography>
                     </MenuItem>
                   ))}
                 </Menu>
@@ -153,8 +162,14 @@ export const Header = observer(function Header() {
               {/*  大屏导航 */}
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map(page => (
-                  <MButton key={page} onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block', color: '#000' }}>
-                    {page}
+                  <MButton
+                    key={page.url}
+                    onClick={() => {
+                      handleCloseNavMenu(page.url);
+                    }}
+                    sx={{ my: 2, display: 'block', color: '#000' }}
+                  >
+                    {page.title}
                   </MButton>
                 ))}
               </Box>

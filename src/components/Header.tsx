@@ -87,7 +87,7 @@ export const Header = observer(function Header() {
                 color: 'inherit',
                 textDecoration: 'none',
               }}>
-              {'byBit cishan'}
+              {'Charity3'}
             </Typography>
             {/* 小屏幕 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -140,7 +140,7 @@ export const Header = observer(function Header() {
                 color: 'inherit',
                 textDecoration: 'none',
               }}>
-              {'byBit cishan'}
+              {'Charity3'}
             </Typography>
             {/*  大屏导航 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

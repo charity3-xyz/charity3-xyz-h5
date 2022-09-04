@@ -13,6 +13,7 @@
     "@aomi/utils": "1.0.1-Alpha.5-cjs",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.2",
     "ethers": "^5.7.0",
     "jsdk": "^1.0.0-Alpha.7",
@@ -22,11 +23,9 @@
     "next": "12.2.5",
     "object-path": "^0.11.8",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sass": "^1.54.8"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@mui/icons-material": "^5.10.2",
     "@types/node": "18.7.12",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",

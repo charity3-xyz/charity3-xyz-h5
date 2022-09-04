@@ -27,6 +27,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { url } from 'inspector';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -135,10 +136,13 @@ export function ProjectHome() {
     <App>
       <Container>
         <Box sx={{ flexGrow: 1, marginTop: '20px' }}>
-          <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
+          <Tabs value={value} onChange={handleChange} visibleScrollbar aria-label="nav tabs example">
+            <Tab label="All" {...a11yProps(0)} />
+            <Tab label="捐赠中" {...a11yProps(1)} />
+            <Tab label="公示期" {...a11yProps(2)} />
+            <Tab label="公示期" {...a11yProps(2)} />
+            <Tab label="公示期" {...a11yProps(2)} />
+            <Tab label="公示期" {...a11yProps(2)} />
           </Tabs>
 
           <TabPanel value={value} index={0}>
@@ -146,7 +150,13 @@ export function ProjectHome() {
               {Array.from(Array(6)).map((_, index) => (
                 <Grid xs={4} sm={4} md={4} key={index}>
                   <Card
-                    style={{ position: 'relative' }}
+                    style={{
+                      position: 'relative',
+                      background: 'url(/pin1.webp)',
+                      color: 'white',
+                      height: '400px',
+                      backgroundSize: 'cover',
+                    }}
                     sx={{ maxWidth: 345 }}
                     onMouseEnter={e => {
                       handleExpandClick(index);
@@ -154,28 +164,23 @@ export function ProjectHome() {
                     onMouseLeave={e => {
                       handleExpandClick(index);
                     }}>
-                    <CardHeader
-                      avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                          R
-                        </Avatar>
-                      }
-                      action={
-                        <IconButton aria-label="settings">
-                          <MoreVertIcon />
-                        </IconButton>
-                      }
-                      title="Shrimp and Chorizo Paella"
-                      subheader="September 14, 2016"
-                    />
-                    <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" />
-                    <CardContent>
-                      <Typography variant="body2" color="text.secondary">
-                        This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
-                        Add 1 cup of frozen peas along with the mussels, if you like.
+                    {/* <CardHeader title="重度烧伤" subheader="September 14, 2022，患者：老王，浙江安吉" /> */}
+
+                    {/* <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" /> */}
+
+                    <CardContent
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 52.88%)',
+                        borderRadius: '12px',
+                        bottom: '20px',
+                        position: 'absolute',
+                      }}>
+                      <Typography gutterBottom variant="h5" component="div">
+                        重度烧伤
                       </Typography>
-                    </CardContent>
-                    <CardContent>
+                      <Typography variant="body2" color="text.secondary" style={{ color: 'white' }}>
+                        September 14, 2022，患者：老王，浙江安吉
+                      </Typography>
                       <BorderLinearProgress variant="determinate" value={50} />
                     </CardContent>
                     {/* <CardActions disableSpacing>
@@ -230,6 +235,15 @@ export function ProjectHome() {
             Item Two
           </TabPanel>
           <TabPanel value={value} index={2}>
+            Item Three
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            Item Three
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            Item Three
+          </TabPanel>
+          <TabPanel value={value} index={5}>
             Item Three
           </TabPanel>
         </Box>

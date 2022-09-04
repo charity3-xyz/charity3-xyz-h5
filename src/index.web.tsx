@@ -49,6 +49,9 @@ const history = syncHistory(createHashHistory());
 
 const theme = createTheme({
   palette: {
+    primary: {
+      main: '#44E371',
+    },
     success: {
       main: '#44E371',
     },

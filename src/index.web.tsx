@@ -28,6 +28,17 @@ import { Detail as DonateDetail } from './container/donate/detail';
 import { ProjectHome as Donate } from './container/donate';
 import { List as DonateList } from './container/donate/list';
 import { New as DonateNew } from './container/donate/new';
+
+import { Detail as CensorDetail } from './container/censor/detail';
+import { Index as Censor } from './container/censor';
+import { List as CensorList } from './container/censor/list';
+import { Register as CensorRegister } from './container/censor/register';
+
+import { Detail as ArbitrationDetail } from './container/arbitration/detail';
+import { Index as Arbitration } from './container/arbitration';
+import { List as ArbitrationList } from './container/arbitration/list';
+import { Sumbit as ArbitrationSubmit } from './container/arbitration/submit';
+
 import { ProjectHome as HelpHome } from './container/help';
 import { Detail as HelpDetail } from './container/help/detail';
 import { SeekHelpList as HelpList } from './container/help/list';
@@ -74,6 +85,16 @@ bootstrap(() => {
           <Route path="/help/detail" component={HelpDetail} />
           <Route path="/help/list" component={HelpList} />
           <Route path="/help/new" component={ProjectNew} />
+
+          <Route path="/censor" component={Censor} />
+          <Route path="/censor/register" component={CensorRegister} />
+          <Route path="/censor/list" component={CensorList} />
+          <Route path="/censor/detail" component={CensorDetail} exact />
+
+          <Route path="/arbitration" component={Arbitration} />
+          <Route path="/arbitration/list" component={ArbitrationList} />
+          <Route path="/arbitration/detail" component={ArbitrationDetail} exact />
+          <Route path="/arbitration/submit" component={ArbitrationSubmit} />
         </Switch>
       </Router>
     </ThemeProvider>

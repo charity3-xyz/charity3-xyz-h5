@@ -25,7 +25,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import { useTheme } from '@mui/material/styles';
 import { Padding } from '@mui/icons-material';
-import style from '../../styles/help/detail.module.css';
+// import style from '../../styles/help/detail.module.css';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 const itemData = [
@@ -97,7 +97,12 @@ export function Detail() {
             <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
               {itemData.map(item => (
                 <ImageListItem key={item.img}>
-                  <img src={`${item.img}?w=164&h=164&fit=crop&auto=format`} alt={item.title} loading="lazy" />
+                  <img
+                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    alt={item.title}
+                    loading="lazy"
+                  />
                 </ImageListItem>
               ))}
             </ImageList>

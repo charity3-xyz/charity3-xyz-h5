@@ -61,7 +61,7 @@ bootstrap(() => {
       <CssBaseline />
       <Router history={history}>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/" component={Home} exact />
           <Route path="/donate" component={Donate} />
           <Route path="/donate/detail" component={DonateDetail} />
           <Route path="/donate/list" component={DonateList} />

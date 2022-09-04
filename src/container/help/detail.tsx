@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { App } from '../../components/App';
 import {
   Unstable_Grid2 as Grid,
@@ -28,6 +28,7 @@ import { Padding } from '@mui/icons-material';
 // import style from '../../styles/help/detail.module.css';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { flexbox } from '@mui/system';
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -78,35 +79,102 @@ const itemData = [
     title: 'Bike',
   },
 ];
+
+const censorList = [
+  {
+    img: '/pin1.webp',
+    title: 'title',
+    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    deposit: '2000',
+    level: 5,
+  },
+  {
+    img: '/pin1.webp',
+    title: 'title',
+    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    deposit: '2000',
+    level: 5,
+  },
+  {
+    img: '/pin1.webp',
+    title: 'title',
+    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    deposit: '2000',
+    level: 5,
+  },
+  {
+    img: '/pin1.webp',
+    title: 'title',
+    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    deposit: '2000',
+    level: 5,
+  },
+  {
+    img: '/pin1.webp',
+    title: 'title',
+    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    deposit: '2000',
+    level: 5,
+  },
+  {
+    img: '/pin1.webp',
+    title: 'title',
+    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    deposit: '2000',
+    level: 5,
+  },
+];
+
 /**'
  * 求助者项目详情页面
  */
 export function Detail() {
   const theme = useTheme();
+  const [bigImgUrl, setBigImgUrl] = useState('');
+
+  useEffect(() => {
+    setBigImgUrl('/pin1.webp');
+    // projectService.query({});
+  }, []);
+
+  const smallImageClick = (_e, img: string) => {
+    console.log(img);
+    setBigImgUrl(img);
+  };
   return (
     <App>
       <Container style={{ marginTop: '40px' }} className="charity-help-detail">
         <Card sx={{ display: 'flex' }}>
-          <CardMedia
-            component="img"
-            sx={{ width: 439 }}
-            style={{ padding: '32px' }}
-            image="/pin1.webp"
-            alt="Live from space album cover"
-          >
-            <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-              {itemData.map(item => (
-                <ImageListItem key={item.img}>
-                  <img
-                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
-          </CardMedia>
+          <Box sx={{ position: 'relative' }}>
+            <CardMedia
+              component="img"
+              sx={{ width: 439 }}
+              style={{ padding: '32px' }}
+              image={bigImgUrl}
+              alt="Live from space album cover"
+            />
+            <Box sx={{ position: 'absolute', bottom: 42, right: 42 }}>
+              <ImageList sx={{ width: 210, height: 38 }} cols={3} rowHeight={38}>
+                {itemData.map(item => (
+                  <ImageListItem
+                    key={item.img}
+                    onClick={e => {
+                      smallImageClick(e, item.img);
+                    }}
+                  >
+                    {
+                      <img
+                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                    }
+                  </ImageListItem>
+                ))}
+              </ImageList>
+            </Box>
+          </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>
               <Typography component="div" variant="h5">
@@ -136,8 +204,8 @@ export function Detail() {
                 </Stack>
               </Box>
               <Box style={{}}>
-                <Button variant="contained" disableElevation>
-                  Disable elevation
+                <Button variant="contained" style={{ width: '193px', height: '54px' }}>
+                  Help Him
                 </Button>
               </Box>
             </Stack>
@@ -151,6 +219,26 @@ export function Detail() {
             </Box>
           </Box>
         </Card>
+
+        <Stack style={{ marginTop: '40px', display: 'flex' }}>
+          {censorList.map(item => (
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia component="img" alt="green iguana" height="140" image={item.img} />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.desc}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions>
+            </Card>
+          ))}
+        </Stack>
       </Container>
     </App>
   );

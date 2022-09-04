@@ -2,7 +2,6 @@
 
 .applyForm {
     padding-bottom: 20px;
-    // background: #f0f0f0;
     :global {
         .css-1vw6mcs-MuiTypography-root {
             font-weight: 800;
@@ -31,8 +30,7 @@
         
 
 }
-    
-    .formWrapper {
+.formWrapper {
     padding: 32px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -62,4 +60,17 @@ padding-bottom: 20px;
         }
     }
 }
+.submitWrapper {
+    padding: 26px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    button {
+        width: 330px;
+        padding: 10px;
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+}
+
 }

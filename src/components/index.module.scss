@@ -1,5 +1,12 @@
 
-  .dialog {
+.header {
+  :global {
+    .css-1a7kkix-MuiPaper-root-MuiAppBar-root {
+      background: #fff;
+    }
+  }
+}
+.dialog {
 
   :global {
     .css-1t1j96h-MuiPaper-root-MuiDialog-paper {

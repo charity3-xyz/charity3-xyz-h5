@@ -17,4 +17,5 @@ export const Url = {
   loginUp: `${api}/users`,
   loginIn: `${api}/system/session`,
   addProject: `${api}/projects/medicals`,
+  hospital: `${api}/medicals/hospitals`,
 };

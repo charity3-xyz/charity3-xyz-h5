@@ -18,10 +18,15 @@ import { configurePersistable } from 'mobx-persist-store';
 import { toastService } from '../services/toast';
 import { Header } from './Header';
 
-configurePersistable({
-  storage: global.sessionStorage,
-  // debugMode: __DEV__,
-});
+configurePersistable(
+  {
+    storage: global.sessionStorage,
+    // debugMode: __DEV__,
+  },
+  {
+    delay: 0,
+  },
+);
 // mobx 配置
 configure({ enforceActions: 'never' });
 

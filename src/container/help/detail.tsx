@@ -28,7 +28,6 @@ import { Padding } from '@mui/icons-material';
 import style from '../../styles/help/detail.module.css';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import Image from 'next/image';
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -93,11 +92,12 @@ export function Detail() {
             sx={{ width: 439 }}
             style={{ padding: '32px' }}
             image="/pin1.webp"
-            alt="Live from space album cover">
+            alt="Live from space album cover"
+          >
             <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
               {itemData.map(item => (
                 <ImageListItem key={item.img}>
-                  <Image src={`${item.img}?w=164&h=164&fit=crop&auto=format`} alt={item.title} loading="lazy" />
+                  <img src={`${item.img}?w=164&h=164&fit=crop&auto=format`} alt={item.title} loading="lazy" />
                 </ImageListItem>
               ))}
             </ImageList>

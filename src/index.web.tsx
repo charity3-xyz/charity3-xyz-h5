@@ -62,12 +62,12 @@ bootstrap(() => {
       <Router history={history}>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/donate" component={Donate} />
+          <Route path="/donate" component={Donate} exact />
           <Route path="/donate/detail" component={DonateDetail} />
           <Route path="/donate/list" component={DonateList} />
           <Route path="/donate/new" component={DonateNew} />
 
-          <Route path="/help" component={HelpHome} />
+          <Route path="/help" component={HelpHome} exact />
           <Route path="/help/detail" component={HelpDetail} />
           <Route path="/help/list" component={HelpList} />
           <Route path="/help/new" component={ProjectNew} />

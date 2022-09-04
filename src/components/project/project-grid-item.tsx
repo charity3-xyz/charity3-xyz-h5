@@ -30,7 +30,8 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
       }}
       onMouseLeave={e => {
         handleExpandClick(0);
-      }}>
+      }}
+    >
       {/*<CardHeader title="重度烧伤" subheader="September 14, 2022，患者：老王，浙江安吉" />*/}
       <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" />
       <CardContent
@@ -38,7 +39,8 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
           // background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, #000000 52.88%)',
           background: '#000',
           // borderRadius: '12px',
-        }}>
+        }}
+      >
         <Typography gutterBottom variant="h5" component="div">
           重度烧伤
         </Typography>
@@ -63,7 +65,8 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
         in={expanded}
         timeout="auto"
         unmountOnExit
-        style={{ position: 'absolute', top: '0px', backgroundColor: 'white' }}>
+        style={{ position: 'absolute', top: '0px', backgroundColor: 'white' }}
+      >
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>

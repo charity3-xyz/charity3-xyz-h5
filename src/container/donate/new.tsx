@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { App } from '../../components/App';
 import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
-import { withRouter } from 'next/router';
 import { Container, Stack, TextField, TextFieldProps } from '@mui/material';
 import { sessionService } from '../../services/session';
 import { path } from '../../constants/route';
@@ -45,7 +44,6 @@ const fields: Array<TextFieldProps> = [
  */
 @observer
 @autoBind
-@(withRouter as any)
 export class New extends Component<any, any> {
   componentDidMount() {
     const { user } = sessionService;

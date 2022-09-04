@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { isEmpty } from 'lodash';
 import {
   AppBar,
   Avatar,
@@ -14,11 +15,9 @@ import {
   Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import { Button } from '../components/button';
 import { path } from '../constants/route';
 import { sessionService } from '../services/session';
-
 const pages = ['Home', 'Product', 'Pricing', 'Contact'];
 const settings = ['Logout'];
 
@@ -56,6 +55,16 @@ export const Header = observer(function Header() {
     setShowSignUp(true);
   };
 
+  const loginUp = async (args: any) => {
+    await sessionService.getLoginUp(args);
+    setShowSignUp(false);
+  };
+
+  const loginIn = async (args: any) => {
+    await sessionService.getLoginIn(args);
+    setShowSignIn(false);
+  };
+
   const { user } = sessionService;
 
   return (
@@ -77,8 +86,9 @@ export const Header = observer(function Header() {
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
-              }}>
-              {'byBit cishan'}
+              }}
+            >
+              {'Charity3'}
             </Typography>
             {/* 小屏幕 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -88,7 +98,8 @@ export const Header = observer(function Header() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit">
+                color="inherit"
+              >
                 <MenuIcon />
               </IconButton>
               <Menu
@@ -107,7 +118,8 @@ export const Header = observer(function Header() {
                 onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: 'block', md: 'none' },
-                }}>
+                }}
+              >
                 {pages.map(page => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
@@ -130,8 +142,9 @@ export const Header = observer(function Header() {
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
-              }}>
-              {'byBit cishan'}
+              }}
+            >
+              {'Charity3'}
             </Typography>
             {/*  大屏导航 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -144,7 +157,7 @@ export const Header = observer(function Header() {
 
             {/* 未登录：未登录展示login及我要求助按钮 */}
             {/* 已登录：右侧头像和头像下拉框的设置 */}
-            {user ? (
+            {!isEmpty(user) ? (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -165,7 +178,8 @@ export const Header = observer(function Header() {
                     horizontal: 'right',
                   }}
                   open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}>
+                  onClose={handleCloseUserMenu}
+                >
                   {settings.map(setting => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                       <Typography textAlign="center">{setting}</Typography>
@@ -175,7 +189,7 @@ export const Header = observer(function Header() {
               </Box>
             ) : (
               <Box sx={{ flexGrow: 0 }}>
-                <MButton key="login" onClick={() => setShowSignUp(true)}>
+                <MButton key="login" onClick={() => setShowSignIn(true)}>
                   {'Login'}
                 </MButton>
                 <Button href={path.projectNew} variant="contained" color={'success'}>
@@ -187,20 +201,10 @@ export const Header = observer(function Header() {
         </Container>
       </AppBar>
       {/* 注册弹窗 */}
-      <LoginUp
-        open={showSignUp}
-        onClose={() => setShowSignUp(false)}
-        onOk={() => console.log(111)}
-        goLoginIn={goLoginIn}
-      />
+      <LoginUp open={showSignUp} onClose={() => setShowSignUp(false)} onOk={loginUp} goLoginIn={goLoginIn} />
 
       {/* 登录弹窗 */}
-      <LoginIn
-        open={showSignIn}
-        onClose={() => setShowSignIn(false)}
-        onOk={() => console.log(111)}
-        goLoginUp={goLoginUp}
-      />
+      <LoginIn open={showSignIn} onClose={() => setShowSignIn(false)} onOk={loginIn} goLoginUp={goLoginUp} />
     </>
   );
 });

@@ -22,7 +22,9 @@ export class SessionService {
     });
     makePersistable(this, {
       name: 'SessionStore',
-      properties: [],
+      properties: ['user'],
+    }).then(() => {
+      console.log('load session');
     });
   }
 
@@ -68,6 +70,39 @@ ${token.id}`;
       console.log(`登录成功: ${res}`);
     } finally {
       this.loading = false;
+    }
+  }
+
+  /**
+   * 获取注册信息
+   * @param args
+   */
+  async getLoginUp(args: Record<string, any>) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
+    try {
+      this.user = await execute({
+        url: Url.loginUp,
+        method: HttpMethod.POST,
+        body: { ...args },
+      });
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  // 登录
+  async getLoginIn(args: Record<string, any>) {
+    try {
+      this.user = await execute({
+        url: Url.loginIn,
+        method: HttpMethod.POST,
+        body: { ...args },
+      });
+    } finally {
+      this.user = {};
     }
   }
 }

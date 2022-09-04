@@ -1,6 +1,17 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Alert, Box, BoxProps, ContainerProps, CssBaseline, Snackbar, StackProps } from '@mui/material';
+import {
+  Alert,
+  Box,
+  BoxProps,
+  CircularProgress,
+  ContainerProps,
+  CssBaseline,
+  Modal,
+  Snackbar,
+  StackProps,
+  Typography,
+} from '@mui/material';
 import { configure } from 'mobx';
 import { observer } from 'mobx-react';
 import { configurePersistable } from 'mobx-persist-store';
@@ -15,6 +26,14 @@ configurePersistable({
 configure({ enforceActions: 'never' });
 
 export type AppProps = (ContainerProps | BoxProps | StackProps) & {
+  /**
+   * 加载中状态
+   */
+  loading?: boolean;
+  /**
+   * 加载中的提示文字
+   */
+  loadingText?: string;
   RootComponent?: any;
   showHeader?: boolean;
 };
@@ -36,6 +55,8 @@ export const App = observer(function App({
   children,
   showHeader = true,
   RootComponent = Box,
+  loading = false,
+  loadingText = '',
   ...props
 }: React.PropsWithChildren<AppProps>) {
   const { status, open, message } = toastService;
@@ -53,6 +74,14 @@ export const App = observer(function App({
           {message}
         </Alert>
       </Snackbar>
+      <Modal open={loading}>
+        <Box display="flex" alignItems="center" justifyContent="center" height="100vh">
+          <Box>
+            <CircularProgress />
+            <Typography color="white">{loadingText}</Typography>
+          </Box>
+        </Box>
+      </Modal>
     </ThemeProvider>
   );
 });

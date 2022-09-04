@@ -22,7 +22,6 @@ export class Home extends Component<any, any> {
           <Typography variant="h3">Charity3</Typography>
           <Typography>基于Web3技术实现的慈善项目，让您的爱心真正落实,让有需要帮助的人得到帮助。</Typography>
           <Typography>一切公开透明,接受全球Web3用户监督</Typography>
-
           <Stack spacing={1} direction="row" mt={3}>
             <Button href={path.projectNew} variant="contained">
               {'我需要帮助'}
@@ -61,6 +60,39 @@ export class Home extends Component<any, any> {
               </div>
               <div>
                 <Link to="/donate/list">捐赠者项目列表</Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <div>
+                <Link to="/censor">社工机构节点首页</Link>
+              </div>
+              <div>
+                <Link to="/censor/register">注册为社工机构节点</Link>
+              </div>
+              <div>
+                <Link to="/censor/list">社工机构节点列表详情</Link>
+              </div>
+              <div>
+                <Link to="/censor/detail">社工机构节点详情首页</Link>
+              </div>
+            </CardContent>
+          </Card>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <div>
+                <Link to="/arbitration">仲裁首页</Link>
+              </div>
+              <div>
+                <Link to="/arbitration/list">仲裁审核列表页面</Link>
+              </div>
+              <div>
+                <Link to="/arbitration/detail">仲裁审核详情页面</Link>
+              </div>
+              <div>
+                <Link to="/arbitration/submit">仲裁审核信息提交页面</Link>
               </div>
             </CardContent>
           </Card>

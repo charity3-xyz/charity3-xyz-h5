@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.2",
+    "dayjs": "^1.11.5",
     "es6-promise": "^4.2.8",
     "ethers": "^5.7.0",
     "history": "4.9.0",

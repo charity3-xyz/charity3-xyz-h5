@@ -1,20 +1,19 @@
 import { makeAutoObservable } from 'mobx';
+import { DEFAULT_PAGE, Page } from '@aomi/common-service/Page';
 import { execute } from '../core/Request';
 import { Url } from '../constants/url';
-import { DEFAULT_PAGE, Page } from '@aomi/common-service/Page';
+import { ReviewResult } from '@aomi/common-service/ReviewService/ReviewResult';
 import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
 
 /**
- * 公共项目服务
+ * 用户项目
  */
-export class ProjectService {
+export class WorkNodeProjectService {
   loading = false;
-  searchParams: any = {};
+
   page: Page<any> = DEFAULT_PAGE;
-  // 支持的医院列表
-  hospitalsList: any[] = [];
-  // 疾病列表
-  diseaseCategories: any[] = [];
+
+  searchParams: any = {};
 
   constructor() {
     makeAutoObservable(this, undefined, {
@@ -34,7 +33,7 @@ export class ProjectService {
     this.searchParams = args;
     try {
       this.page = await execute({
-        url: Url.project,
+        url: Url.workNodeProject,
         body: args,
       });
     } finally {
@@ -62,44 +61,49 @@ export class ProjectService {
   }
 
   /**
-   * 查询医院
+   * 加入项目或者认领项目
+   * @param projectId 项目id
+   * @param master true 标识认领项目 false 为加入项目
    */
-  async queryHospitals() {
-    if (this.loading) {
-      return;
-    }
-    this.loading = true;
-    try {
-      const res = await execute({
-        url: Url.hospital,
-        method: HttpMethod.GET,
-      });
-      this.hospitalsList = res.map((item: any) => ({ label: item.name, value: item.id }));
-    } finally {
-      this.loading = false;
-    }
-  }
-
-  // 根据医院筛选病例
-  getSupportDisease(id: string) {
-    const target = this.hospitalsList.filter(item => item.id === id);
-    this.diseaseCategories = target?.supportDiseaseCategories?.map((item: any) => ({
-      label: item.name,
-      value: item.id,
-    }));
-  }
-
-  // 申请救助
-  async addProject(args: any) {
+  async join(projectId: string, master: boolean = false) {
     if (this.loading) {
       return;
     }
     this.loading = true;
     try {
       await execute({
-        url: Url.addProject,
+        url: Url.workNodeProject,
+        method: HttpMethod.PATCH,
+        body: {
+          projectId,
+          master,
+        },
+      });
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  /**
+   * 项目审核
+   * @param projectId 项目ID
+   * @param result 审核结果
+   * @param describe 审核说明
+   */
+  async review(projectId: string, result: ReviewResult, describe: string) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
+    try {
+      await execute({
+        url: Url.workNodeProject,
         method: HttpMethod.POST,
-        body: { ...args },
+        body: {
+          projectId,
+          result,
+          describe,
+        },
       });
     } finally {
       this.loading = false;
@@ -107,4 +111,4 @@ export class ProjectService {
   }
 }
 
-export const projectService = new ProjectService();
+export const workNodeProjectService = new WorkNodeProjectService();

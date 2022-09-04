@@ -21,7 +21,7 @@ export type AppProps = (ContainerProps | BoxProps | StackProps) & {
 
 const theme = createTheme({
   palette: {
-    success: {
+    primary: {
       main: '#44E371',
     },
   },

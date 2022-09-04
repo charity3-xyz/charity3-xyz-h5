@@ -18,6 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '../components/button';
 import { path } from '../constants/route';
 import { sessionService } from '../services/session';
+
 const pages = ['Home', 'Product', 'Pricing', 'Contact'];
 const settings = ['Logout'];
 
@@ -149,7 +150,7 @@ export const Header = observer(function Header() {
             {/*  大屏导航 */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map(page => (
-                <MButton key={page} onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block' }}>
+                <MButton key={page} onClick={handleCloseNavMenu} sx={{ my: 2, display: 'block', color: '#000' }}>
                   {page}
                 </MButton>
               ))}

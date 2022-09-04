@@ -84,42 +84,42 @@ const censorList = [
   {
     img: '/pin1.webp',
     title: 'title',
-    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: '/pin1.webp',
     title: 'title',
-    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: '/pin1.webp',
     title: 'title',
-    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: '/pin1.webp',
     title: 'title',
-    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: '/pin1.webp',
     title: 'title',
-    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: '/pin1.webp',
     title: 'title',
-    desc: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+    desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
@@ -143,7 +143,7 @@ export function Detail() {
   };
   return (
     <App>
-      <Container style={{ marginTop: '40px' }} className="charity-help-detail">
+      <Container style={{ marginTop: '40px', maxWidth: 1200, padding: 0 }} className="charity-help-detail">
         <Card sx={{ display: 'flex' }}>
           <Box sx={{ position: 'relative' }}>
             <CardMedia
@@ -175,7 +175,13 @@ export function Detail() {
               </ImageList>
             </Box>
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative',
+            }}
+          >
             <CardContent sx={{ flex: '1 0 auto' }}>
               <Typography component="div" variant="h5">
                 慈善捐赠项目主标题
@@ -220,9 +226,24 @@ export function Detail() {
           </Box>
         </Card>
 
-        <Stack style={{ marginTop: '40px', display: 'flex' }}>
+        <Box sx={{ display: 'flex', position: 'relative', height: '54px', marginTop: '40px', marginBottom: '0px' }}>
+          <Box sx={{ position: 'absolute', fontWeight: 800, fontSize: '36px' }}>认证节点</Box>
+          <Box sx={{ position: 'absolute', right: '0px', fontWeight: 600, fontSize: '20px', lineHeight: '54px' }}>
+            <span>图标</span>
+            <span>申请成为节点</span>
+          </Box>
+        </Box>
+        <Stack
+          style={{
+            marginTop: '10px',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+          }}
+        >
           {censorList.map(item => (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 224, height: 298, margin: '10px', position: 'relative' }}>
               <CardMedia component="img" alt="green iguana" height="140" image={item.img} />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -232,10 +253,19 @@ export function Detail() {
                   {item.desc}
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions>
+              <div
+                style={{
+                  fontWeight: '700',
+                  fontSize: '20px',
+                  lineHeight: '26px',
+                  color: '#44E371',
+                  position: 'absolute',
+                  left: 16,
+                  bottom: 16,
+                }}
+              >
+                200
+              </div>
             </Card>
           ))}
         </Stack>

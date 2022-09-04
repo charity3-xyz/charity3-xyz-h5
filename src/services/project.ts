@@ -8,6 +8,8 @@ export class ProjectService {
 
   page: Page<any> = DEFAULT_PAGE;
 
+  searchParams: any = {};
+
   constructor() {
     makeAutoObservable(this, undefined, {
       autoBind: true,
@@ -23,6 +25,7 @@ export class ProjectService {
       return;
     }
     this.loading = true;
+    this.searchParams = args;
     try {
       this.page = await execute({
         url: Url.project,
@@ -31,6 +34,19 @@ export class ProjectService {
     } finally {
       this.loading = false;
     }
+  }
+
+  /**
+   * 下一页
+   */
+  next() {
+    if (this.page.last) {
+      return;
+    }
+    this.query({
+      ...this.searchParams,
+      page: this.page.number + 1,
+    });
   }
 }
 

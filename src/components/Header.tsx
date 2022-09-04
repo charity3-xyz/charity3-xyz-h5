@@ -23,7 +23,6 @@ const settings = ['Logout'];
 
 import { LoginUp } from './LoginUp';
 import { LoginIn } from './LoginIn';
-import { toJS } from 'mobx';
 
 export const Header = observer(function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -56,19 +55,18 @@ export const Header = observer(function Header() {
     setShowSignUp(true);
   };
 
-  const loginUp = (args: any) => {
-    sessionService.getLoginUp(args);
+  const loginUp = async (args: any) => {
+    await sessionService.getLoginUp(args);
     setShowSignUp(false);
   };
 
-  const loginIn = (args: any) => {
-    console.log('args====>', args);
-    return;
-    sessionService.getLoginIn(args);
+  const loginIn = async (args: any) => {
+    await sessionService.getLoginIn(args);
+    setShowSignIn(false);
   };
 
   const { user } = sessionService;
-  console.log(222, toJS(user));
+
   return (
     <>
       <AppBar position="static" color="transparent">
@@ -186,7 +184,7 @@ export const Header = observer(function Header() {
               </Box>
             ) : (
               <Box sx={{ flexGrow: 0 }}>
-                <MButton key="login" onClick={() => setShowSignUp(true)}>
+                <MButton key="login" onClick={() => setShowSignIn(true)}>
                   {'Login'}
                 </MButton>
                 <Button href={path.projectNew} variant="contained" color={'success'}>

@@ -93,10 +93,8 @@ ${token.id}`;
       this.user = await execute({
         url: Url.loginIn,
         method: HttpMethod.POST,
-        body: { args },
+        body: { ...args },
       });
-
-      console.log('login in ====>', this.user);
     } finally {
       this.user = {};
     }

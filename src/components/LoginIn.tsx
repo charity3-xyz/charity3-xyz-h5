@@ -27,8 +27,9 @@ export const LoginIn = observer(function LoginIn({
   onOk: any;
   goLoginUp: any;
 }) {
-  const [form, setForm] = useState<any>({ name: '', idNo: '', password: '' });
+  const [form, setForm] = useState<any>({ username: '', password: '' });
 
+  const { username, password } = form;
   return (
     <>
       <Dialog onClose={onClose} open={open} className={style.dialog}>
@@ -51,9 +52,16 @@ export const LoginIn = observer(function LoginIn({
               margin="dense"
               id="id"
               type="name"
+              value={username}
               fullWidth
               variant="standard"
               placeholder="请输入证件号码"
+              onChange={e => {
+                setForm((prev: any) => ({
+                  ...prev,
+                  username: e.target.value,
+                }));
+              }}
             />
             <InputLabel shrink htmlFor="pwd">
               密码
@@ -64,13 +72,20 @@ export const LoginIn = observer(function LoginIn({
               id="pwd"
               type="password"
               fullWidth
+              value={password}
               variant="standard"
               placeholder="密码长度8—16位，需包含字母、数字"
+              onChange={e => {
+                setForm((prev: any) => ({
+                  ...prev,
+                  password: e.target.value,
+                }));
+              }}
             />
           </Container>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" color={'success'} onClick={onOk}>
+          <Button variant="contained" color={'success'} onClick={() => onOk(form)}>
             登录
           </Button>
         </DialogActions>

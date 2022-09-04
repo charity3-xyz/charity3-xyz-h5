@@ -132,7 +132,7 @@ export const ProjectHome = observer(function ProjectHome() {
             <TabPanel value={value} index={index} key={index}>
               <ProjectGrid />
               <Stack spacing={2}>
-                <Pagination onChange={handlePageChange} count={page.totalPages} variant="outlined" shape="rounded" />
+                <Pagination onChange={handlePageChange} count={page?.totalPages} variant="outlined" shape="rounded" />
               </Stack>
             </TabPanel>
           ))}

@@ -7,6 +7,7 @@
 
 const api = 'http://localhost:3000/api';
 
-export const URL = {
+export const Url = {
   web3Auth: `${api}/system/session/web3`,
+  project: `${api}/projects`,
 };

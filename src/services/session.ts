@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 import { walletService } from './blockchain/wallet';
 import { execute } from '../core/Request';
-import { URL } from '../constants/url';
+import { Url } from '../constants/url';
 import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
 
 /**
@@ -35,7 +35,7 @@ export class SessionService {
       await walletService.connect();
       const { accountAddress } = walletService;
       const token = await execute({
-        url: URL.web3Auth,
+        url: Url.web3Auth,
         method: HttpMethod.PATCH,
         body: {
           address: accountAddress,
@@ -58,7 +58,7 @@ ${token.id}`;
       const signature = await walletService.sign(msg);
 
       const res = await execute({
-        url: URL.web3Auth,
+        url: Url.web3Auth,
         method: HttpMethod.POST,
         body: {
           address: accountAddress,

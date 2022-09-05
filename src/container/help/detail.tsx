@@ -29,6 +29,8 @@ import { Padding } from '@mui/icons-material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { flexbox } from '@mui/system';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import ApprovalIcon from '@mui/icons-material/Approval';
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -144,12 +146,12 @@ export function Detail() {
   return (
     <App>
       <Container style={{ marginTop: '40px', maxWidth: 1200, padding: 0 }} className="charity-help-detail">
-        <Card sx={{ display: 'flex' }}>
+        <Card sx={{ display: 'flex', background: '#010101', borderRadius: '12px', color: 'white' }}>
           <Box sx={{ position: 'relative' }}>
             <CardMedia
               component="img"
               sx={{ width: 439 }}
-              style={{ padding: '32px' }}
+              style={{ margin: '32px', borderRadius: '12px' }}
               image={bigImgUrl}
               alt="Live from space album cover"
             />
@@ -182,14 +184,14 @@ export function Detail() {
               position: 'relative',
             }}
           >
-            <CardContent sx={{ flex: '1 0 auto' }}>
+            <CardContent sx={{ flex: '1 0 auto', marginTop: '32px', paddingTop: '0px' }}>
               <Typography component="div" variant="h5">
                 慈善捐赠项目主标题
               </Typography>
               <Typography component="div" variant="h6">
                 慈善捐赠项目副标题
               </Typography>
-              <Typography variant="body2" color="text.secondary" component="div">
+              <Typography variant="body2" color="white" component="div" style={{ marginTop: '24px', color: '#ADB1B8' }}>
                 This is the introduction This is the introduction This is the introduction This is the introduction This
                 is the This is the introductionThis is the introduction This is the introduction This is the
                 introduction This is the introduction This is the This is the introductionThis is the introduction This
@@ -200,7 +202,11 @@ export function Detail() {
             <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2} style={{}}>
               <Box sx={{ display: 'flex', alignItems: 'center', pb: 1, flex: 3 }} style={{ margin: '20px' }}>
                 <Stack style={{ display: 'flex', flex: 1 }}>
-                  <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 20 }} />
+                  <LinearProgress
+                    variant="determinate"
+                    value={50}
+                    sx={{ borderRadius: 100, height: 20, marginTop: '10px' }}
+                  />
                   <Box style={{ position: 'relative' }}>
                     <Typography variant="caption">55% raised</Typography>
                     <Typography style={{ position: 'absolute', right: 0 }} variant="overline">
@@ -210,17 +216,21 @@ export function Detail() {
                 </Stack>
               </Box>
               <Box style={{}}>
-                <Button variant="contained" style={{ width: '193px', height: '54px' }}>
+                <Button
+                  variant="contained"
+                  style={{ width: '193px', height: '54px', margin: '32px', fontWeight: '700', fontSize: '18px' }}
+                >
+                  <VolunteerActivismIcon style={{ marginRight: '5px' }} />
                   Help Him
                 </Button>
               </Box>
             </Stack>
-            <Box position="absolute" right={0}>
-              <Typography variant="caption" display="block" gutterBottom>
+            <Box position="absolute" right={32} top={32}>
+              <Typography variant="caption" display="block" style={{ paddingBottom: '0px' }} gutterBottom>
                 <span style={{ color: '#ADB1B8 ' }}>Item Number：</span>8888888888
               </Typography>
-              <Typography variant="overline" display="block" gutterBottom style={{ color: '#44E371' }}>
-                caption text
+              <Typography variant="caption" display="block" gutterBottom style={{ color: '#44E371' }}>
+                我们鼓励公众对每笔善款的应用进行监督
               </Typography>
             </Box>
           </Box>
@@ -229,7 +239,9 @@ export function Detail() {
         <Box sx={{ display: 'flex', position: 'relative', height: '54px', marginTop: '40px', marginBottom: '0px' }}>
           <Box sx={{ position: 'absolute', fontWeight: 800, fontSize: '36px' }}>认证节点</Box>
           <Box sx={{ position: 'absolute', right: '0px', fontWeight: 600, fontSize: '20px', lineHeight: '54px' }}>
-            <span>图标</span>
+            {/* <span> */}
+            <ApprovalIcon style={{ marginRight: '5px' }} />
+            {/* </span> */}
             <span>申请成为节点</span>
           </Box>
         </Box>

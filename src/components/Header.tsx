@@ -22,10 +22,12 @@ import { sessionService } from '../services/session';
 import { useHistory } from 'react-router-dom';
 
 const pages = [
-  { title: 'Home', url: '/' },
-  { title: '募捐项目', url: '/help' },
-  { title: '慈善公示监督', url: '/donate' },
+  { title: 'Home', url: `${route.HOME}` },
+  { title: '募捐项目', url: `${route.HELP}` },
+  { title: '慈善公示监督', url: `${route.DONATE}` },
   { title: '行业失信名单', url: '/' },
+  { title: '申请成为节点', url: `${route.CENSOR_REGISTER}` },
+  { title: '仲裁委员会', url: `${route.ARBITRATION}` },
 ];
 const settings = ['Logout'];
 

@@ -12,11 +12,14 @@ import {
 } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Block } from '@mui/icons-material';
+import { route } from '../../constants/route';
+import { useHistory } from 'react-router-dom';
 
 export type ProjectGridItemProps = {};
 
 export function ProjectGridItem(props: ProjectGridItemProps) {
   const [expanded, setExpanded] = React.useState(false);
+  let history = useHistory();
 
   const handleExpandClick = (index: number) => {
     console.log('-----::', index, !expanded);
@@ -33,6 +36,9 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
     <Card
       style={{
         position: 'relative',
+        width: '360px',
+        height: '386px',
+        background: 'url(/pin1.webp)',
         backgroundSize: 'cover',
       }}
       sx={{ maxWidth: 345, color: 'white' }}
@@ -42,23 +48,29 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
       onMouseLeave={e => {
         handleExpandClick(0);
       }}
+      onClick={() => {
+        history.push(route.HELP_DETAIL);
+      }}
     >
       {/*<CardHeader title="重度烧伤" subheader="September 14, 2022，患者：老王，浙江安吉" />*/}
-      <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" />
+      {/* <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" /> */}
       <CardContent
         sx={{
-          // background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, #000000 52.88%)',
-          background: '#000',
-          // borderRadius: '12px',
+          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, #000000 52.88%)',
+          borderRadius: '12px',
+
+          height: '100%',
         }}
       >
-        <Typography gutterBottom variant="h5" component="div">
-          重度烧伤
-        </Typography>
-        <Typography variant="body2" color="text.secondary" style={{ color: 'white' }}>
-          September 14, 2022，患者：老王，浙江安吉
-        </Typography>
-        <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 16 }} />
+        <Box style={{ position: 'absolute', bottom: '20px' }}>
+          <Typography gutterBottom variant="h5" component="div">
+            重度烧伤
+          </Typography>
+          <Typography variant="body2" color="text.secondary" style={{ color: 'white' }}>
+            September 14, 2022，患者：老王，浙江安吉
+          </Typography>
+          <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 16 }} />
+        </Box>
       </CardContent>
       {/* <CardActions disableSpacing>
                     <IconButton aria-label="share">
@@ -97,6 +109,9 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
             </div>
             <div style={{ flex: 1 }}>
               <Button
+                onClick={() => {
+                  history.push(route.CENSOR_DETAIL);
+                }}
                 variant="contained"
                 style={{ width: '174px', height: '54px', background: '#44E371', borderRadius: '8px', color: 'white' }}
               >

@@ -84,42 +84,42 @@ const itemData = [
 
 const censorList = [
   {
-    img: '/pin1.webp',
-    title: 'title',
+    img: '/jigou6.png',
+    title: '联合国儿童慈善基金会',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/pin1.webp',
-    title: 'title',
+    img: '/jigou2.png',
+    title: '盖茨基金会',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/pin1.webp',
-    title: 'title',
+    img: '/jigou3.png',
+    title: '国际服务机构',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/pin1.webp',
-    title: 'title',
+    img: '/jigou4.png',
+    title: '国际地球之友',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/pin1.webp',
-    title: 'title',
+    img: '/jigou5.png',
+    title: '国际援助组织',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/pin1.webp',
+    img: '/jigou1.png',
     title: 'title',
     desc: 'No. of items passed',
     deposit: '2000',
@@ -159,6 +159,7 @@ export function Detail() {
               <ImageList sx={{ width: 210, height: 38 }} cols={3} rowHeight={38}>
                 {itemData.map(item => (
                   <ImageListItem
+                    style={{ border: '1px solid #ADB1B8', borderRadius: '4px' }}
                     key={item.img}
                     onClick={e => {
                       smallImageClick(e, item.img);
@@ -185,7 +186,7 @@ export function Detail() {
             }}
           >
             <CardContent sx={{ flex: '1 0 auto', marginTop: '32px', paddingTop: '0px' }}>
-              <Typography component="div" variant="h5">
+              <Typography component="div" variant="h4">
                 慈善捐赠项目主标题
               </Typography>
               <Typography component="div" variant="h6">
@@ -249,14 +250,16 @@ export function Detail() {
           style={{
             marginTop: '10px',
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             flexDirection: 'row',
-            flexWrap: 'wrap',
+            flexWrap: 'nowrap',
+            overflow: 'scroll',
+            width: '1200px',
           }}
         >
           {censorList.map(item => (
-            <Card sx={{ maxWidth: 224, height: 298, margin: '10px', position: 'relative' }}>
-              <CardMedia component="img" alt="green iguana" height="140" image={item.img} />
+            <Card sx={{ width: 224, height: 298, margin: '10px', position: 'relative', flexShrink: 0 }}>
+              <CardMedia component="img" alt="green iguana" height="140" image={item.img} style={{ padding: '16px' }} />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {item.title}

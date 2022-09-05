@@ -2,7 +2,7 @@ import '@babel/polyfill';
 import 'whatwg-fetch';
 import 'es6-promise/auto';
 import { configurePersistable } from 'mobx-persist-store';
-
+import { route } from './constants/route';
 configurePersistable(
   {
     storage: new Storage(),
@@ -75,26 +75,26 @@ bootstrap(() => {
       <CssBaseline />
       <Router history={history}>
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/donate" component={Donate} exact />
-          <Route path="/donate/detail" component={DonateDetail} />
-          <Route path="/donate/list" component={DonateList} />
-          <Route path="/donate/new" component={DonateNew} />
+          <Route path={`${route.HOME}`} component={Home} exact />
+          <Route path={`${route.DONATE}`} component={Donate} exact />
+          <Route path={`${route.DONATE_DETAIL}`} component={DonateDetail} />
+          <Route path={`${route.DONATE_LIST}`} component={DonateList} />
+          <Route path={`${route.DONATE_NEW}`} component={DonateNew} />
 
-          <Route path="/help" component={HelpHome} exact />
-          <Route path="/help/detail" component={HelpDetail} />
-          <Route path="/help/list" component={HelpList} />
-          <Route path="/help/new" component={ProjectNew} />
+          <Route path={`${route.HELP}`} component={HelpHome} exact />
+          <Route path={`${route.HELP_DETAIL}`} component={HelpDetail} />
+          <Route path={`${route.HELP_LIST}`} component={HelpList} />
+          <Route path={`${route.HELP_NEW}`} component={ProjectNew} />
 
-          <Route path="/censor" component={Censor} />
-          <Route path="/censor/register" component={CensorRegister} />
-          <Route path="/censor/list" component={CensorList} />
-          <Route path="/censor/detail" component={CensorDetail} exact />
+          <Route path={`${route.CENSOR}`} component={Censor} />
+          <Route path={`${route.CENSOR_REGISTER}`} component={CensorRegister} />
+          <Route path={`${route.CENSOR_LIST}`} component={CensorList} />
+          <Route path={`${route.CENSOR_DETAIL}`} component={CensorDetail} exact />
 
-          <Route path="/arbitration" component={Arbitration} />
-          <Route path="/arbitration/list" component={ArbitrationList} />
-          <Route path="/arbitration/detail" component={ArbitrationDetail} exact />
-          <Route path="/arbitration/submit" component={ArbitrationSubmit} />
+          <Route path={`${route.ARBITRATION}`} component={Arbitration} />
+          <Route path={`${route.ARBITRATION_LIST}`} component={ArbitrationList} />
+          <Route path={`${route.ARBITRATION_DETAIL}`} component={ArbitrationDetail} exact />
+          <Route path={`${route.ARBITRATION_SUBMIT}`} component={ArbitrationSubmit} />
         </Switch>
       </Router>
     </ThemeProvider>

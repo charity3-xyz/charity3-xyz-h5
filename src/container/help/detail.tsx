@@ -187,17 +187,14 @@ export function Detail() {
           >
             <CardContent sx={{ flex: '1 0 auto', marginTop: '32px', paddingTop: '0px' }}>
               <Typography component="div" variant="h4">
-                慈善捐赠项目主标题
+                大病儿童生命的礼物
               </Typography>
               <Typography component="div" variant="h6">
-                慈善捐赠项目副标题
+                打怪升级不容易，有一丝希望就决不放弃！
               </Typography>
               <Typography variant="body2" color="white" component="div" style={{ marginTop: '24px', color: '#ADB1B8' }}>
-                This is the introduction This is the introduction This is the introduction This is the introduction This
-                is the This is the introductionThis is the introduction This is the introduction This is the
-                introduction This is the introduction This is the This is the introductionThis is the introduction This
-                is the introduction This is the introduction This is the introduction This is the This is the
-                introduction
+                刚刚还在体育课上跳完一百三十个绳的润宝，因腿上淤青迟迟不退，入院检查，这个原本应该享受着天真烂漫童年生活的小女孩，在七岁那年遇到了自己人生中的第一个小怪兽——急性淋巴细胞白血病。小润是爸爸妈妈眼里的小宝贝，常常“润宝、润宝”地喊着，看到鲜红的血液输入自己的血管，润宝被白血病这个小怪兽吓得嚎啕大哭。
+                经历了抗议、害怕、抵触、配合，润宝与疾病正面交锋，小小年纪的她在病房承受着不属于7岁的痛楚，直面我们大人都胆颤的病魔。
               </Typography>
             </CardContent>
             <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2} style={{}}>
@@ -227,7 +224,12 @@ export function Detail() {
               </Box>
             </Stack>
             <Box position="absolute" right={32} top={32}>
-              <Typography variant="caption" display="block" style={{ paddingBottom: '0px' }} gutterBottom>
+              <Typography
+                variant="caption"
+                display="block"
+                style={{ paddingBottom: '0px', textAlign: 'end' }}
+                gutterBottom
+              >
                 <span style={{ color: '#ADB1B8 ' }}>Item Number：</span>8888888888
               </Typography>
               <Typography variant="caption" display="block" gutterBottom style={{ color: '#44E371' }}>
@@ -239,9 +241,18 @@ export function Detail() {
 
         <Box sx={{ display: 'flex', position: 'relative', height: '54px', marginTop: '40px', marginBottom: '0px' }}>
           <Box sx={{ position: 'absolute', fontWeight: 800, fontSize: '36px' }}>认证节点</Box>
-          <Box sx={{ position: 'absolute', right: '0px', fontWeight: 600, fontSize: '20px', lineHeight: '54px' }}>
+          <Box
+            sx={{
+              position: 'absolute',
+              display: 'flex',
+              right: '0px',
+              fontWeight: 600,
+              fontSize: '20px',
+              lineHeight: '54px',
+            }}
+          >
             {/* <span> */}
-            <ApprovalIcon style={{ marginRight: '5px' }} />
+            <ApprovalIcon style={{ marginRight: '5px', alignSelf: 'center' }} />
             {/* </span> */}
             <span>申请成为节点</span>
           </Box>

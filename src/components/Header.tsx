@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '../components/button';
-import { path } from '../constants/route';
+import { route } from '../constants/route';
 import { sessionService } from '../services/session';
 import { useHistory } from 'react-router-dom';
 
@@ -84,7 +84,7 @@ export const Header = observer(function Header() {
       <div className={style.header}>
         <AppBar position="static">
           <Container maxWidth={false}>
-            <Toolbar disableGutters>
+            <Toolbar disableGutters style={{ height: '91px' }}>
               {/* logo */}
               {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
               {/* brand name */}
@@ -160,7 +160,7 @@ export const Header = observer(function Header() {
                 {'Charity3'}
               </Typography>
               {/*  大屏导航 */}
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', marginLeft: '45px' } }}>
                 {pages.map(page => (
                   <MButton
                     key={page.url}
@@ -208,10 +208,20 @@ export const Header = observer(function Header() {
                 </Box>
               ) : (
                 <Box sx={{ flexGrow: 0 }}>
-                  <MButton key="login" onClick={() => setShowSignIn(true)}>
+                  <MButton
+                    style={{ color: '#121214', fontWeight: '700' }}
+                    key="login"
+                    onClick={() => setShowSignIn(true)}
+                  >
                     {'Login'}
                   </MButton>
-                  <Button href={path.projectNew} variant="contained">
+                  <Button
+                    onClick={() => {
+                      history.push(route.HELP_NEW);
+                    }}
+                    variant="contained"
+                    style={{ height: '52px', width: '107px', marginLeft: '45px' }}
+                  >
                     {'我要求助'}
                   </Button>
                 </Box>

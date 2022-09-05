@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Stack, Container, Typography, Card, CardContent } from '@mui/material';
 import { App } from '../../components/App';
 import { Button } from '../../components/button';
-import { path } from '../../constants/route';
+import { route } from '../../constants/route';
 
 /**
  * 首页
@@ -23,10 +23,10 @@ export class Home extends Component<any, any> {
           <Typography>基于Web3技术实现的慈善项目，让您的爱心真正落实,让有需要帮助的人得到帮助。</Typography>
           <Typography>一切公开透明,接受全球Web3用户监督</Typography>
           <Stack spacing={1} direction="row" mt={3}>
-            <Button href={path.projectNew} variant="contained">
+            <Button href={route.HELP_NEW} variant="contained">
               {'我需要帮助'}
             </Button>
-            <Button href={path.project} variant="outlined">
+            <Button href={route.HELP_LIST} variant="outlined">
               {'捐助ta人'}
             </Button>
             <Button>{'我要参与监督'}</Button>

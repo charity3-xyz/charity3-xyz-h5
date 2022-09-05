@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 import { sessionService } from '../../services/session';
 import { projectService } from '../../services/project';
-import { path } from '../../constants/route';
+import { route } from '../../constants/route';
 
 import style from './index.module.scss';
 
@@ -69,7 +69,7 @@ export class ProjectNew extends Component<any, any> {
   componentDidMount() {
     // const { user } = sessionService;
     // if (!user) {
-    //   this.props.router.push(path.userSignUp);
+    //   this.props.router.push(route.SIGN_UP);
     // }
     projectService.queryHospitals();
   }

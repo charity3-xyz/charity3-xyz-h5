@@ -4,7 +4,7 @@ import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
 import { Container, Stack, TextField, TextFieldProps } from '@mui/material';
 import { sessionService } from '../../services/session';
-import { path } from '../../constants/route';
+import { route } from '../../constants/route';
 
 const fields: Array<TextFieldProps> = [
   {
@@ -48,7 +48,7 @@ export class New extends Component<any, any> {
   componentDidMount() {
     const { user } = sessionService;
     if (!user) {
-      this.props.router.push(path.userSignUp);
+      this.props.router.push(route.SIGN_UP);
     }
   }
 

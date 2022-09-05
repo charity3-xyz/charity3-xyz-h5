@@ -56,20 +56,26 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
       {/* <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" /> */}
       <CardContent
         sx={{
-          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, #000000 52.88%)',
+          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 20%, #000000 100%)',
           borderRadius: '12px',
-
           height: '100%',
+          padding: '0',
         }}
       >
-        <Box style={{ position: 'absolute', bottom: '20px' }}>
+        <Box style={{ position: 'absolute', bottom: '20px', width: '100%', padding: '20px' }}>
           <Typography gutterBottom variant="h5" component="div">
             重度烧伤
           </Typography>
           <Typography variant="body2" color="text.secondary" style={{ color: 'white' }}>
             September 14, 2022，患者：老王，浙江安吉
           </Typography>
-          <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 16 }} />
+          <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 16, marginTop: '44px' }} />
+          <Box style={{ position: 'relative' }}>
+            <Typography variant="caption">55% raised</Typography>
+            <Typography style={{ position: 'absolute', right: 0 }} variant="overline">
+              Total funding:<span style={{ color: '#44E371' }}>20,000 USDT</span>
+            </Typography>
+          </Box>
         </Box>
       </CardContent>
       {/* <CardActions disableSpacing>
@@ -88,7 +94,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
         in={expanded}
         timeout="auto"
         unmountOnExit
-        style={{ position: 'absolute', top: '0px', background: 'rgba(0, 0, 0, 0.8)', borderRadius: '12px' }}
+        style={{ position: 'absolute', bottom: '0px', background: 'rgba(0, 0, 0, 0.8)', borderRadius: '12px' }}
       >
         <CardContent style={{}}>
           <Typography variant="h5" gutterBottom>

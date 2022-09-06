@@ -6,7 +6,7 @@ import { ServiceError } from '@aomi/common-service/exception/ServiceError';
 import SessionKey from '../constants/SessionKey';
 import { toastService } from '../services/toast';
 import { sessionService } from '../services/session';
-import {navigationServices} from "@aomi/mobx-history";
+import { navigationServices } from '@aomi/mobx-history';
 
 export type Options = {
   /**

@@ -11,10 +11,10 @@ export const Url = {
   web3Auth: `${api}/system/session/web3`,
   project: `${api}/projects`,
 
+  user: `${api}/users`,
   userProject: `${api}/users/projects`,
   workNodeProject: `${api}/work-nodes/projects`,
 
-  loginUp: `${api}/users`,
   loginIn: `${api}/system/session`,
   addProject: `${api}/projects/medicals`,
   hospital: `${api}/medicals/hospitals`,

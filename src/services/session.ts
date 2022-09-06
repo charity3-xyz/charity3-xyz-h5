@@ -77,6 +77,7 @@ export class SessionService {
         body: {
           address: accountAddress,
         },
+        successTip: false,
       });
 
       const msg = `Welcome to Charity3!
@@ -94,15 +95,15 @@ Nonce:
 ${token.id}`;
       const signature = await walletService.sign(msg);
 
-      const res = await execute({
+      this.user = await execute({
         url: Url.web3Auth,
         method: HttpMethod.POST,
         body: {
           address: accountAddress,
           signature,
         },
+        successTip: false,
       });
-      console.log(`登录成功: ${res}`);
       // 登录成功 跳转到首页
       navigationServices.push('/');
     } finally {
@@ -114,17 +115,18 @@ ${token.id}`;
    * 获取注册信息
    * @param args
    */
-  async getLoginUp(args: Record<string, any>) {
+  async registerAndLogin(args: Record<string, any>) {
     if (this.loading) {
       return;
     }
     this.loading = true;
     try {
       this.user = await execute({
-        url: Url.loginUp,
+        url: Url.user,
         method: HttpMethod.POST,
         body: { ...args },
       });
+      navigationServices.push('/');
     } finally {
       this.loading = false;
     }

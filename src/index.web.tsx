@@ -47,6 +47,7 @@ import { ProjectNew } from './container/help/new';
 import { Home } from './container/home';
 import { Storage } from './core/Storage';
 import { SignIn } from './container/user/sign-in';
+import { UserSignUp } from './container/user/sign-up';
 
 // mobx 配置
 configure({ enforceActions: 'never' });
@@ -99,6 +100,7 @@ bootstrap(() => {
           <Route path={`${route.ARBITRATION_SUBMIT}`} component={ArbitrationSubmit} />
 
           <Route path={route.SIGN_IN} component={SignIn} />
+          <Route path={route.SIGN_UP} component={UserSignUp} />
         </Switch>
       </Router>
     </ThemeProvider>

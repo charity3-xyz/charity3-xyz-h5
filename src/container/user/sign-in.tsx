@@ -55,7 +55,7 @@ export class SignIn extends Component<any, any> {
         <Stack bgcolor="#FFF" padding={3} borderRadius={3} mt={15}>
           <Tabs value={tabValue} onChange={this.handleTabChange} centered>
             <Tab label="我是募捐者" />
-            <Tab label="我是捐赠者/监督员" />
+            <Tab label="我是捐赠者/节点" />
           </Tabs>
           <Box minHeight={300} minWidth={400} mt={3}>
             <TabPanel value={tabValue} index={0} direction="column" spacing={3}>
@@ -84,8 +84,16 @@ export class SignIn extends Component<any, any> {
               </Button>
               <Button onClick={() => navigationServices.push(route.SIGN_UP)}>没有账号,立即注册</Button>
             </TabPanel>
-            <TabPanel value={tabValue} index={1}>
-              <Button>{'Connect Wallet'}</Button>
+            <TabPanel
+              value={tabValue}
+              index={1}
+              minHeight={300}
+              justifyContent="center"
+              alignItems="center"
+              display="flex"
+              flex={1}
+            >
+              <Button onClick={sessionService.web3Auth}>{'Connect Wallet'}</Button>
             </TabPanel>
           </Box>
         </Stack>

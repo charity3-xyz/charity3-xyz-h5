@@ -6,6 +6,7 @@ import { ServiceError } from '@aomi/common-service/exception/ServiceError';
 import SessionKey from '../constants/SessionKey';
 import { toastService } from '../services/toast';
 import { sessionService } from '../services/session';
+import {navigationServices} from "@aomi/mobx-history";
 
 export type Options = {
   /**
@@ -75,7 +76,7 @@ export async function execute({
   if (status === ErrorCode.UNAUTHORIZED) {
     if (autoUnAuthorize) {
       toastService.error(msg);
-      // sessionService.logout();
+      sessionService.logout();
     }
     throw new ServiceError({ status, payload, describe });
   }
@@ -86,7 +87,7 @@ export async function execute({
     } else if ((params.method || HttpMethod.GET).toLowerCase() !== 'get') {
       toastService.success(msg);
     }
-    // successPop && navigationServices.goBack();
+    successPop && navigationServices.goBack();
     return payload;
   } else if (errorTip) {
     if (status === ErrorCode.CUSTOM_ERROR) {

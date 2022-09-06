@@ -125,6 +125,7 @@ ${token.id}`;
         url: Url.loginIn,
         method: HttpMethod.POST,
         body: { ...args },
+        successTip: false
       });
       console.log('登录成功: ', this.user);
       // 登录成功 跳转到首页

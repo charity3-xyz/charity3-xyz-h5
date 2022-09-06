@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
 import { Tabs, Tab, Box, BoxProps } from '@mui/material';
-import { App } from '../components/App';
-import { Button } from '../components/button';
+import { App } from '../../components/App';
+import { Button } from '../../components/button';
 
 function TabPanel({
   value,

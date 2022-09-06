@@ -1,4 +1,4 @@
-import { SignIn } from '../../src/container/sign-in';
+import { SignIn } from '../../src/container/user/sign-in';
 
 /**
  * 登录页面

@@ -82,9 +82,9 @@ bootstrap(() => {
           <Route path={`${route.DONATE_NEW}`} component={DonateNew} />
 
           <Route path={`${route.HELP}`} component={HelpHome} exact />
-          <Route path={`${route.HELP_DETAIL}`} component={HelpDetail} />
           <Route path={`${route.HELP_LIST}`} component={HelpList} />
           <Route path={`${route.HELP_NEW}`} component={ProjectNew} />
+          <Route path={`${route.HELP_DETAIL}`} component={HelpDetail} />
 
           <Route path={`${route.CENSOR}`} component={Censor} />
           <Route path={`${route.CENSOR_REGISTER}`} component={CensorRegister} />

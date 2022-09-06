@@ -4,6 +4,13 @@ import { walletService } from './blockchain/wallet';
 import { execute } from '../core/Request';
 import { Url } from '../constants/url';
 import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
+import { navigationServices } from '@aomi/mobx-history';
+import { UserRole } from '../entity/user';
+
+export type User = {
+  token: string;
+  userRoles: Array<UserRole>;
+};
 
 /**
  * 会话服务
@@ -31,6 +38,13 @@ export class SessionService {
 
   get authorization(): string {
     return this.user?.token;
+  }
+
+  get isWorkNode(): boolean {
+    if (!this.user) {
+      return false;
+    }
+    return this.user.userRoles.includes(UserRole.WORK_NODE);
   }
 
   async web3Auth() {
@@ -108,6 +122,13 @@ ${token.id}`;
       });
     } finally {
     }
+  }
+
+  // 退出
+  logout() {
+    this.user = undefined;
+    navigationServices.replace('/');
+    sessionStorage.clear();
   }
 }
 

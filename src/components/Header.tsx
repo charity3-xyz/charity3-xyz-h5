@@ -29,12 +29,34 @@ const pages = [
   { title: '申请成为节点', url: `${route.CENSOR_REGISTER}` },
   { title: '仲裁委员会', url: `${route.ARBITRATION}` },
 ];
-const settings = ['Logout'];
+
+const workNodeSettings = [
+  {
+    label: '我参与的项目',
+    url: route.HELP_LIST,
+  },
+  {
+    label: 'Logout',
+    onClick: sessionService.logout,
+  },
+];
+
+const userSettings = [
+  {
+    label: '我的募捐申请',
+    url: route.HELP_LIST,
+  },
+  {
+    label: 'Logout',
+    onClick: sessionService.logout,
+  },
+];
 
 import { LoginUp } from './LoginUp';
 import { LoginIn } from './LoginIn';
 
 import style from './index.module.scss';
+import { navigationServices } from '@aomi/mobx-history';
 
 export const Header = observer(function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -79,7 +101,8 @@ export const Header = observer(function Header() {
     setShowSignIn(false);
   };
 
-  const { user } = sessionService;
+  const { user, isWorkNode } = sessionService;
+  const settings = isWorkNode ? workNodeSettings : userSettings;
 
   return (
     <>
@@ -135,8 +158,8 @@ export const Header = observer(function Header() {
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
-                  {pages.map(page => (
-                    <MenuItem key={page.url} onClick={handleCloseNavMenu}>
+                  {pages.map((page, index) => (
+                    <MenuItem key={`${index}`}>
                       <Typography textAlign="center">{page.title}</Typography>
                     </MenuItem>
                   ))}
@@ -201,9 +224,19 @@ export const Header = observer(function Header() {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {settings.map(setting => (
-                      <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">{setting}</Typography>
+                    {settings.map(({ label, url, onClick }, index) => (
+                      <MenuItem
+                        key={`${index}`}
+                        onClick={() => {
+                          if (url) {
+                            navigationServices.push(url);
+                          } else if (onClick) {
+                            onClick();
+                          }
+                          handleCloseUserMenu();
+                        }}
+                      >
+                        <Typography textAlign="center">{label}</Typography>
                       </MenuItem>
                     ))}
                   </Menu>

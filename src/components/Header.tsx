@@ -186,7 +186,9 @@ export const Header = observer(function Header() {
               ))}
             </Box>
             <Stack sx={{ flexGrow: 0 }} direction="row" spacing={1}>
-              {isWeb3User && !isWorkNode && <Button>{'注册成为节点'}</Button>}
+              {isWeb3User && !isWorkNode && (
+                <Button onClick={() => navigationServices.push(route.CENSOR_REGISTER)}>{'注册成为节点'}</Button>
+              )}
               {!(isWeb3User || isWorkNode) && (
                 <Button
                   onClick={() => {

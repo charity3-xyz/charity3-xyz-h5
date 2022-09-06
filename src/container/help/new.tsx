@@ -22,6 +22,7 @@ import { route } from '../../constants/route';
 
 import style from './index.module.scss';
 import { userProjectService } from '../../services/user-project';
+import { navigationServices } from '@aomi/mobx-history';
 
 const currencies = [
   {
@@ -69,10 +70,10 @@ export class ProjectNew extends Component<any, any> {
   }
 
   componentDidMount() {
-    // const { user } = sessionService;
-    // if (!user) {
-    //   this.props.router.push(route.SIGN_UP);
-    // }
+    const { authorization } = sessionService;
+    if (!authorization) {
+      navigationServices.push(route.SIGN_IN);
+    }
     projectService.queryHospitals();
   }
 

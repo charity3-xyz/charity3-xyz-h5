@@ -5,6 +5,7 @@ import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
 import { ServiceError } from '@aomi/common-service/exception/ServiceError';
 import SessionKey from '../constants/SessionKey';
 import { toastService } from '../services/toast';
+import { sessionService } from '../services/session';
 
 export type Options = {
   /**
@@ -48,7 +49,7 @@ export async function execute({
   ...params
 }: Options) {
   params.headers = params.headers || {};
-  const authorization = sessionStorage.getItem(SessionKey.authorization);
+  const authorization = sessionStorage.getItem(sessionService.authorization);
   // 自动添加 authorization
   if (authorization) {
     (params.headers as any).authorization = authorization;

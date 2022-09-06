@@ -14,7 +14,7 @@ export class SessionService {
   /**
    * 登录用户信息
    */
-  user = undefined;
+  user: any = undefined;
 
   constructor() {
     makeAutoObservable(this, undefined, {
@@ -27,6 +27,10 @@ export class SessionService {
     }).then(() => {
       console.log('load session');
     });
+  }
+
+  get authorization(): string {
+    return this.user?.token;
   }
 
   async web3Auth() {

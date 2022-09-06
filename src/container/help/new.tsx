@@ -297,7 +297,12 @@ export class ProjectNew extends Component<any, any> {
         </Box>
         {/* 提交按钮 */}
         <Box component="form" sx={{ flexGrow: 1 }} className={style.submitWrapper}>
-          <Button key="apply" variant="contained" disabled={loading} onClick={() => userProjectService.createMedical(this.state.form)}>
+          <Button
+            key="apply"
+            variant="contained"
+            disabled={loading}
+            onClick={() => userProjectService.createMedical(this.state.form)}
+          >
             提交登记
           </Button>
         </Box>

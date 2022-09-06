@@ -2,42 +2,12 @@ import React, { Component } from 'react';
 import { App } from '../../components/App';
 import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
-import { Container, Stack, TextField, TextFieldProps } from '@mui/material';
+import { Container, Stack, TextFieldProps, Typography } from '@mui/material';
 import { sessionService } from '../../services/session';
 import { route } from '../../constants/route';
-
-const fields: Array<TextFieldProps> = [
-  {
-    label: '受捐人姓名',
-    helperText: '',
-    required: true,
-  },
-  {
-    label: '受捐人ID',
-    required: true,
-  },
-  {
-    label: '病症',
-  },
-  {
-    label: '病情描述',
-    multiline: true,
-  },
-  {
-    label: '预计治疗时间',
-    type: 'number',
-  },
-  {
-    label: '联系电话',
-  },
-  {
-    label: 'Email',
-  },
-  {
-    label: '居住证明',
-    type: 'file',
-  },
-];
+import { navigationServices } from '@aomi/mobx-history';
+import { Button } from '../../components/button';
+import { workNodeService } from '../../services/work-node';
 
 /**
  * 社工结构节点入驻
@@ -46,17 +16,20 @@ const fields: Array<TextFieldProps> = [
 @autoBind
 export class Register extends Component<any, any> {
   componentDidMount() {
-    const { user } = sessionService;
-    if (!user) {
-      this.props.router.push(route.userSignUp);
+    const { authorization } = sessionService;
+    if (!authorization) {
+      navigationServices.push(route.SIGN_IN);
     }
   }
 
   render() {
+    const { loading } = workNodeService;
     return (
-      <App RootComponent={Container}>
-        <Stack spacing={3} mt={3}>
-          社工机构节点入驻
+      <App RootComponent={Container} loading={loading}>
+        <Stack bgcolor="#FFF" mt={3} borderRadius={3} padding={3}>
+          <Typography textAlign="center">{'社工机构节点入驻 - 责任与义务'}</Typography>
+          <Typography>{'参与审核项目真实、并获取一定的报酬. 每个项目成功后可以获得项目分红'}</Typography>
+          <Button onClick={workNodeService.register}>{'同意并立即入住'}</Button>
         </Stack>
       </App>
     );

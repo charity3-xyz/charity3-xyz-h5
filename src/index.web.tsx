@@ -89,7 +89,7 @@ bootstrap(() => {
           <Route path={`${route.HELP_NEW}`} component={ProjectNew} />
           <Route path={`${route.HELP_DETAIL}`} component={HelpDetail} />
 
-          <Route path={`${route.CENSOR}`} component={Censor} />
+          <Route path={`${route.CENSOR}`} component={Censor} exact />
           <Route path={`${route.CENSOR_REGISTER}`} component={CensorRegister} />
           <Route path={`${route.CENSOR_LIST}`} component={CensorList} />
           <Route path={`${route.CENSOR_DETAIL}`} component={CensorDetail} exact />

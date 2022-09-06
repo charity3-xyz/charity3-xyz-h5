@@ -13,6 +13,8 @@ export const Url = {
 
   user: `${api}/users`,
   userProject: `${api}/users/projects`,
+
+  workNode: `${api}/work-nodes`,
   workNodeProject: `${api}/work-nodes/projects`,
 
   loginIn: `${api}/system/session`,

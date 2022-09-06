@@ -87,6 +87,8 @@ ${token.id}`;
         },
       });
       console.log(`登录成功: ${res}`);
+      // 登录成功 跳转到首页
+      navigationServices.push('/');
     } finally {
       this.loading = false;
     }
@@ -114,13 +116,21 @@ ${token.id}`;
 
   // 登录
   async getLoginIn(args: Record<string, any>) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
     try {
       this.user = await execute({
         url: Url.loginIn,
         method: HttpMethod.POST,
         body: { ...args },
       });
+      console.log('登录成功: ', this.user);
+      // 登录成功 跳转到首页
+      navigationServices.push('/');
     } finally {
+      this.loading = false;
     }
   }
 

@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 import 'es6-promise/auto';
 import { configurePersistable } from 'mobx-persist-store';
 import { route } from './constants/route';
+
 configurePersistable(
   {
     storage: new Storage(),
@@ -45,6 +46,7 @@ import { SeekHelpList as HelpList } from './container/help/list';
 import { ProjectNew } from './container/help/new';
 import { Home } from './container/home';
 import { Storage } from './core/Storage';
+import { SignIn } from './container/user/sign-in';
 
 // mobx 配置
 configure({ enforceActions: 'never' });
@@ -95,6 +97,8 @@ bootstrap(() => {
           <Route path={`${route.ARBITRATION_LIST}`} component={ArbitrationList} />
           <Route path={`${route.ARBITRATION_DETAIL}`} component={ArbitrationDetail} exact />
           <Route path={`${route.ARBITRATION_SUBMIT}`} component={ArbitrationSubmit} />
+
+          <Route path={route.SIGN_IN} component={SignIn} />
         </Switch>
       </Router>
     </ThemeProvider>

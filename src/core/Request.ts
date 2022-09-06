@@ -96,8 +96,7 @@ export async function execute({
   }
 
   if (ErrorCode.SUCCESS !== status) {
-    // throw new ServiceError({ status, payload, describe });
-    toastService.error(describe ?? '');
+    throw new ServiceError({ status, payload, describe });
   }
 
   return payload;

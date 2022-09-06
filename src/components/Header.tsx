@@ -53,7 +53,6 @@ const userSettings = [
 ];
 
 import { LoginUp } from './LoginUp';
-import { LoginIn } from './LoginIn';
 
 import style from './index.module.scss';
 import { navigationServices } from '@aomi/mobx-history';
@@ -62,7 +61,6 @@ export const Header = observer(function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [showSignUp, setShowSignUp] = React.useState<boolean>(false);
-  const [showSignIn, setShowSignIn] = React.useState<boolean>(false);
   let history = useHistory();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -83,22 +81,11 @@ export const Header = observer(function Header() {
 
   const goLoginIn = () => {
     setShowSignUp(false);
-    setShowSignIn(true);
-  };
-
-  const goLoginUp = () => {
-    setShowSignIn(false);
-    setShowSignUp(true);
   };
 
   const loginUp = async (args: any) => {
     await sessionService.getLoginUp(args);
     setShowSignUp(false);
-  };
-
-  const loginIn = async (args: any) => {
-    await sessionService.getLoginIn(args);
-    setShowSignIn(false);
   };
 
   const { user, isWorkNode } = sessionService;
@@ -246,7 +233,8 @@ export const Header = observer(function Header() {
                   <MButton
                     style={{ color: '#121214', fontWeight: '700' }}
                     key="login"
-                    onClick={() => setShowSignIn(true)}
+                    // onClick={() => setShowSignIn(true)}
+                    onClick={() => navigationServices.push(route.SIGN_IN)}
                   >
                     {'Login'}
                   </MButton>
@@ -267,9 +255,6 @@ export const Header = observer(function Header() {
       </div>
       {/* 注册弹窗 */}
       <LoginUp open={showSignUp} onClose={() => setShowSignUp(false)} onOk={loginUp} goLoginIn={goLoginIn} />
-
-      {/* 登录弹窗 */}
-      <LoginIn open={showSignIn} onClose={() => setShowSignIn(false)} onOk={loginIn} goLoginUp={goLoginUp} />
     </>
   );
 });

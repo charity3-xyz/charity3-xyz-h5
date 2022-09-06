@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { isEmpty } from 'lodash';
 import {
   AppBar,
   Avatar,
@@ -11,6 +10,7 @@ import {
   Link,
   Menu,
   MenuItem,
+  Stack,
   Toolbar,
   Tooltip,
   Typography,
@@ -88,108 +88,116 @@ export const Header = observer(function Header() {
     setShowSignUp(false);
   };
 
-  const { user, isWorkNode } = sessionService;
+  const { user, isWorkNode, isWeb3User, authorization } = sessionService;
   const settings = isWorkNode ? workNodeSettings : userSettings;
 
   return (
     <>
-      <div className={style.header}>
-        <AppBar position="static">
-          <Container maxWidth={false}>
-            <Toolbar disableGutters style={{ height: '91px' }}>
-              {/* logo */}
-              {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
-              {/* brand name */}
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
+      <AppBar position="static" sx={{ backgroundColor: '#FFF' }}>
+        <Container maxWidth={false}>
+          <Toolbar disableGutters>
+            {/* 小屏幕 */}
+            {/* logo */}
+            {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
+            {/* brand name */}
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontWeight: 700,
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              {'Charity3'}
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
                 sx={{
-                  mr: 2,
-                  display: { xs: 'none', md: 'flex' },
-                  fontWeight: 700,
-                  color: 'inherit',
-                  textDecoration: 'none',
+                  display: { xs: 'block', md: 'none' },
                 }}
               >
-                {'Charity3'}
-              </Typography>
-              {/* 小屏幕 */}
-              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="inherit"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: 'block', md: 'none' },
-                  }}
-                >
-                  {pages.map((page, index) => (
-                    <MenuItem key={`${index}`}>
-                      <Typography textAlign="center">{page.title}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
-              {/* logo */}
-              {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: 'flex', md: 'none' },
-                  flexGrow: 1,
-                  fontFamily: 'monospace',
-                  fontWeight: 700,
-                  color: 'inherit',
-                  textDecoration: 'none',
-                }}
-              >
-                {'Charity3'}
-              </Typography>
-              {/*  大屏导航 */}
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', marginLeft: '45px' } }}>
-                {pages.map(page => (
-                  <MButton
-                    key={page.url}
-                    onClick={() => {
-                      handleCloseNavMenu(page.url);
-                    }}
-                    sx={{ my: 2, display: 'block', color: '#000' }}
-                  >
-                    {page.title}
-                  </MButton>
+                {pages.map((page, index) => (
+                  <MenuItem key={`${index}`}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
                 ))}
-              </Box>
+              </Menu>
+            </Box>
 
-              {/* 未登录：未登录展示login及我要求助按钮 */}
-              {/* 已登录：右侧头像和头像下拉框的设置 */}
-              {!isEmpty(user) ? (
-                <Box sx={{ flexGrow: 0 }}>
+            {/*  大屏导航 */}
+            {/* logo */}
+            {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              {'Charity3'}
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', marginLeft: '45px' } }}>
+              {pages.map((page, index) => (
+                <MButton
+                  key={`${index}`}
+                  onClick={() => {
+                    handleCloseNavMenu(page.url);
+                  }}
+                  sx={{ my: 2, display: 'block', color: '#000' }}
+                >
+                  {page.title}
+                </MButton>
+              ))}
+            </Box>
+            <Stack sx={{ flexGrow: 0 }} direction="row" spacing={1}>
+              {isWeb3User && !isWorkNode && <Button>{'注册成为节点'}</Button>}
+              {!(isWeb3User || isWorkNode) && (
+                <Button
+                  onClick={() => {
+                    history.push(route.HELP_NEW);
+                  }}
+                >
+                  {'我要求助'}
+                </Button>
+              )}
+              {authorization ? (
+                <>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       <Avatar>{'B'}</Avatar>
@@ -227,32 +235,20 @@ export const Header = observer(function Header() {
                       </MenuItem>
                     ))}
                   </Menu>
-                </Box>
+                </>
               ) : (
-                <Box sx={{ flexGrow: 0 }}>
-                  <MButton
-                    style={{ color: '#121214', fontWeight: '700' }}
-                    key="login"
-                    // onClick={() => setShowSignIn(true)}
-                    onClick={() => navigationServices.push(route.SIGN_IN)}
-                  >
-                    {'Login'}
-                  </MButton>
-                  <Button
-                    onClick={() => {
-                      history.push(route.HELP_NEW);
-                    }}
-                    variant="contained"
-                    style={{ height: '52px', width: '107px', marginLeft: '45px' }}
-                  >
-                    {'我要求助'}
-                  </Button>
-                </Box>
+                <Button
+                  style={{ color: '#121214', fontWeight: '700' }}
+                  key="login"
+                  onClick={() => navigationServices.push(route.SIGN_IN)}
+                >
+                  {'Login'}
+                </Button>
               )}
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </div>
+            </Stack>
+          </Toolbar>
+        </Container>
+      </AppBar>
       {/* 注册弹窗 */}
       <LoginUp open={showSignUp} onClose={() => setShowSignUp(false)} onOk={loginUp} goLoginIn={goLoginIn} />
     </>

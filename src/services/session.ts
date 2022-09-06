@@ -36,15 +36,31 @@ export class SessionService {
     });
   }
 
+  /**
+   * 是否授权
+   */
   get authorization(): string {
     return this.user?.token;
   }
 
+  /**
+   * 是否是工作节点
+   */
   get isWorkNode(): boolean {
     if (!this.user) {
       return false;
     }
     return this.user.userRoles.includes(UserRole.WORK_NODE);
+  }
+
+  /**
+   * 是否是web3用户
+   */
+  get isWeb3User(): boolean {
+    if (!this.user) {
+      return false;
+    }
+    return !!this.user.web3Address;
   }
 
   async web3Auth() {

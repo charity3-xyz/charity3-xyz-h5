@@ -13,13 +13,12 @@ import {
 import LinearProgress from '@mui/material/LinearProgress';
 import { Block } from '@mui/icons-material';
 import { route } from '../../constants/route';
-import { useHistory } from 'react-router-dom';
+import { navigationServices } from '@aomi/mobx-history';
 
 export type ProjectGridItemProps = {};
 
 export function ProjectGridItem(props: ProjectGridItemProps) {
   const [expanded, setExpanded] = React.useState(false);
-  let history = useHistory();
 
   const handleExpandClick = (index: number) => {
     console.log('-----::', index, !expanded);
@@ -49,7 +48,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
         handleExpandClick(0);
       }}
       onClick={() => {
-        history.push(route.HELP_DETAIL);
+        navigationServices.push(route.HELP_DETAIL);
       }}
     >
       {/*<CardHeader title="重度烧伤" subheader="September 14, 2022，患者：老王，浙江安吉" />*/}
@@ -116,7 +115,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
             <div style={{ flex: 1 }}>
               <Button
                 onClick={() => {
-                  history.push(route.CENSOR_DETAIL);
+                  navigationServices.push(route.CENSOR_DETAIL);
                 }}
                 variant="contained"
                 style={{ width: '174px', height: '54px', background: '#44E371', borderRadius: '8px', color: 'white' }}

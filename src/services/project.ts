@@ -82,28 +82,11 @@ export class ProjectService {
 
   // 根据医院筛选病例
   getSupportDisease(id: string) {
-    const target = this.hospitalsList.filter(item => item.id === id);
+    const target: any = this.hospitalsList.filter(item => item.id === id);
     this.diseaseCategories = target?.supportDiseaseCategories?.map((item: any) => ({
       label: item.name,
       value: item.id,
     }));
-  }
-
-  // 申请救助
-  async addProject(args: any) {
-    if (this.loading) {
-      return;
-    }
-    this.loading = true;
-    try {
-      await execute({
-        url: Url.addProject,
-        method: HttpMethod.POST,
-        body: { ...args },
-      });
-    } finally {
-      this.loading = false;
-    }
   }
 }
 

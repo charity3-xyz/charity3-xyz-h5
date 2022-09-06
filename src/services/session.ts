@@ -102,7 +102,6 @@ ${token.id}`;
         body: { ...args },
       });
     } finally {
-      this.user = {};
     }
   }
 }

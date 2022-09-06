@@ -21,6 +21,7 @@ import { projectService } from '../../services/project';
 import { route } from '../../constants/route';
 
 import style from './index.module.scss';
+import { userProjectService } from '../../services/user-project';
 
 const currencies = [
   {
@@ -40,6 +41,7 @@ const currencies = [
     label: '¥',
   },
 ];
+
 /**
  * 求助者发起募捐
  */
@@ -88,6 +90,7 @@ export class ProjectNew extends Component<any, any> {
       },
     });
   }
+
   render() {
     const {
       userName,
@@ -101,8 +104,11 @@ export class ProjectNew extends Component<any, any> {
       userEmail,
       files,
     } = this.state.form;
+
+    const { loading } = userProjectService;
+
     return (
-      <App RootComponent={Container} className={style.applyForm}>
+      <App RootComponent={Container} className={style.applyForm} loading={loading}>
         <Stack spacing={2} pt={6}>
           <Typography variant="h4" gutterBottom>
             募捐申请表
@@ -291,7 +297,7 @@ export class ProjectNew extends Component<any, any> {
         </Box>
         {/* 提交按钮 */}
         <Box component="form" sx={{ flexGrow: 1 }} className={style.submitWrapper}>
-          <Button key="apply" variant="contained" onClick={() => projectService.addProject(this.state.form)}>
+          <Button key="apply" variant="contained" disabled={loading} onClick={() => userProjectService.createMedical(this.state.form)}>
             提交登记
           </Button>
         </Box>

@@ -267,8 +267,11 @@ export function Detail() {
             width: '1200px',
           }}
         >
-          {censorList.map(item => (
-            <Card sx={{ width: 224, height: 298, margin: '10px', position: 'relative', flexShrink: 0 }}>
+          {censorList.map((item, index) => (
+            <Card
+              sx={{ width: 224, height: 298, margin: '10px', flexShrink: 0, position: 'relative' }}
+              key={`${index}`}
+            >
               <CardMedia component="img" alt="green iguana" height="140" image={item.img} style={{ padding: '16px' }} />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

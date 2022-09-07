@@ -12,7 +12,7 @@ export function ProjectGrid(props: ProjectGridProps) {
   return (
     <Grid container columns={12} rowSpacing={4}>
       {Array.from({ length: 6 }).map((_, index) => (
-        <Grid xs={4} sm={4} md={4} key={index} item>
+        <Grid sm={12} md={4} key={index} item>
           <ProjectGridItem />
         </Grid>
       ))}

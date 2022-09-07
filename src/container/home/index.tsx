@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { autoBind } from 'jsdk/autoBind';
-import { Link } from 'react-router-dom';
-import { Stack, Container, Typography, Card, CardContent } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { App } from '../../components/App';
 import { Button } from '../../components/button';
 import { route } from '../../constants/route';
+import bannerBg from '../../assets/home/banner.png';
+import { navigationServices } from '@aomi/mobx-history';
+import { PlatformSection } from './platform-section';
+import { ProjectSection } from './project-section';
+import { RegisterSection } from './register-section';
+import { PartnerSection } from './partner-section';
 
 /**
  * 首页
@@ -18,85 +23,115 @@ export class Home extends Component<any, any> {
     return (
       <App>
         {/* banner */}
-        <Container sx={{ height: 'calc(100vh - 70px)', display: 'flex', flexDirection: 'column', paddingTop: 20 }}>
-          <Typography variant="h3">Charity3</Typography>
-          <Typography>基于Web3技术实现的慈善项目，让您的爱心真正落实,让有需要帮助的人得到帮助。</Typography>
-          <Typography>一切公开透明,接受全球Web3用户监督</Typography>
-          <Stack spacing={1} direction="row" mt={3}>
-            <Button href={route.HELP_NEW} variant="contained">
-              {'我需要帮助'}
+        <Container
+          sx={{
+            height: 550,
+            backgroundColor: '#FFF',
+          }}
+          maxWidth={false}
+        >
+          <Container
+            sx={{
+              backgroundImage: `url(${bannerBg})`,
+              backgroundSize: '60%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center right',
+              height: '100%',
+              paddingTop: 10,
+            }}
+          >
+            <Typography fontWeight="700" fontSize={56}>
+              {'Openness & Transparency'}
+            </Typography>
+            <Typography fontWeight="700" fontSize={28}>
+              {'make trust simpler and love purer'}
+            </Typography>
+            <Typography fontWeight="400" fontSize={16} color="rgba(129, 133, 140, 1)" width={661} mt={5}>
+              {
+                'bybit charitable public welfare program development platform, dedicated to linking donors and recipients in need'
+              }
+            </Typography>
+            <Button
+              onClick={() => navigationServices.push(route.HELP_NEW)}
+              variant="contained"
+              sx={{ mt: 7, fontWeight: '700' }}
+            >
+              {'Call For Help'}
             </Button>
-            <Button href={route.HELP_LIST} variant="outlined">
-              {'捐助ta人'}
-            </Button>
-            <Button>{'我要参与监督'}</Button>
-          </Stack>
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <div>
-                <Link to="/help">求助者项目首页</Link>
-              </div>
-              <div>
-                <Link to="/help/new">求助者申请捐助</Link>
-              </div>
-              <div>
-                <Link to="/help/detail">求助者捐助详情</Link>
-              </div>
-              <div>
-                <Link to="/help/list">求助者项目列表</Link>
-              </div>
-            </CardContent>
-          </Card>
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <div>
-                <Link to="/donate">捐赠者项目首页</Link>
-              </div>
-              <div>
-                <Link to="/donate/new">捐赠者申请捐助</Link>
-              </div>
-              <div>
-                <Link to="/donate/detail">捐赠者捐助详情</Link>
-              </div>
-              <div>
-                <Link to="/donate/list">捐赠者项目列表</Link>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <div>
-                <Link to="/censor">社工机构节点首页</Link>
-              </div>
-              <div>
-                <Link to="/censor/register">注册为社工机构节点</Link>
-              </div>
-              <div>
-                <Link to="/censor/list">社工机构节点列表详情</Link>
-              </div>
-              <div>
-                <Link to="/censor/detail">社工机构节点详情首页</Link>
-              </div>
-            </CardContent>
-          </Card>
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <div>
-                <Link to="/arbitration">仲裁首页</Link>
-              </div>
-              <div>
-                <Link to="/arbitration/list">仲裁审核列表页面</Link>
-              </div>
-              <div>
-                <Link to="/arbitration/detail">仲裁审核详情页面</Link>
-              </div>
-              <div>
-                <Link to="/arbitration/submit">仲裁审核信息提交页面</Link>
-              </div>
-            </CardContent>
-          </Card>
+          </Container>
+          {/*<Card sx={{ minWidth: 275 }}>*/}
+          {/*  <CardContent>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/help">求助者项目首页</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/help/new">求助者申请捐助</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/help/detail">求助者捐助详情</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/help/list">求助者项目列表</Link>*/}
+          {/*    </div>*/}
+          {/*  </CardContent>*/}
+          {/*</Card>*/}
+          {/*<Card sx={{ minWidth: 275 }}>*/}
+          {/*  <CardContent>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/donate">捐赠者项目首页</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/donate/new">捐赠者申请捐助</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/donate/detail">捐赠者捐助详情</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/donate/list">捐赠者项目列表</Link>*/}
+          {/*    </div>*/}
+          {/*  </CardContent>*/}
+          {/*</Card>*/}
+          {/*<Card sx={{ minWidth: 275 }}>*/}
+          {/*  <CardContent>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/censor">社工机构节点首页</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/censor/register">注册为社工机构节点</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/censor/list">社工机构节点列表详情</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/censor/detail">社工机构节点详情首页</Link>*/}
+          {/*    </div>*/}
+          {/*  </CardContent>*/}
+          {/*</Card>*/}
+          {/*<Card sx={{ minWidth: 275 }}>*/}
+          {/*  <CardContent>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/arbitration">仲裁首页</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/arbitration/list">仲裁审核列表页面</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/arbitration/detail">仲裁审核详情页面</Link>*/}
+          {/*    </div>*/}
+          {/*    <div>*/}
+          {/*      <Link to="/arbitration/submit">仲裁审核信息提交页面</Link>*/}
+          {/*    </div>*/}
+          {/*  </CardContent>*/}
+          {/*</Card>*/}
         </Container>
+
+        {/*Trustworthy public welfare platform*/}
+        <PlatformSection />
+        {/* Fundraising project classification */}
+        <ProjectSection />
+        {/* re */}
+        <RegisterSection />
+        <PartnerSection />
       </App>
     );
   }

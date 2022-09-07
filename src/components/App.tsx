@@ -13,6 +13,7 @@ import {
 import { observer } from 'mobx-react';
 import { toastService } from '../services/toast';
 import { Header } from './Header';
+import { Footer } from './footer';
 
 export type AppProps = (ContainerProps | BoxProps | StackProps) & {
   /**
@@ -25,6 +26,7 @@ export type AppProps = (ContainerProps | BoxProps | StackProps) & {
   loadingText?: string;
   RootComponent?: any;
   showHeader?: boolean;
+  showFooter?: boolean;
 };
 
 /**
@@ -35,6 +37,7 @@ export type AppProps = (ContainerProps | BoxProps | StackProps) & {
 export const App = observer(function App({
   children,
   showHeader = true,
+  showFooter = true,
   RootComponent = Box,
   loading = false,
   loadingText = '',
@@ -45,6 +48,7 @@ export const App = observer(function App({
     <main>
       {showHeader && <Header />}
       <RootComponent {...props}>{children}</RootComponent>
+      {showHeader && <Footer />}
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={open}

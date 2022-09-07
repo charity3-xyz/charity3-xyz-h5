@@ -31,6 +31,9 @@ import ImageListItem from '@mui/material/ImageListItem';
 import { flexbox } from '@mui/system';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import ApprovalIcon from '@mui/icons-material/Approval';
+import { navigationServices } from '@aomi/mobx-history';
+import { route } from '../../constants/route';
+
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -239,24 +242,20 @@ export function Detail() {
           </Box>
         </Card>
 
-        <Box sx={{ display: 'flex', position: 'relative', height: '54px', marginTop: '40px', marginBottom: '0px' }}>
-          <Box sx={{ position: 'absolute', fontWeight: 800, fontSize: '36px' }}>认证节点</Box>
-          <Box
+        <Stack display="flex" direction="row" justifyContent="space-between" mt={5}>
+          <Typography sx={{ fontWeight: 800, fontSize: '36px' }}>认证节点</Typography>
+          <Button
+            startIcon={<ApprovalIcon />}
+            onClick={() => navigationServices.push(route.CENSOR_REGISTER)}
             sx={{
-              position: 'absolute',
-              display: 'flex',
-              right: '0px',
               fontWeight: 600,
               fontSize: '20px',
-              lineHeight: '54px',
+              color: '#000',
             }}
           >
-            {/* <span> */}
-            <ApprovalIcon style={{ marginRight: '5px', alignSelf: 'center' }} />
-            {/* </span> */}
-            <span>申请成为节点</span>
-          </Box>
-        </Box>
+            {'申请成为节点'}
+          </Button>
+        </Stack>
         <Stack
           style={{
             marginTop: '10px',

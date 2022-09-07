@@ -23,6 +23,8 @@ import { route } from '../../constants/route';
 import style from './index.module.scss';
 import { userProjectService } from '../../services/user-project';
 import { navigationServices } from '@aomi/mobx-history';
+import { HospitalSelect } from '../../components/hospital-select';
+import { DiseaseCategorySelect } from '../../components/disease-category-select';
 
 const currencies = [
   {
@@ -74,7 +76,6 @@ export class ProjectNew extends Component<any, any> {
     if (!authorization) {
       navigationServices.push(route.SIGN_IN);
     }
-    projectService.queryHospitals();
   }
 
   handleChange(key: string, value: string) {
@@ -166,41 +167,26 @@ export class ProjectNew extends Component<any, any> {
             <Grid item xs={6}>
               <FormLabel className={style.label}>治疗机构名称</FormLabel>
               <div className={style.required}>
-                <TextField
+                <HospitalSelect
                   size="small"
                   required
-                  select
-                  id="outlined-required"
                   placeholder="请选择病症类目"
                   value={hospitalId}
-                  onChange={e => this.handleChange('hospitalId', e.target.value)}
-                >
-                  {currencies.map(option => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                  onChange={(e: any) => this.handleChange('hospitalId', e.target.value)}
+                />
               </div>
             </Grid>
             <Grid item xs={6}>
               <FormLabel className={style.label}>受捐人病症</FormLabel>
               <div className={style.required}>
-                <TextField
+                <DiseaseCategorySelect
                   size="small"
                   required
-                  select
-                  id="outlined-required"
                   placeholder="请选择病症类目"
+                  hospitalId={hospitalId}
                   value={diseaseCategoryId}
                   onChange={e => this.handleChange('diseaseCategoryId', e.target.value)}
-                >
-                  {currencies.map(option => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                />
               </div>
             </Grid>
           </Grid>

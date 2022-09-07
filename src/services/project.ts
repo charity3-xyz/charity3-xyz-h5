@@ -64,21 +64,21 @@ export class ProjectService {
   /**
    * 查询医院
    */
-  async queryHospitals() {
-    if (this.loading) {
-      return;
-    }
-    this.loading = true;
-    try {
-      const res = await execute({
-        url: Url.hospital,
-        method: HttpMethod.GET,
-      });
-      this.hospitalsList = res.map((item: any) => ({ label: item.name, value: item.id }));
-    } finally {
-      this.loading = false;
-    }
-  }
+  // async queryHospitals() {
+  //   if (this.loading) {
+  //     return;
+  //   }
+  //   this.loading = true;
+  //   try {
+  //     const res = await execute({
+  //       url: Url.hospital,
+  //       method: HttpMethod.GET,
+  //     });
+  //     this.hospitalsList = res.map((item: any) => ({ label: item.name, value: item.id }));
+  //   } finally {
+  //     this.loading = false;
+  //   }
+  // }
 
   // 根据医院筛选病例
   getSupportDisease(id: string) {

@@ -19,7 +19,6 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.2",
-    "cross-env": "^7.0.3",
     "dayjs": "^1.11.5",
     "es6-promise": "^4.2.8",
     "ethers": "^5.7.0",
@@ -39,6 +38,7 @@
   },
   "devDependencies": {
     "@aomi/eslint-config": "^1.0.2",
-    "@aomi/webapp-cli": "^1.0.0"
+    "@aomi/webapp-cli": "^1.0.0",
+    "cross-env": "^7.0.3"
   }
 }

@@ -138,7 +138,7 @@ export function Detail() {
   const [bigImgUrl, setBigImgUrl] = useState('');
 
   useEffect(() => {
-    setBigImgUrl('/pin1.webp');
+    setBigImgUrl(require('../../../public/pin1.webp'));
     // projectService.query({});
   }, []);
 

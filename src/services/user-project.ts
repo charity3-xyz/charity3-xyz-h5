@@ -70,7 +70,7 @@ export class UserProjectService {
     this.loading = true;
     try {
       await execute({
-        url: `${Url.userProject}/medicals`,
+        url: `${Url.addProject}`,
         method: HttpMethod.POST,
         body: args,
       });

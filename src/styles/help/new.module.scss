@@ -1,0 +1,96 @@
+
+
+.applyForm {
+    padding-bottom: 20px;
+    :global {
+        .css-1vw6mcs-MuiTypography-root {
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .css-1wniyei-MuiTypography-root {
+            padding-bottom: 14px;
+        }
+        .css-zow5z4-MuiGrid-root>.MuiGrid-item {
+            display: flex;
+            align-items: center;
+        }
+        .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+            width: 100%;  
+           
+        }
+        
+
+}
+.formWrapper {
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #fff;
+
+    .formTitle {
+color: #ADB1B8;
+font-weight: 700;
+padding-bottom: 20px;
+    }
+
+    .label {
+        padding-right: 16px;
+        color: #222;
+        word-break: keep-all;
+    }
+    .required {
+        position: relative;
+        width: 70%;  
+        &:after {
+            position: absolute;
+            right: -20px;
+            top: 10px;
+            content: "*";
+            color: red;
+            font-size: 1.25rem;
+        }
+    }
+}
+.submitWrapper {
+    padding: 26px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    button {
+        width: 330px;
+        padding: 10px;
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+}
+.successWrapper {
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    margin-top: 16px;
+    padding: 80px 0;
+    background: #fff;
+    :global {
+        .css-1p5q5e5-MuiStack-root {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .icon {
+        color: #44E371;
+        svg {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+    .btn {
+        width: 184px;
+        button {
+            padding: 12px 0;
+            font-size: 1.125rem;
+            width: 100%;
+        }
+    }
+}
+}

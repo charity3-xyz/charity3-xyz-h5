@@ -32,7 +32,7 @@ export class UserSignUp extends Component<any, any> {
   }
 
   render() {
-    const { name, idNo, password, confirmPassword } = this.state;
+    const { idNo, password, confirmPassword } = this.state;
     const { loading } = sessionService;
     return (
       <App justifyContent="center" alignItems="center" display="flex" minHeight="100vh" loading={loading}>

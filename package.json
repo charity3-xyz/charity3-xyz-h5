@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@aomi/eslint-config": "^1.0.2",
-    "@aomi/webapp-cli": "^1.0.0",
+    "@aomi/webapp-cli": "^1.2.0",
     "cross-env": "^7.0.3"
   }
 }

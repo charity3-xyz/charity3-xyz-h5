@@ -44,10 +44,10 @@
   resolved "https://registry.yarnpkg.com/@aomi/utils/-/utils-1.0.1-Alpha.5-cjs.tgz#b809ebab9e8e02c1ee651b7f9b0669be6e29d698"
   integrity sha512-XL5D9ygyjZnfhWc1rLjuLYKoVUMCVJPYzB6AWkHSUJ/rN0B0T4fCSH5Sj01gQk0vkUcI1bOOpYXPQxcSV1WVEQ==
 
-"@aomi/webapp-cli@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@aomi/webapp-cli/-/webapp-cli-1.0.0.tgz#b6cb45de44732392f413c659e5f5d7da3feb3e53"
-  integrity sha512-rZ0isyT9Hvfu70/3myYZymWFsgFtOFPYxbEYWye5XDoVNb0dpdFBV8o5B0dOdWVorsFjRvEsgq7bZyzeT/3bJg==
+"@aomi/webapp-cli@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@aomi/webapp-cli/-/webapp-cli-1.2.0.tgz#d00fdcdef8e69aaea3fb40e2414a375aba59931a"
+  integrity sha512-EYbkKOWMfZbotwTopjBIuyPARKZd/ahyF0ULXe9wyGBTZUo9JETAd/BsQOgSdzTine3kl9PChQlH+/r+EVXWwg==
   dependencies:
     "@babel/cli" "7.17.10"
     "@babel/core" "^7.18.5"

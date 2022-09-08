@@ -7,7 +7,7 @@
     "test": "jest --watch",
     "beta": "cross-env PROFILE=beta webapp bundle",
     "uat": "cross-env PROFILE=uat webapp bundle",
-    "prod": "cross-env PROFILE=production webapp bundle",
+    "prod": "rm -rf build && cross-env PROFILE=production webapp bundle",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
   },
   "dependencies": {

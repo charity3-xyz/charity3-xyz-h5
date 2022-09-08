@@ -15,6 +15,7 @@ import { Block } from '@mui/icons-material';
 import { route } from '../../constants/route';
 import { navigationServices } from '@aomi/mobx-history';
 import pin1 from '../../../public/pin1.webp';
+// import pin1 from '../../../public/pin2.jpeg';
 
 export type ProjectGridItemProps = {};
 

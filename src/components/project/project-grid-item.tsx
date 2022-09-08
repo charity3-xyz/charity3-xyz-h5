@@ -14,6 +14,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { Block } from '@mui/icons-material';
 import { route } from '../../constants/route';
 import { navigationServices } from '@aomi/mobx-history';
+import pin1 from '../../../public/pin1.webp';
 
 export type ProjectGridItemProps = {};
 
@@ -37,7 +38,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
         position: 'relative',
         width: '360px',
         height: '386px',
-        background: 'url(/pin1.webp)',
+        background: `url(${pin1})`,
         backgroundSize: 'cover',
       }}
       sx={{ maxWidth: 345, color: 'white' }}

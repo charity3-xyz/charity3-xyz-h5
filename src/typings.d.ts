@@ -9,3 +9,4 @@ declare module '*.xlsx';
 declare module '*.txt';
 declare module '*.less';
 declare module '*.scss';
+declare module '*.webp';

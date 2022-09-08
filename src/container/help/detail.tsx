@@ -87,42 +87,42 @@ const itemData = [
 
 const censorList = [
   {
-    img: '/jigou6.png',
+    img: require('../../../public/jigou6.png'),
     title: '联合国儿童慈善基金会',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/jigou2.png',
+    img: require('../../../public/jigou2.png'),
     title: '盖茨基金会',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/jigou3.png',
+    img: require('../../../public/jigou3.png'),
     title: '国际服务机构',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/jigou4.png',
+    img: require('../../../public/jigou4.png'),
     title: '国际地球之友',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/jigou5.png',
+    img: require('../../../public/jigou5.png'),
     title: '国际援助组织',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
-    img: '/jigou1.png',
+    img: require('../../../public/jigou1.png'),
     title: 'title',
     desc: 'No. of items passed',
     deposit: '2000',

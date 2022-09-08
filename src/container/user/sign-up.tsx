@@ -15,7 +15,6 @@ import { observer } from 'mobx-react';
 @autoBind
 export class UserSignUp extends Component<any, any> {
   state = {
-    name: '',
     idNo: '',
     password: '',
     confirmPassword: '',
@@ -50,7 +49,6 @@ export class UserSignUp extends Component<any, any> {
             <Typography variant="h6">{'注册Charity3用户'}</Typography>
             <Typography variant="body2">{'让全世界帮助您度过困难'}</Typography>
           </Box>
-          <TextField required value={name} onChange={this.handleStateChange('name')} label="姓名" />
           <TextField required value={idNo} onChange={this.handleStateChange('idNo')} label="ID" />
           <TextField
             required

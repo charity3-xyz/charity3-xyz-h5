@@ -30,7 +30,7 @@ export class SessionService {
     makePersistable(this, {
       name: 'SessionStore',
       properties: ['user'],
-      storage: sessionStorage,
+      storage: localStorage,
     }).then(() => {
       console.log('load session');
     });

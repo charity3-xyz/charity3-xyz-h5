@@ -26,6 +26,7 @@ export const DiseaseCategorySelect = observer(function DiseaseCategorySelect({
           {item.name}
         </MenuItem>
       ))}
+      <div />
     </TextField>
   );
 });

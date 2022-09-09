@@ -28,6 +28,7 @@ export class HospitalSelect extends Component<TextFieldProps, any> {
             {item.name}
           </MenuItem>
         ))}
+        <div />
       </TextField>
     );
   }

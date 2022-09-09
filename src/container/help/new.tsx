@@ -119,7 +119,7 @@ export class ProjectNew extends Component<any, any> {
       <App RootComponent={Container} className={style.applyForm} loading={loading}>
         <Stack spacing={2} pt={6}>
           <Typography variant="h4" gutterBottom>
-            募捐申请表
+            Apply for new fund-raising
           </Typography>
         </Stack>
         {/* 提交成功显示成功文案  */}
@@ -129,13 +129,14 @@ export class ProjectNew extends Component<any, any> {
               <div className={style.icon}>
                 <CheckCircleIcon />
               </div>
-              <h2>提交成功</h2>
+              <h2>Submitted Successfully</h2>
               <p style={{ paddingBottom: '36px' }}>
-                您的申请将进入审核流程，通过审核后将开始接收外部捐赠。审核期间请保持您的联系方式畅通
+                Your fund-raising will be audited and as soon as approved, it will open to the public donation. During
+                the process please keep available via the number&email which you submitted.
               </p>
               <div className={style.btn}>
                 <Button key="jump" variant="contained" onClick={() => console.log(123)}>
-                  管理我的项目
+                  Check My Project
                 </Button>
               </div>
             </Stack>
@@ -143,21 +144,21 @@ export class ProjectNew extends Component<any, any> {
         ) : (
           <>
             <Typography variant="subtitle1" gutterBottom>
-              您正在填写募捐申请表，请确保信息的真实性，这样有助于审核快速通过
+              Please make sure the information you submitted are true. We will have
             </Typography>
             {/* 基本信息 */}
             <FormGroup sx={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
               <FormField
-                label="姓名"
-                placeholder="请输入真实姓名"
+                label="Name"
+                placeholder="please input your name"
                 required
                 value={userName}
                 onChange={(e: any) => this.handleChange('userName', e.target.value)}
               />
               <FormField
                 required
-                label="募捐金额"
-                placeholder="请输入金额"
+                label="Fund Amount"
+                placeholder="please input your fund amount"
                 value={amount}
                 onChange={(e: any) => this.handleChange('amount', e.target.value)}
                 InputProps={{
@@ -168,29 +169,28 @@ export class ProjectNew extends Component<any, any> {
                 md={12}
                 multiline
                 maxRows={4}
-                label="病情描述"
-                placeholder="请输入您的病情"
+                label="Description（Optional）"
                 value={title}
                 onChange={(e: any) => this.handleChange('title', e.target.value)}
               />
-              <FormField label="治疗机构">
+              <FormField label="Hospital Name">
                 <HospitalSelect
                   size="small"
                   fullWidth
                   required
-                  label="治疗机构"
-                  placeholder="请选择治疗机构"
+                  label="Hospital Name"
+                  placeholder="please select your hospital name"
                   value={hospitalId}
                   onChange={(e: any) => this.handleChange('hospitalId', e.target.value)}
                 />
               </FormField>
-              <FormField label="病症">
+              <FormField label="Disease">
                 <DiseaseCategorySelect
                   size="small"
                   required
                   fullWidth
-                  label="病症"
-                  placeholder="请选择病症类目"
+                  label="Disease"
+                  placeholder="please select your disease"
                   hospitalId={hospitalId}
                   value={diseaseCategoryId}
                   onChange={e => this.handleChange('diseaseCategoryId', e.target.value)}
@@ -201,23 +201,22 @@ export class ProjectNew extends Component<any, any> {
             <FormGroup>
               <Grid item xs={12}>
                 <Typography color="#ADB1B8" fontWeight="700">
-                  联系方式 <span style={{ color: 'red' }}>*</span> (三选一)
+                  Contact Details <span style={{ color: 'red' }}>*</span> (三选一)
                 </Typography>
               </Grid>
               <FormField
-                label="固话"
+                label="Telephone Num"
                 value={userPhoneNo}
                 onChange={(e: any) => this.handleChange('userPhoneNo', e.target.value)}
               />
               <FormField
-                label="手机号"
-                placeholder="请输入手机号"
+                label="Mobile Num"
                 value={userTelNo}
                 onChange={(e: any) => this.handleChange('userTelNo', e.target.value)}
               />
               <FormField
-                label="邮箱"
-                placeholder="请输入邮箱"
+                label="E-mail"
+                placeholder="please input your E-mail"
                 value={userEmail}
                 onChange={(e: any) => this.handleChange('userEmail', e.target.value)}
               />
@@ -227,43 +226,41 @@ export class ProjectNew extends Component<any, any> {
             <FormGroup>
               <Grid item xs={12}>
                 <Typography color="#ADB1B8" fontWeight="700">
-                  {'个人身份认证'}
+                  {'Identity Verification'}
                 </Typography>
               </Grid>
               <FormField
-                label="证件号"
-                placeholder="请输入证件号"
+                label="ID Number"
+                placeholder="please input your ID Number"
                 value={userIdNo}
                 onChange={(e: any) => this.handleChange('userIdNo', e.target.value)}
               />
               <Grid item xs={12}>
-                <FormLabel>上传证件</FormLabel>
+                <FormLabel>Upload ID Photo</FormLabel>
                 <TextField
                   size="small"
                   id="outlined-required"
-                  placeholder="请输入真实姓名"
                   value={files2}
                   onChange={e => this.handleChange('files2', e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormLabel>上传病例</FormLabel>
+                <FormLabel>Upload Medical Records Photos</FormLabel>
                 <TextField
                   size="small"
                   id="outlined-required"
-                  placeholder="请输入真实姓名"
                   value={files1}
                   onChange={e => this.handleChange('files1', e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormLabel>上传文件</FormLabel>
-                {/* <DropzoneArea
+              {/* <Grid item xs={12}>
+                <FormLabel>上传文件</FormLabel> */}
+              {/* <DropzoneArea
                   onChange={val => {
                     this.setState({ files: val });
                   }}
                 /> */}
-              </Grid>
+              {/* </Grid> */}
             </FormGroup>
             {/* 提交按钮 */}
             <FormGroup sx={{ borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} justifyContent="center">
@@ -274,7 +271,7 @@ export class ProjectNew extends Component<any, any> {
                   onClick={() => userProjectService.createMedical(this.state.form)}
                   fullWidth
                 >
-                  提交登记
+                  Submit
                 </Button>
               </Grid>
             </FormGroup>

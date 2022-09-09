@@ -70,7 +70,7 @@ export class UserSignUp extends Component<any, any> {
           <Button variant="contained" size="large" onClick={this.handleRegister}>
             {'立即注册'}
           </Button>
-          <Button onClick={() => navigationServices.push(route.SIGN_IN)}>已有账号,立即登录</Button>
+          <Button onClick={() => navigationServices.push(route.SIGN_IN)}>Login use an existed account</Button>
         </Stack>
       </App>
     );

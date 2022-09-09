@@ -101,12 +101,12 @@ const tabs = [
 const pgp: ProjectGridProps = [
   {
     imgUrl: require('../../assets/juanz/juanz1.jpg'),
-    title: 'xxx肺癌晚期',
-    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    title: 'Severe burns',
+    sub_title: 'Name: Han Meijuan',
     progress: 50,
     total: 20000,
     content:
-      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+      'This is the introduction This is the introduction This is the introduction This is the introduction This is the  This is the introduction ...',
   },
   {
     imgUrl: require('../../assets/juanz/juanz2.jpg'),

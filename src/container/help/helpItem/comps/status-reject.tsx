@@ -23,7 +23,7 @@ const StatusReject = () => {
       </Grid>
       <Grid item xs={4} sx={{ textAlign: 'right' }}>
         <div>
-          <span>募捐进度：</span>
+          <span>Status：</span>
           <Typography
             sx={{
               display: 'inline',
@@ -32,7 +32,7 @@ const StatusReject = () => {
             }}
             component="span"
           >
-            已驳回
+            Failed
           </Typography>
         </div>
       </Grid>

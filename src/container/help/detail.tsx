@@ -88,35 +88,35 @@ const itemData = [
 const censorList = [
   {
     img: require('../../../public/jigou6.png'),
-    title: '联合国儿童慈善基金会',
+    title: 'hsjifhdsjhdjkzhckhzxkhkhz...',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: require('../../../public/jigou2.png'),
-    title: '盖茨基金会',
+    title: 'hsjifhdsjhdjkzhckhzxkhkhz...',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: require('../../../public/jigou3.png'),
-    title: '国际服务机构',
+    title: 'hsjifhdsjhdjkzhckhzxkhkh',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: require('../../../public/jigou4.png'),
-    title: '国际地球之友',
+    title: 'hsjifhdsjhdjkzhckhzxkhkh',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
   },
   {
     img: require('../../../public/jigou5.png'),
-    title: '国际援助组织',
+    title: 'hsjifhdsjhdjkzhckhzxkhkh',
     desc: 'No. of items passed',
     deposit: '2000',
     level: 5,
@@ -190,14 +190,17 @@ export function Detail() {
           >
             <CardContent sx={{ flex: '1 0 auto', marginTop: '32px', paddingTop: '0px' }}>
               <Typography component="div" variant="h4">
-                大病儿童生命的礼物
+                Severe burns
               </Typography>
               <Typography component="div" variant="h6">
-                打怪升级不容易，有一丝希望就决不放弃！
+                Patient: Han Meijuan
               </Typography>
               <Typography variant="body2" color="white" component="div" style={{ marginTop: '24px', color: '#ADB1B8' }}>
-                刚刚还在体育课上跳完一百三十个绳的润宝，因腿上淤青迟迟不退，入院检查，这个原本应该享受着天真烂漫童年生活的小女孩，在七岁那年遇到了自己人生中的第一个小怪兽——急性淋巴细胞白血病。小润是爸爸妈妈眼里的小宝贝，常常“润宝、润宝”地喊着，看到鲜红的血液输入自己的血管，润宝被白血病这个小怪兽吓得嚎啕大哭。
-                经历了抗议、害怕、抵触、配合，润宝与疾病正面交锋，小小年纪的她在病房承受着不属于7岁的痛楚，直面我们大人都胆颤的病魔。
+                This is the introduction This is the introduction This is the introduction This is the introduction This
+                is the This is the introductionThis is the introduction This is the introduction This is the
+                introduction This is the introduction This is the This is the introductionThis is the introduction This
+                is the introduction This is the introduction This is the introduction This is the This is the
+                introduction
               </Typography>
             </CardContent>
             <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2} style={{}}>
@@ -222,11 +225,11 @@ export function Detail() {
                   style={{ width: '193px', height: '54px', margin: '32px', fontWeight: '700', fontSize: '18px' }}
                 >
                   <VolunteerActivismIcon style={{ marginRight: '5px' }} />
-                  Help Him
+                  Donate
                 </Button>
               </Box>
             </Stack>
-            <Box position="absolute" right={32} top={32}>
+            <Box position="absolute" right={32} top={32} width="40%">
               <Typography
                 variant="caption"
                 display="block"
@@ -236,14 +239,14 @@ export function Detail() {
                 <span style={{ color: '#ADB1B8 ' }}>Item Number：</span>8888888888
               </Typography>
               <Typography variant="caption" display="block" gutterBottom style={{ color: '#44E371' }}>
-                我们鼓励公众对每笔善款的应用进行监督
+                We encourage the public supervise the usage of every each donation.
               </Typography>
             </Box>
           </Box>
         </Card>
 
         <Stack display="flex" direction="row" justifyContent="space-between" mt={5}>
-          <Typography sx={{ fontWeight: 800, fontSize: '36px' }}>认证节点</Typography>
+          <Typography sx={{ fontWeight: 800, fontSize: '36px' }}>Approved By</Typography>
           <Button
             startIcon={<ApprovalIcon />}
             onClick={() => navigationServices.push(route.CENSOR_REGISTER)}
@@ -253,7 +256,7 @@ export function Detail() {
               color: '#000',
             }}
           >
-            {'申请成为节点'}
+            {'Apply to be auditor'}
           </Button>
         </Stack>
         <Stack
@@ -274,7 +277,12 @@ export function Detail() {
             >
               <CardMedia component="img" alt="green iguana" height="140" image={item.img} style={{ padding: '16px' }} />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                >
                   {item.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

@@ -26,7 +26,7 @@ const StatusRunning = () => {
       </Grid>
       <Grid item xs={4} sx={{ textAlign: 'right' }}>
         <div>
-          <span>募捐进度：</span>
+          <span>Status：</span>
           <Typography
             sx={{
               display: 'inline',
@@ -35,7 +35,7 @@ const StatusRunning = () => {
             }}
             component="span"
           >
-            募集中
+            Raising
           </Typography>
         </div>
       </Grid>

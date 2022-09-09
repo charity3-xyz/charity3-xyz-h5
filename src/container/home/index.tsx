@@ -40,15 +40,19 @@ export class Home extends Component<any, any> {
               paddingTop: 10,
             }}
           >
-            <Typography fontWeight="700" fontSize={50}>
-              {'Openness & Transparency'}
+            <Typography fontWeight="700" fontSize={50} mb={5}>
+              {'Charity & Web3 '}
             </Typography>
+            <Typography fontWeight="700" fontSize={28}>
+              {'Openness & Transparency '}
+            </Typography>
+
             <Typography fontWeight="700" fontSize={28}>
               {'make trust simpler and love purer'}
             </Typography>
-            <Typography fontWeight="400" fontSize={16} color="rgba(129, 133, 140, 1)" mt={5}>
+            <Typography fontWeight="400" fontSize={16} color="rgba(129, 133, 140, 1)" mt={5} width="60%">
               {
-                'bybit charitable public welfare program development platform, dedicated to linking donors and recipients in need'
+                'Charity 3 is a public welfare platform which committed to helpling patients who cannot afford the treat. We will announce the usage of every each donation, and allow the public supervise it more easily.'
               }
             </Typography>
             <Button
@@ -56,7 +60,7 @@ export class Home extends Component<any, any> {
               variant="contained"
               sx={{ mt: 7, fontWeight: '700' }}
             >
-              {'Call For Help'}
+              {'Fund - Raising'}
             </Button>
           </Container>
           {/*<Card sx={{ minWidth: 275 }}>*/}

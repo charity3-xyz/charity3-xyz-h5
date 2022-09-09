@@ -23,7 +23,7 @@ export const SeekHelpList = () => {
       <Grid container>
         <Grid item xs={6}>
           <Typography className="mui-title" variant="h3" sx={{ marginBottom: '2rem' }}>
-            募捐申请表
+            Apply for new fund-raising
           </Typography>
         </Grid>
         <Grid item xs={6} sx={{ textAlign: 'right' }}>
@@ -32,7 +32,7 @@ export const SeekHelpList = () => {
             sx={{ padding: '16px 32px', fontSize: '1.125rem' }}
             variant="contained"
           >
-            发起新的募捐
+            New Fund-Raising
           </Button>
         </Grid>
       </Grid>

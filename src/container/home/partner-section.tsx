@@ -14,9 +14,7 @@ export function PartnerSection() {
     <Container sx={{ py: 8.25 }}>
       <Box textAlign="center">
         <Typography variant="h4" fontWeight="700">
-          {'Trustworthy public'}
-          <Typography />
-          {'welfare platform'}
+          {'Partner'}
         </Typography>
         <Typography variant="body2">{'There are so many people to help you realize your dreams'}</Typography>
       </Box>

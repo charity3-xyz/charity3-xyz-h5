@@ -46,7 +46,7 @@ const StatusPublicity = () => {
       </Grid>
       <Grid item xs={6} sx={{ textAlign: 'right' }}>
         <div>
-          <span>募捐进度：</span>
+          <span>Status：</span>
           <Typography
             sx={{
               display: 'inline',
@@ -55,7 +55,7 @@ const StatusPublicity = () => {
             }}
             component="span"
           >
-            公示中
+            Announcing
           </Typography>
         </div>
       </Grid>

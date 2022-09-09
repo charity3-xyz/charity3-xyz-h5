@@ -7,7 +7,7 @@ const StatusExamine = () => {
     <Grid container sx={{ marginTop: '36px' }}>
       <Grid item xs={12} sx={{ textAlign: 'right' }}>
         <div>
-          <span>募捐进度：</span>
+          <span>Status：</span>
           <Typography
             sx={{
               display: 'inline',
@@ -16,7 +16,7 @@ const StatusExamine = () => {
             }}
             component="span"
           >
-            审核中
+            Approving
           </Typography>
         </div>
       </Grid>

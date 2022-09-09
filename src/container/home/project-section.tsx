@@ -42,10 +42,8 @@ export function ProjectSection() {
   return (
     <Container sx={{ mt: 12, mb: 12 }}>
       <Box textAlign="center">
-        <Typography variant="h4" fontWeight="700">
-          {'Fundraising project'}
-          <Typography />
-          {'classification'}
+        <Typography variant="h4" fontWeight="700" mb={1}>
+          {'Fundraising Project '}
         </Typography>
         <Button size="small" variant="contained" sx={{ background: 'rgba(68, 227, 113, 0.2)' }}>
           {'More >'}

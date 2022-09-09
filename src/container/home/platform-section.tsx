@@ -33,7 +33,7 @@ export function PlatformSection() {
   return (
     <Container sx={{ mt: 12 }}>
       <Box textAlign="center">
-        <Typography variant="h4" fontWeight="700">
+        <Typography variant="h4" fontWeight="700" mb={1}>
           {'Trustworthy public'}
           <Typography />
           {'welfare platform'}
@@ -44,25 +44,17 @@ export function PlatformSection() {
           sx={{ background: 'rgba(68, 227, 113, 0.2)' }}
           onClick={() => navigationServices.push(route.CENSOR_REGISTER)}
         >
-          {'我要成为节点 >'}
+          {'To Be Auditor >>'}
         </Button>
       </Box>
       <Grid container spacing={3} mt={8}>
         <Item
           icon={project1}
-          title="Open & transparent"
-          content="内容内容内容，中文最好不超过行内容内容内容，中文最好不超过两行"
+          title="Transparent"
+          content="Monitor every each donation via blockchain, which is immutable"
         />
-        <Item
-          icon={project2}
-          title="Most professional"
-          content="内容内容内容，中文最好不超过行内容内容内容，中文最好不超过两行"
-        />
-        <Item
-          icon={project3}
-          title="Most professional"
-          content="内容内容内容，中文最好不超过行内容内容内容，中文最好不超过两行"
-        />
+        <Item icon={project2} title="Efficient" content="Donate from wallet to wallet directly, no matter the region" />
+        <Item icon={project3} title="Professional" content="Authority agency in charity, medical, etc. as consultant" />
       </Grid>
     </Container>
   );

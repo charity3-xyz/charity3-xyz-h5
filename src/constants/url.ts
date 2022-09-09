@@ -1,9 +1,9 @@
 // tmp
-const debug = false;
+const debug = process.env.NODE_ENV !== 'production';
 
 const api = debug
-  ? `http://${global.location.hostname}:${location.port}/api`
-  : `${location.protocol}//${location.hostname}${location.port ?? ''}/api/v1`;
+  ? `http://${global.location.hostname}:${location.port}/api/v1`
+  : `${location.protocol}://${location.hostname}${location.port ?? ''}/api/v1`;
 
 // const api = 'http://localhost:3000/api';
 

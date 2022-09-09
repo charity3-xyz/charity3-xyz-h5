@@ -18,7 +18,7 @@ function GridItem({ dark, title, icon }: any) {
   }
 
   return (
-    <Grid item md={4}>
+    <Grid item md={4} xs={12}>
       <Stack
         bgcolor={bgcolor}
         borderRadius={3}
@@ -51,7 +51,7 @@ export function ProjectSection() {
           {'More >'}
         </Button>
       </Box>
-      <Grid container columnSpacing={3} rowSpacing={3} mt={7.5}>
+      <Grid container spacing={3} mt={7.5}>
         <GridItem icon={project1} title="Burn department" />
         <GridItem icon={project2} title="Disability Section" dark />
         <GridItem icon={project3} title="Leukemia Department" />

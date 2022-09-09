@@ -1,10 +1,9 @@
 import React from 'react';
-import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
-import { Button } from './button';
+import { Container, Grid, Link, Stack, Typography } from '@mui/material';
 
 export function GridItem({ title, navs, children }: any) {
   return (
-    <Grid item md={3} sm={12}>
+    <Grid item md={3} sm={12} xs={12}>
       <Typography variant="h5">{title}</Typography>
       {children}
       <Stack display="flex" direction="column" spacing={1} mt={1}>
@@ -80,7 +79,7 @@ export function Footer() {
     <div>
       <Container maxWidth={false} sx={{ bgcolor: '#FFF', py: 8 }}>
         <Container>
-          <Grid container>
+          <Grid container spacing={3}>
             <GridItem title="Get In Touch">
               <Typography variant="body2" color="#737373" mt={1}>
                 {'the quick fox jumps over the lazy dog'}

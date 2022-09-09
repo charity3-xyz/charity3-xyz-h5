@@ -47,7 +47,7 @@ export function PlatformSection() {
           {'我要成为节点 >'}
         </Button>
       </Box>
-      <Grid container columnSpacing={3} mt={8}>
+      <Grid container spacing={3} mt={8}>
         <Item
           icon={project1}
           title="Open & transparent"

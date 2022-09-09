@@ -25,7 +25,7 @@ export class Home extends Component<any, any> {
         {/* banner */}
         <Container
           sx={{
-            height: 550,
+            height: 600,
             backgroundColor: '#FFF',
           }}
           maxWidth={false}
@@ -40,13 +40,13 @@ export class Home extends Component<any, any> {
               paddingTop: 10,
             }}
           >
-            <Typography fontWeight="700" fontSize={56}>
+            <Typography fontWeight="700" fontSize={50}>
               {'Openness & Transparency'}
             </Typography>
             <Typography fontWeight="700" fontSize={28}>
               {'make trust simpler and love purer'}
             </Typography>
-            <Typography fontWeight="400" fontSize={16} color="rgba(129, 133, 140, 1)" width={661} mt={5}>
+            <Typography fontWeight="400" fontSize={16} color="rgba(129, 133, 140, 1)" mt={5}>
               {
                 'bybit charitable public welfare program development platform, dedicated to linking donors and recipients in need'
               }

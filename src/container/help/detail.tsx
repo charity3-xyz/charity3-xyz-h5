@@ -36,51 +36,51 @@ import { route } from '../../constants/route';
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    img: require('../../assets/juanz/juanz1.jpg'),
     title: 'Breakfast',
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+    img: require('../../assets/juanz/juanz2.jpg'),
     title: 'Burger',
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+    img: require('../../assets/juanz/juanz3.jpg'),
     title: 'Camera',
   },
   {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+    img: require('../../assets/juanz/juanz4.jpg'),
     title: 'Coffee',
   },
   {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+    img: require('../../assets/juanz/juanz2.jpg'),
     title: 'Hats',
   },
   {
-    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+    img: require('../../assets/juanz/juanz3.jpg'),
     title: 'Honey',
   },
   {
-    img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+    img: require('../../assets/juanz/juanz7.jpg'),
     title: 'Basketball',
   },
   {
-    img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+    img: require('../../assets/juanz/juanz1.jpg'),
     title: 'Fern',
   },
   {
-    img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+    img: require('../../assets/juanz/juanz2.jpg'),
     title: 'Mushrooms',
   },
   {
-    img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+    img: require('../../assets/juanz/juanz3.jpg'),
     title: 'Tomato basil',
   },
   {
-    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+    img: require('../../assets/juanz/juanz1.jpg'),
     title: 'Sea star',
   },
   {
-    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+    img: require('../../assets/juanz/juanz1.jpg'),
     title: 'Bike',
   },
 ];
@@ -162,7 +162,7 @@ export function Detail() {
               <ImageList sx={{ width: 210, height: 38 }} cols={3} rowHeight={38}>
                 {itemData.map(item => (
                   <ImageListItem
-                    style={{ border: '1px solid #ADB1B8', borderRadius: '4px' }}
+                    style={{ border: '0px solid #ADB1B8', borderRadius: '4px', width: '64px' }}
                     key={item.img}
                     onClick={e => {
                       smallImageClick(e, item.img);

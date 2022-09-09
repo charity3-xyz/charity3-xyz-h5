@@ -17,18 +17,22 @@ import { navigationServices } from '@aomi/mobx-history';
 import pin1 from '../../../public/pin1.webp';
 // import pin1 from '../../../public/pin2.jpeg';
 
-export type ProjectGridItemProps = {};
+export type ProjectGridItemProps = {
+  imgUrl: any;
+  title: string;
+  sub_title: string;
+  progress: number;
+  total: number;
+  content: string;
+};
 
 export function ProjectGridItem(props: ProjectGridItemProps) {
   const [expanded, setExpanded] = React.useState(false);
-
   const handleExpandClick = (index: number) => {
-    console.log('-----::', index, !expanded);
     setExpanded(!expanded);
   };
-
   const [value, setValue] = React.useState(0);
-
+  console.log(props);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -39,7 +43,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
         position: 'relative',
         width: '360px',
         height: '386px',
-        background: `url(${pin1})`,
+        background: `url(${props.imgUrl})`,
         backgroundSize: 'cover',
       }}
       sx={{ maxWidth: 345, color: 'white' }}
@@ -65,16 +69,16 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
       >
         <Box style={{ position: 'absolute', bottom: '20px', width: '100%', padding: '20px' }}>
           <Typography gutterBottom variant="h5" component="div">
-            重度烧伤
+            {props.title}
           </Typography>
           <Typography variant="body2" color="text.secondary" style={{ color: 'white' }}>
-            September 14, 2022，患者：老王，浙江安吉
+            {props.sub_title}
           </Typography>
           <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 16, marginTop: '44px' }} />
           <Box style={{ position: 'relative' }}>
-            <Typography variant="caption">55% raised</Typography>
+            <Typography variant="caption">{props.progress}% raised</Typography>
             <Typography style={{ position: 'absolute', right: 0 }} variant="overline">
-              Total funding:<span style={{ color: '#44E371' }}>20,000 USDT</span>
+              Total funding:<span style={{ color: '#44E371' }}>{props.total} USDT</span>
             </Typography>
           </Box>
         </Box>
@@ -99,19 +103,17 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
       >
         <CardContent style={{}}>
           <Typography variant="h5" gutterBottom>
-            h5. Heading
+            {props.title}
           </Typography>
           <Typography variant="overline" display="block" gutterBottom>
-            overline text
+            {props.sub_title}
           </Typography>
           <Typography variant="body2" gutterBottom>
-            body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam
-            beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti?
-            Eum quasi quidem quibusdam.
+            {props.content}
           </Typography>
           <div style={{ display: 'flex' }}>
             <div style={{ flex: 1, color: '#44E371', fontWeight: '500', fontSize: '20px', lineHeight: '24px' }}>
-              <div>55%</div>
+              <div>{props.progress}%</div>
               <div>Raised</div>
             </div>
             <div style={{ flex: 1 }}>

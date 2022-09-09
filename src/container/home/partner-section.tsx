@@ -21,12 +21,12 @@ export function PartnerSection() {
         <Typography variant="body2">{'There are so many people to help you realize your dreams'}</Typography>
       </Box>
       <Box className="partner-img" textAlign="center" mt={8}>
+        <img className="partner-img-6" src={moledao} alt="charity3" width="80%" />
         <img className="partner-img-2" src={bitverse} alt="charity3" width="80%" />
         <img className="partner-img-1" src={github} alt="charity3" width="80%" />
         <img className="partner-img-3" src={bybit} alt="charity3" width="80%" />
         <img className="partner-img-4" src={cryptophd} alt="charity3" width="80%" />
         <img className="partner-img-5" src={dtalk} alt="charity3" width="80%" />
-        <img className="partner-img-6" src={moledao} alt="charity3" width="80%" />
       </Box>
     </Container>
   );

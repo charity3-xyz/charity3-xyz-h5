@@ -8,6 +8,7 @@ import { ProjectGrid } from '../../components/project/project-grid';
 import { observer } from 'mobx-react';
 import { projectService } from '../../services/project';
 import { Status } from '../../constants/project';
+import { ProjectGridProps } from '../../components/project/project-grid';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -97,6 +98,72 @@ const tabs = [
   },
 ];
 
+const pgp: ProjectGridProps = [
+  {
+    imgUrl: require('../../assets/juanz/juanz1.jpg'),
+    title: 'xxx肺癌晚期',
+    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+  {
+    imgUrl: require('../../assets/juanz/juanz2.jpg'),
+    title: 'xxx 中毒',
+    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+  {
+    imgUrl: require('../../assets/juanz/juanz3.jpg'),
+    title: 'xxx 加班过多，差点猝死',
+    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+  {
+    imgUrl: require('../../assets/juanz/juanz4.jpg'),
+    title: 'xxx 淋巴恶性肿瘤',
+    sub_title: 'xxx 淋巴恶性肿瘤',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+  {
+    imgUrl: require('../../assets/juanz/juanz5.jpg'),
+    title: 'xxx 突患白血病需要骨髓移植',
+    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+  {
+    imgUrl: require('../../assets/juanz/juanz6.jpg'),
+    title: 'xxx 重伤在 ICU',
+    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+  {
+    imgUrl: require('../../assets/juanz/juanz7.jpg'),
+    title: 'xxx 顶梁柱突发脑梗',
+    sub_title: '需要筹集 200000，花费高昂，请帮帮他',
+    progress: 50,
+    total: 20000,
+    content:
+      '没人会知道，幸福和意外哪个会先来，只有生病的人才知道健康是多么的珍贵。本不想打扰大家，可是没有办法，家庭实在承受不了，决定发起筹款，谢谢大家的支持和理解。大家好，我叫 xxx，今年66岁，家住 xx ，目前在 xx 医院住院。xxx',
+  },
+];
+
 /**
  * 求助者项目首页
  */
@@ -130,7 +197,7 @@ export const ProjectHome = observer(function ProjectHome() {
           </Tabs>
           {tabs.map((item, index) => (
             <TabPanel value={value} index={index} key={index}>
-              <ProjectGrid />
+              <ProjectGrid pgp={pgp} />
               <Stack spacing={2}>
                 <Pagination onChange={handlePageChange} count={page?.totalPages} variant="outlined" shape="rounded" />
               </Stack>

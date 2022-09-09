@@ -15,10 +15,10 @@ configurePersistable(
 );
 
 import * as React from 'react';
-import bootstrap from 'veigar/bootstrap';
 import { createHashHistory } from 'history';
 import { Route, Router, Switch } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { bootstrap } from '@aomi/react/bootstrap';
 
 import { CssBaseline } from '@mui/material';
 import { configure } from 'mobx';

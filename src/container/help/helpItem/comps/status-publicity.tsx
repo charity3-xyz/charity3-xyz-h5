@@ -34,7 +34,7 @@ const StatusPublicity = () => {
     <Grid container sx={{ marginTop: '36px' }}>
       <Grid item xs={6}>
         <div>
-          <span style={{ color: '#81858C', marginRight: '16px' }}>公示结束倒计时</span>
+          <span style={{ color: '#81858C', marginRight: '16px' }}>Countdown of the announcement</span>
           <span style={spanTimeStyle}>{days}</span>
           <span style={spanColonStyle}>:</span>
           <span style={spanTimeStyle}>{hours}</span>

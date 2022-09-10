@@ -143,9 +143,7 @@ export class ProjectNew extends Component<any, any> {
           </div>
         ) : (
           <>
-            <Typography variant="subtitle1" gutterBottom>
-              Please make sure the information you submitted are true. We will have
-            </Typography>
+            <Stack pt={1}>Please make sure the information you submitted are true. We will have</Stack>
             {/* 基本信息 */}
             <FormGroup sx={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
               <FormField
@@ -161,9 +159,6 @@ export class ProjectNew extends Component<any, any> {
                 placeholder="please input your fund amount"
                 value={amount}
                 onChange={(e: any) => this.handleChange('amount', e.target.value)}
-                InputProps={{
-                  endAdornment: <InputAdornment position="end">万元</InputAdornment>,
-                }}
               />
               <FormField
                 md={12}
@@ -201,7 +196,7 @@ export class ProjectNew extends Component<any, any> {
             <FormGroup>
               <Grid item xs={12}>
                 <Typography color="#ADB1B8" fontWeight="700">
-                  Contact Details <span style={{ color: 'red' }}>*</span> (三选一)
+                  Contact Details <span style={{ color: 'red' }}>*</span> (At least choose one)
                 </Typography>
               </Grid>
               <FormField

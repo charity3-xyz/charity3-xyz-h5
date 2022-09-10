@@ -23,11 +23,11 @@ import { useHistory } from 'react-router-dom';
 
 const pages = [
   { title: 'Home', url: `${route.HOME}` },
-  { title: '募捐项目', url: `${route.HELP}` },
-  { title: '慈善公示监督', url: `${route.DONATE}` },
-  { title: '行业失信名单', url: '/' },
-  { title: '申请成为节点', url: `${route.CENSOR_REGISTER}` },
-  { title: '仲裁委员会', url: `${route.ARBITRATION}` },
+  { title: 'Fund-raising Project', url: `${route.HELP}` },
+  { title: 'Arbitrated Projects', url: `${route.DONATE}` },
+  { title: 'Blacklist', url: '/' },
+  { title: 'Apply to be Auditor', url: `${route.CENSOR_REGISTER}` },
+  { title: 'Arbitration Commission', url: `${route.ARBITRATION}` },
 ];
 
 const workNodeSettings = [
@@ -53,8 +53,6 @@ const userSettings = [
 ];
 
 import { LoginUp } from './LoginUp';
-
-import style from './index.module.scss';
 import { navigationServices } from '@aomi/mobx-history';
 
 export const Header = observer(function Header() {
@@ -188,11 +186,12 @@ export const Header = observer(function Header() {
             <Stack sx={{ flexGrow: 0 }} direction="row" spacing={1}>
               {!(isWeb3User || isWorkNode) && (
                 <Button
+                  variant="contained"
                   onClick={() => {
                     history.push(route.HELP_NEW);
                   }}
                 >
-                  {'我要求助'}
+                  {'Fund-Raising'}
                 </Button>
               )}
               {authorization ? (

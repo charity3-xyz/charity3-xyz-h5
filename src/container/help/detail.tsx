@@ -245,7 +245,7 @@ export function Detail() {
             </Box>
           </Box>
         </Card>
-        <Upload open={false} onClose={undefined} onOk={undefined} />
+        <Upload />
 
         <Stack display="flex" direction="row" justifyContent="space-between" mt={5}>
           <Typography sx={{ fontWeight: 800, fontSize: '36px' }}>Approved By</Typography>

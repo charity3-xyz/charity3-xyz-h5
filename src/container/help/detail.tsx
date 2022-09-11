@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import { App } from '../../components/App';
+import { Upload } from '../../components/Upload';
 import {
   Unstable_Grid2 as Grid,
   Box,
@@ -244,6 +245,7 @@ export function Detail() {
             </Box>
           </Box>
         </Card>
+        <Upload open={false} onClose={undefined} onOk={undefined} />
 
         <Stack display="flex" direction="row" justifyContent="space-between" mt={5}>
           <Typography sx={{ fontWeight: 800, fontSize: '36px' }}>Approved By</Typography>

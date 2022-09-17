@@ -32,7 +32,7 @@ import { New as DonateNew } from './container/donate/new';
 
 import { Detail as CensorDetail } from './container/censor/detail';
 import { Index as Censor } from './container/censor';
-import { List as CensorList } from './container/censor/list';
+import { CensorList } from './container/censor/list';
 import { Register as CensorRegister } from './container/censor/register';
 
 import { Detail as ArbitrationDetail } from './container/arbitration/detail';

@@ -26,7 +26,7 @@ const pages = [
   { title: 'Fund-raising Project', url: `${route.HELP}` },
   { title: 'Arbitrated Projects', url: `${route.DONATE}` },
   { title: 'Blacklist', url: '/' },
-  { title: 'Apply to be Auditor', url: `${route.CENSOR_REGISTER}` },
+  { title: 'Apply to be Auditor', url: `${route.CENSOR_LIST}` },
   { title: 'Arbitration Commission', url: `${route.ARBITRATION}` },
 ];
 
@@ -82,7 +82,7 @@ export const Header = observer(function Header() {
   };
 
   const loginUp = async (args: any) => {
-    await sessionService.getLoginUp(args);
+    await sessionService.registerAndLogin(args);
     setShowSignUp(false);
   };
 

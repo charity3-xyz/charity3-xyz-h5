@@ -7,6 +7,7 @@ export const route = {
   HELP: '/help',
   HELP_DETAIL: '/help/detail',
   HELP_LIST: '/help/list',
+  HELP_LIST_USER: '/help/user-list',
   HELP_NEW: '/help/new',
   HELP_NEW_RESULT: '/help/new-result',
   CENSOR: '/censor',

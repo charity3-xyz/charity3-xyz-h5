@@ -33,24 +33,21 @@ const pages = [
 const workNodeSettings = [
   {
     label: '我参与的项目',
-    url: route.HELP_LIST,
-  },
-  {
-    label: 'Logout',
-    onClick: sessionService.logout,
+    url: route.HELP_LIST_USER,
   },
 ];
 
 const userSettings = [
   {
     label: '我的募捐申请',
-    url: route.HELP_LIST,
-  },
-  {
-    label: 'Logout',
-    onClick: sessionService.logout,
+    url: route.HELP_LIST_USER,
   },
 ];
+
+// {
+//   label: 'Logout',
+//     onClick: sessionService.logout,
+// },
 
 import { LoginUp } from './LoginUp';
 import { navigationServices } from '@aomi/mobx-history';
@@ -217,7 +214,13 @@ export const Header = observer(function Header() {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {settings.map(({ label, url, onClick }, index) => (
+                    {[
+                      ...settings,
+                      {
+                        label: 'Logout',
+                        onClick: sessionService.logout,
+                      },
+                    ].map(({ label, url, onClick }: any, index) => (
                       <MenuItem
                         key={`${index}`}
                         onClick={() => {

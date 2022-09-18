@@ -49,6 +49,7 @@ import { Storage } from './core/Storage';
 import { SignIn } from './container/user/sign-in';
 import { UserSignUp } from './container/user/sign-up';
 import { ProjectNewResult } from './container/help/new-result';
+import { UserProjectList } from './container/help/list-user';
 
 // mobx 配置
 configure({ enforceActions: 'never' });
@@ -87,6 +88,7 @@ bootstrap(() => {
 
           <Route path={`${route.HELP}`} component={HelpHome} exact />
           <Route path={`${route.HELP_LIST}`} component={HelpList} />
+          <Route path={`${route.HELP_LIST_USER}`} component={UserProjectList} />
           <Route path={`${route.HELP_NEW}`} component={ProjectNew} />
           <Route path={`${route.HELP_NEW_RESULT}`} component={ProjectNewResult} />
           <Route path={`${route.HELP_DETAIL}`} component={HelpDetail} />

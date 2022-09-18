@@ -104,7 +104,6 @@ const tabs = [
 export const ProjectHome = observer(function ProjectHome() {
   const [value, setValue] = React.useState(0);
   const { loading, page } = projectService;
-  console.log('>>>>>>>>page:', JSON.stringify(page));
 
   useEffect(() => {
     projectService.query();

@@ -8,6 +8,7 @@ export const route = {
   HELP_DETAIL: '/help/detail',
   HELP_LIST: '/help/list',
   HELP_NEW: '/help/new',
+  HELP_NEW_RESULT: '/help/new-result',
   CENSOR: '/censor',
   CENSOR_REGISTER: '/censor/register',
   CENSOR_LIST: '/censor/list',

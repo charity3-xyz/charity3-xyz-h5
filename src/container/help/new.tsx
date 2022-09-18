@@ -5,26 +5,18 @@ import { observer } from 'mobx-react';
 import FileUploadFiles from '../../components/UploadFiles';
 import { Upload } from '../../components/Upload';
 import {
-  Box,
+  Button,
   Container,
   FormLabel,
   Grid,
-  InputAdornment,
-  MenuItem,
-  Paper,
+  GridProps,
   Stack,
   TextField,
-  Typography,
-  Button,
-  GridProps,
   TextFieldProps,
+  Typography,
 } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { sessionService } from '../../services/session';
-import { projectService } from '../../services/project';
 import { route } from '../../constants/route';
-
-import style from '../../styles/help/new.module.scss';
 
 import { userProjectService } from '../../services/user-project';
 import { navigationServices } from '@aomi/mobx-history';
@@ -61,7 +53,6 @@ export class ProjectNew extends Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      submitSuccessful: false,
       form: {
         userName: '',
         amount: '',
@@ -98,7 +89,6 @@ export class ProjectNew extends Component<any, any> {
 
   render() {
     const {
-      submitSuccessful,
       form: {
         userName,
         amount,
@@ -117,144 +107,121 @@ export class ProjectNew extends Component<any, any> {
     const { loading } = userProjectService;
 
     return (
-      <App RootComponent={Container} className={style.applyForm} loading={loading}>
+      <App RootComponent={Container} loading={loading}>
         <Stack spacing={2} pt={6}>
           <Typography variant="h4" gutterBottom>
             Apply for new fund-raising
           </Typography>
         </Stack>
-        {/* 提交成功显示成功文案  */}
-        {submitSuccessful ? (
-          <div className={style.successWrapper}>
-            <Stack spacing={2}>
-              <div className={style.icon}>
-                <CheckCircleIcon />
-              </div>
-              <h2>Submitted Successfully</h2>
-              <p style={{ paddingBottom: '36px' }}>
-                Your fund-raising will be audited and as soon as approved, it will open to the public donation. During
-                the process please keep available via the number&email which you submitted.
-              </p>
-              <div className={style.btn}>
-                <Button key="jump" variant="contained" onClick={() => console.log(123)}>
-                  Check My Project
-                </Button>
-              </div>
-            </Stack>
-          </div>
-        ) : (
-          <>
-            <Stack pt={1}>Please make sure the information you submitted are true. We will have</Stack>
-            {/* 基本信息 */}
-            <FormGroup sx={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
-              <FormField
-                label="Name"
-                placeholder="please input your name"
-                required
-                value={userName}
-                onChange={(e: any) => this.handleChange('userName', e.target.value)}
-              />
-              <FormField
-                required
-                label="Fund Amount"
-                placeholder="please input your fund amount"
-                value={amount}
-                onChange={(e: any) => this.handleChange('amount', e.target.value)}
-              />
-              <FormField
-                md={12}
-                multiline
-                maxRows={4}
-                label="Description（Optional）"
-                value={title}
-                onChange={(e: any) => this.handleChange('title', e.target.value)}
-              />
-              <FormField label="Hospital Name">
-                <HospitalSelect
-                  size="small"
-                  fullWidth
-                  required
-                  label="Hospital Name"
-                  placeholder="please select your hospital name"
-                  value={hospitalId}
-                  onChange={(e: any) => this.handleChange('hospitalId', e.target.value)}
-                />
-              </FormField>
-              <FormField label="Disease">
-                <DiseaseCategorySelect
-                  size="small"
-                  required
-                  fullWidth
-                  label="Disease"
-                  placeholder="please select your disease"
-                  hospitalId={hospitalId}
-                  value={diseaseCategoryId}
-                  onChange={e => this.handleChange('diseaseCategoryId', e.target.value)}
-                />
-              </FormField>
-            </FormGroup>
-            {/* 联系方式 */}
-            <FormGroup>
-              <Grid item xs={12}>
-                <Typography color="#ADB1B8" fontWeight="700">
-                  Contact Details <span style={{ color: 'red' }}>*</span> (At least choose one)
-                </Typography>
-              </Grid>
-              <FormField
-                label="Telephone Num"
-                value={userPhoneNo}
-                onChange={(e: any) => this.handleChange('userPhoneNo', e.target.value)}
-              />
-              <FormField
-                label="Mobile Num"
-                value={userTelNo}
-                onChange={(e: any) => this.handleChange('userTelNo', e.target.value)}
-              />
-              <FormField
-                label="E-mail"
-                placeholder="please input your E-mail"
-                value={userEmail}
-                onChange={(e: any) => this.handleChange('userEmail', e.target.value)}
-              />
-            </FormGroup>
+        <Stack pt={1}>Please make sure the information you submitted are true. We will have</Stack>
+        {/* 基本信息 */}
+        <FormGroup sx={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
+          <FormField
+            label="Name"
+            placeholder="please input your name"
+            required
+            value={userName}
+            onChange={(e: any) => this.handleChange('userName', e.target.value)}
+          />
+          <FormField
+            required
+            label="Fund Amount"
+            placeholder="please input your fund amount"
+            value={amount}
+            onChange={(e: any) => this.handleChange('amount', e.target.value)}
+          />
+          <FormField
+            md={12}
+            multiline
+            maxRows={4}
+            label="Description（Optional）"
+            value={title}
+            onChange={(e: any) => this.handleChange('title', e.target.value)}
+          />
+          <FormField label="Hospital Name">
+            <HospitalSelect
+              size="small"
+              fullWidth
+              required
+              label="Hospital Name"
+              placeholder="please select your hospital name"
+              value={hospitalId}
+              onChange={(e: any) => this.handleChange('hospitalId', e.target.value)}
+            />
+          </FormField>
+          <FormField label="Disease">
+            <DiseaseCategorySelect
+              size="small"
+              required
+              fullWidth
+              label="Disease"
+              placeholder="please select your disease"
+              hospitalId={hospitalId}
+              value={diseaseCategoryId}
+              onChange={e => this.handleChange('diseaseCategoryId', e.target.value)}
+            />
+          </FormField>
+        </FormGroup>
+        {/* 联系方式 */}
+        <FormGroup>
+          <Grid item xs={12}>
+            <Typography color="#ADB1B8" fontWeight="700">
+              Contact Details <span style={{ color: 'red' }}>*</span> (At least choose one)
+            </Typography>
+          </Grid>
+          <FormField
+            label="Telephone Num"
+            value={userPhoneNo}
+            onChange={(e: any) => this.handleChange('userPhoneNo', e.target.value)}
+          />
+          <FormField
+            label="Mobile Num"
+            value={userTelNo}
+            onChange={(e: any) => this.handleChange('userTelNo', e.target.value)}
+          />
+          <FormField
+            label="E-mail"
+            placeholder="please input your E-mail"
+            value={userEmail}
+            onChange={(e: any) => this.handleChange('userEmail', e.target.value)}
+          />
+        </FormGroup>
 
-            {/* 个人身份认证 */}
-            <FormGroup>
-              <Grid item xs={12}>
-                <Typography color="#ADB1B8" fontWeight="700">
-                  {'Identity Verification'}
-                </Typography>
-              </Grid>
-              <FormField
-                label="ID Number"
-                placeholder="please input your ID Number"
-                value={userIdNo}
-                onChange={(e: any) => this.handleChange('userIdNo', e.target.value)}
-              />
-              <Grid item xs={12}>
-                <FormLabel>Upload ID Photo</FormLabel>
-                <Upload />
-              </Grid>
-              <Grid item xs={12}>
-                <FormLabel>Upload Medical Records Photos</FormLabel>
-                <FileUploadFiles />
-              </Grid>
-            </FormGroup>
-            {/* 提交按钮 */}
-            <FormGroup sx={{ borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} justifyContent="center">
-              <Grid item sm={2}>
-                <Button
-                  variant="contained"
-                  disabled={loading}
-                  onClick={() => userProjectService.createMedical(this.state.form)}
-                  fullWidth
-                >
-                  Submit
-                </Button>
-              </Grid>
-            </FormGroup>
-          </>
-        )}
+        {/* 个人身份认证 */}
+        <FormGroup>
+          <Grid item xs={12}>
+            <Typography color="#ADB1B8" fontWeight="700">
+              {'Identity Verification'}
+            </Typography>
+          </Grid>
+          <FormField
+            label="ID Number"
+            placeholder="please input your ID Number"
+            value={userIdNo}
+            onChange={(e: any) => this.handleChange('userIdNo', e.target.value)}
+          />
+          <Grid item xs={12}>
+            <FormLabel>Upload ID Photo</FormLabel>
+            <Upload />
+          </Grid>
+          <Grid item xs={12}>
+            <FormLabel>Upload Medical Records Photos</FormLabel>
+            <FileUploadFiles />
+          </Grid>
+        </FormGroup>
+        {/* 提交按钮 */}
+        <FormGroup sx={{ borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} justifyContent="center">
+          <Grid item sm={2}>
+            <Button
+              variant="contained"
+              disabled={loading}
+              onClick={() => userProjectService.createMedical(this.state.form)}
+              fullWidth
+            >
+              Submit
+            </Button>
+          </Grid>
+        </FormGroup>
       </App>
     );
   }

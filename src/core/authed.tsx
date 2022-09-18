@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { sessionService } from '../services/session';
 import { route } from '../constants/route';
+import {navigationServices} from "@aomi/mobx-history";
 
 /**
  * 是否已经授权检查
@@ -14,10 +15,8 @@ export function authed(...args: Array<any>): any {
       static options = target.options;
 
       componentDidMount() {
-        const { navigation } = this.props;
-        const { replace } = navigation;
         if (!sessionService.authorization) {
-          replace(route.SIGN_IN);
+          navigationServices.replace(route.SIGN_IN);
         }
       }
 

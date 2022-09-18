@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { App } from '../../components/App';
 import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
-// import { DropzoneArea } from 'material-ui-dropzone';
+import FileUploadFiles from '../../components/UploadFiles';
+import { Upload } from '../../components/Upload';
 import {
   Box,
   Container,
@@ -232,30 +233,12 @@ export class ProjectNew extends Component<any, any> {
               />
               <Grid item xs={12}>
                 <FormLabel>Upload ID Photo</FormLabel>
-                <TextField
-                  size="small"
-                  id="outlined-required"
-                  value={files2}
-                  onChange={e => this.handleChange('files2', e.target.value)}
-                />
+                <Upload />
               </Grid>
               <Grid item xs={12}>
                 <FormLabel>Upload Medical Records Photos</FormLabel>
-                <TextField
-                  size="small"
-                  id="outlined-required"
-                  value={files1}
-                  onChange={e => this.handleChange('files1', e.target.value)}
-                />
+                <FileUploadFiles />
               </Grid>
-              {/* <Grid item xs={12}>
-                <FormLabel>上传文件</FormLabel> */}
-              {/* <DropzoneArea
-                  onChange={val => {
-                    this.setState({ files: val });
-                  }}
-                /> */}
-              {/* </Grid> */}
             </FormGroup>
             {/* 提交按钮 */}
             <FormGroup sx={{ borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} justifyContent="center">

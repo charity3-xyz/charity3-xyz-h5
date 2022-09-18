@@ -1,6 +1,7 @@
 import { Box, FormLabel, Grid, GridProps, Button, TextField } from '@mui/material';
 import React, { Component } from 'react';
 import { App } from '../../components/App';
+import FileUploadFiles from '../../components/UploadFiles';
 
 import style from '../../styles/censor/detail.module.less';
 /**
@@ -27,10 +28,7 @@ export class Detail extends Component<any, any> {
                 费用证明<span>最多上传10张</span>
               </div>
               <div className={style.right}>
-                <Button variant="contained" component="label">
-                  Upload
-                  <input hidden accept="image/*" multiple type="file" />
-                </Button>
+                <FileUploadFiles />
               </div>
             </div>
 
@@ -39,31 +37,12 @@ export class Detail extends Component<any, any> {
                 经济状况证明<span>最多上传10张</span>
               </div>
               <div className={style.right}>
-                <Button variant="contained" component="label">
-                  Upload
-                  <input hidden accept="image/*" multiple type="file" />
-                </Button>
+                <FileUploadFiles />
+
+                {/* <TextField type="file" aria-multiselectable /> */}
               </div>
             </div>
           </div>
-          {/* <FormGroup>
-            <Grid item xs={12}>
-              <FormLabel>
-                费用证明
-                <br />
-                最多上传10张
-              </FormLabel>
-              <TextField size="small" id="outlined-required" value={0} onChange={e => console.log(111)} />
-            </Grid>
-            <Grid item xs={12}>
-              <FormLabel>
-                经济状况证明
-                <br />
-                最多上传10张
-              </FormLabel>
-              <TextField size="small" id="outlined-required" value={0} onChange={e => console.log(111)} />
-            </Grid>
-          </FormGroup> */}
           <div className={style.remark}>
             <TextField id="outlined-multiline-static" label="审核意见" multiline rows={4} />
           </div>

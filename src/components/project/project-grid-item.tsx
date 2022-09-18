@@ -56,9 +56,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
       onMouseLeave={e => {
         handleExpandClick(0);
       }}
-      onClick={() => {
-        navigationServices.push(route.HELP_DETAIL);
-      }}
+      onClick={() => navigationServices.push({ pathname: route.HELP_DETAIL, params: props })}
     >
       {/*<CardHeader title="重度烧伤" subheader="September 14, 2022，患者：老王，浙江安吉" />*/}
       {/* <CardMedia component="img" height="194" image="/pin1.webp" alt="Paella dish" /> */}
@@ -128,9 +126,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
             </Box>
             <Box sx={{ flex: 1 }}>
               <Button
-                onClick={() => {
-                  navigationServices.push(route.HELP_DETAIL);
-                }}
+                onClick={() => navigationServices.push({ pathname: route.HELP_DETAIL, params: props })}
                 variant="contained"
                 sx={{ width: '174px', height: '54px', background: '#44E371', borderRadius: '8px', color: 'white' }}
               >

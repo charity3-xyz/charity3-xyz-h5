@@ -22,7 +22,7 @@ export function ProjectList({ page, onPageChange, ...props }: ProjectListProps) 
   return (
     <List {...props}>
       {page.content.map((item, index) => (
-        <ProjectListItem item={item} key={`${index}`} />
+        <ProjectListItem project={item} key={`${index}`} />
       ))}
       {page.totalElements === 0 && (
         <Container

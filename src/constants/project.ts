@@ -35,3 +35,14 @@ export enum Status {
    */
   FINISH = 'FINISH',
 }
+
+export const StatusText = {
+  [Status.WAIT]: '审核中',
+  [Status.REVIEWING]: '审核中',
+  [Status.FUNDRAISING]: '募集中',
+  [Status.PUBLICITY]: '公示中',
+  [Status.ARBITRATION]: '仲裁中',
+  [Status.TURN_DOWN]: '已驳回',
+  [Status.CANCEL]: '已取消',
+  [Status.FINISH]: '已完成',
+};

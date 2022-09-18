@@ -161,10 +161,10 @@ export function Detail() {
           />
           <Box sx={{ position: 'absolute', bottom: 42, right: 42 }}>
             <ImageList sx={{ width: 210, height: 38 }} cols={3} rowHeight={38}>
-              {itemData.map(item => (
+              {itemData.map((item, index) => (
                 <ImageListItem
                   style={{ border: '0px solid #ADB1B8', borderRadius: '4px', width: '64px' }}
-                  key={item.img}
+                  key={`${index}`}
                   onClick={e => {
                     smallImageClick(e, item.img);
                   }}

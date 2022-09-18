@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { sessionService } from '../services/session';
 import { route } from '../constants/route';
-import {navigationServices} from "@aomi/mobx-history";
+import { navigationServices } from '@aomi/mobx-history';
 
 /**
  * 是否已经授权检查

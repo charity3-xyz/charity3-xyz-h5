@@ -126,7 +126,6 @@ ${token.id}`;
         method: HttpMethod.POST,
         body: { ...args },
       });
-      navigationServices.push('/');
     } finally {
       this.loading = false;
     }

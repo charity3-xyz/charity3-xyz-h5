@@ -42,6 +42,11 @@ export class SignIn extends Component<any, any> {
     };
   }
 
+  async handleWeb3Auth() {
+    await sessionService.web3Auth();
+    navigationServices.push('/');
+  }
+
   async handleLogin() {
     const { username, password } = this.state;
     await sessionService.getLoginIn({ username, password });
@@ -93,7 +98,7 @@ export class SignIn extends Component<any, any> {
               display="flex"
               flex={1}
             >
-              <Button onClick={sessionService.web3Auth}>{'Connect Wallet'}</Button>
+              <Button onClick={this.handleWeb3Auth}>{'Connect Wallet'}</Button>
             </TabPanel>
           </Box>
         </Stack>

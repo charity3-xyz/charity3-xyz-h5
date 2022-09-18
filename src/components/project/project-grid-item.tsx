@@ -119,7 +119,7 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
             <div style={{ flex: 1 }}>
               <Button
                 onClick={() => {
-                  navigationServices.push(route.CENSOR_DETAIL);
+                  navigationServices.push(route.HELP_DETAIL);
                 }}
                 variant="contained"
                 style={{ width: '174px', height: '54px', background: '#44E371', borderRadius: '8px', color: 'white' }}

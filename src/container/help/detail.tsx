@@ -17,9 +17,15 @@ import {
   Collapse,
   Container,
   Pagination,
+  TextField,
   Stack,
   LinearProgress,
   Button,
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
 } from '@mui/material';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -310,8 +316,8 @@ export const Detail = observer(function Detail() {
                 {item.desc}
               </Typography>
             </CardContent>
-            <div
-              style={{
+            <Box
+              sx={{
                 fontWeight: '700',
                 fontSize: '20px',
                 lineHeight: '26px',
@@ -322,9 +328,32 @@ export const Detail = observer(function Detail() {
               }}
             >
               200
-            </div>
+            </Box>
           </Card>
         ))}
+      </Stack>
+      <Stack>
+        <Box component="form" className="detail-arbitration-form">
+          <FormControl>
+            <FormLabel id="detail-arbitration-form-title" sx={{ fontWeight: '600', fontSize: '36px' }}>
+              File an apeal
+            </FormLabel>
+            <FormLabel id="detail-arbitration-form-radio-label">Choose a reason</FormLabel>
+            <RadioGroup row aria-labelledby="detail-arbitration-form-radio-group" name="row-radio-buttons-group">
+              <FormControlLabel value="0" control={<Radio />} label="Unreasonable Cost" />
+              <FormControlLabel value="1" control={<Radio />} label="Economic situation is non-compliant" />
+              <FormControlLabel value="2" control={<Radio />} label="Fake Doc" />
+              <FormControlLabel value="3" control={<Radio />} label="other" />
+            </RadioGroup>
+            <TextField
+              id="detail-arbitration-form-text"
+              label="Detailed Information"
+              multiline
+              rows={4}
+              defaultValue="Detailed Information"
+            />
+          </FormControl>
+        </Box>
       </Stack>
       {/*  捐赠弹框*/}
       <DonateDialog open={open} onClose={switchOpen} projectId="xxx" />

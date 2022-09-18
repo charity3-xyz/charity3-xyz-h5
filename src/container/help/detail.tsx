@@ -32,7 +32,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import { useTheme } from '@mui/material/styles';
 import { Padding } from '@mui/icons-material';
-// import style from '../../styles/help/detail.module.css';
+// import sx from '../../sxs/help/detail.module.css';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { flexbox } from '@mui/system';
@@ -164,7 +164,6 @@ export const Detail = observer(function Detail() {
   }, []);
 
   const smallImageClick = (_: React.MouseEvent<HTMLLIElement, MouseEvent>, img: string) => {
-    console.log(img);
     setBigImgUrl(img);
   };
 
@@ -182,8 +181,7 @@ export const Detail = observer(function Detail() {
         <Box sx={{ position: 'relative' }}>
           <CardMedia
             component="img"
-            sx={{ width: 439 }}
-            style={{ margin: '32px', borderRadius: '12px' }}
+            sx={{ margin: '32px', borderRadius: '12px', width: 439 }}
             image={bigImgUrl}
             alt="Live from space album cover"
           />
@@ -191,7 +189,7 @@ export const Detail = observer(function Detail() {
             <ImageList sx={{ width: 210, height: 38 }} cols={3} rowHeight={38}>
               {itemData.map((item, index) => (
                 <ImageListItem
-                  style={{ border: '0px solid #ADB1B8', borderRadius: '4px', width: '64px' }}
+                  sx={{ border: '0px solid #ADB1B8', borderRadius: '4px', width: '64px' }}
                   key={`${index}`}
                   onClick={e => {
                     smallImageClick(e, item.img);
@@ -224,24 +222,24 @@ export const Detail = observer(function Detail() {
             <Typography component="div" variant="h6">
               Patient: Han Meijuan
             </Typography>
-            <Typography variant="body2" color="white" component="div" style={{ marginTop: '24px', color: '#ADB1B8' }}>
+            <Typography variant="body2" color="white" component="div" sx={{ marginTop: '24px', color: '#ADB1B8' }}>
               This is the introduction This is the introduction This is the introduction This is the introduction This
               is the This is the introductionThis is the introduction This is the introduction This is the introduction
               This is the introduction This is the This is the introductionThis is the introduction This is the
               introduction This is the introduction This is the introduction This is the This is the introduction
             </Typography>
           </CardContent>
-          <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2} style={{}}>
-            <Box sx={{ display: 'flex', alignItems: 'center', pb: 1, flex: 3 }} style={{ margin: '20px' }}>
-              <Stack style={{ display: 'flex', flex: 1 }}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
+            <Box sx={{ display: 'flex', alignItems: 'center', pb: 1, flex: 3, margin: '20px' }}>
+              <Stack sx={{ display: 'flex', flex: 1 }}>
                 <LinearProgress
                   variant="determinate"
                   value={50}
                   sx={{ borderRadius: 100, height: 20, marginTop: '10px' }}
                 />
-                <Box style={{ position: 'relative' }}>
+                <Box sx={{ position: 'relative' }}>
                   <Typography variant="caption">55% raised</Typography>
-                  <Typography style={{ position: 'absolute', right: 0 }} variant="overline">
+                  <Typography sx={{ position: 'absolute', right: 0 }} variant="overline">
                     Total funding:<span style={{ color: '#44E371' }}>20,000 USDT</span>
                   </Typography>
                 </Box>
@@ -250,24 +248,19 @@ export const Detail = observer(function Detail() {
             <Box display={!authorization || (isWeb3User && !isWorkNode) ? undefined : 'none'}>
               <Button
                 variant="contained"
-                style={{ width: '193px', height: '54px', margin: '32px', fontWeight: '700', fontSize: '18px' }}
+                sx={{ width: '193px', height: '54px', margin: '32px', fontWeight: '700', fontSize: '18px' }}
                 onClick={handlePreDonate}
               >
-                <VolunteerActivismIcon style={{ marginRight: '5px' }} />
+                <VolunteerActivismIcon sx={{ marginRight: '5px' }} />
                 Donate
               </Button>
             </Box>
           </Stack>
           <Box position="absolute" right={32} top={32} width="40%">
-            <Typography
-              variant="caption"
-              display="block"
-              style={{ paddingBottom: '0px', textAlign: 'end' }}
-              gutterBottom
-            >
+            <Typography variant="caption" display="block" sx={{ paddingBottom: '0px', textAlign: 'end' }} gutterBottom>
               <span style={{ color: '#ADB1B8 ' }}>Item Number：</span>8888888888
             </Typography>
-            <Typography variant="caption" display="block" gutterBottom style={{ color: '#44E371' }}>
+            <Typography variant="caption" display="block" gutterBottom sx={{ color: '#44E371' }}>
               We encourage the public supervise the usage of every each donation.
             </Typography>
           </Box>
@@ -290,7 +283,7 @@ export const Detail = observer(function Detail() {
         </Button>
       </Stack>
       <Stack
-        style={{
+        sx={{
           marginTop: '10px',
           display: 'flex',
           justifyContent: 'flex-start',
@@ -302,13 +295,13 @@ export const Detail = observer(function Detail() {
       >
         {censorList.map((item, index) => (
           <Card sx={{ width: 224, height: 298, margin: '10px', flexShrink: 0, position: 'relative' }} key={`${index}`}>
-            <CardMedia component="img" alt="green iguana" height="140" image={item.img} style={{ padding: '16px' }} />
+            <CardMedia component="img" alt="green iguana" height="140" image={item.img} sx={{ padding: '16px' }} />
             <CardContent>
               <Typography
                 gutterBottom
                 variant="h5"
                 component="div"
-                style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
               >
                 {item.title}
               </Typography>

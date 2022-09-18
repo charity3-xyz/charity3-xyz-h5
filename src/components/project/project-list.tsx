@@ -17,7 +17,7 @@ export type ProjectListProps = {
  */
 export function ProjectList({ page, onPageChange, ...props }: ProjectListProps) {
   function handlePageChange(_: any, pageNumber: number) {
-    onPageChange?.(pageNumber);
+    onPageChange?.(pageNumber - 1);
   }
   return (
     <List {...props}>

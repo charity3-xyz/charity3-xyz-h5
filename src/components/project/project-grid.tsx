@@ -13,6 +13,7 @@ export function ProjectGrid(props: ProjectGridProps) {
   return (
     <Grid container columns={12} rowSpacing={4}>
       {Array.from(props.pgp).map((_, index) => {
+        console.log(_, '>>>>>>>');
         return (
           <Grid sm={12} md={4} key={index} item>
             <ProjectGridItem {..._} />

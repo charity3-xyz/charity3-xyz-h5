@@ -18,12 +18,14 @@ import pin1 from '../../../public/pin1.webp';
 // import pin1 from '../../../public/pin2.jpeg';
 
 export type ProjectGridItemProps = {
-  imgUrl: any;
+  imgUrls: string[];
   title: string;
-  sub_title: string;
+  description: string;
   progress: number;
-  total: number;
-  content: string;
+  amount: number;
+  hospitalId: string;
+  userName: string;
+  userIdNo?: string;
 };
 
 export function ProjectGridItem(props: ProjectGridItemProps) {
@@ -32,21 +34,22 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
     setExpanded(!expanded);
   };
   const [value, setValue] = React.useState(0);
-  console.log(props);
+  // console.log(props);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
     <Card
-      style={{
+      sx={{
         position: 'relative',
         width: '360px',
         height: '386px',
-        background: `url(${props.imgUrl})`,
+        background: `url(${props.imgUrls})`,
         backgroundSize: 'cover',
+        maxWidth: '345px',
+        color: 'white',
       }}
-      sx={{ maxWidth: 345, color: 'white' }}
       onMouseEnter={e => {
         handleExpandClick(0);
       }}
@@ -67,18 +70,18 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
           padding: '0',
         }}
       >
-        <Box style={{ position: 'absolute', bottom: '20px', width: '100%', padding: '20px' }}>
+        <Box sx={{ position: 'absolute', bottom: '20px', width: '100%', padding: '20px' }}>
           <Typography gutterBottom variant="h5" component="div">
             {props.title}
           </Typography>
-          <Typography variant="body2" color="text.secondary" style={{ color: 'white' }}>
-            {props.sub_title}
+          <Typography variant="body2" color="text.secondary" sx={{ color: 'white' }}>
+            {props.description || 'this is default description'}
           </Typography>
           <LinearProgress variant="determinate" value={50} sx={{ borderRadius: 100, height: 16, marginTop: '44px' }} />
-          <Box style={{ position: 'relative' }}>
+          <Box sx={{ position: 'relative' }}>
             <Typography variant="caption">{props.progress}% raised</Typography>
-            <Typography style={{ position: 'absolute', right: 0 }} variant="overline">
-              Total funding:<span style={{ color: '#44E371' }}>{props.total} USDT</span>
+            <Typography sx={{ position: 'absolute', right: 0 }} variant="overline">
+              Total funding:<Box sx={{ color: '#44E371' }}>{props.amount} USDT</Box>
             </Typography>
           </Box>
         </Box>
@@ -99,35 +102,42 @@ export function ProjectGridItem(props: ProjectGridItemProps) {
         in={expanded}
         timeout="auto"
         unmountOnExit
-        style={{ position: 'absolute', bottom: '0px', background: 'rgba(0, 0, 0, 0.8)', borderRadius: '12px' }}
+        sx={{
+          position: 'absolute',
+          width: '100%',
+          bottom: '0px',
+          background: 'rgba(0, 0, 0, 0.8)',
+          minHeight: '100%!important',
+          borderRadius: '12px',
+        }}
       >
-        <CardContent style={{}}>
+        <CardContent sx={{}}>
           <Typography variant="h5" gutterBottom>
             {props.title}
           </Typography>
           <Typography variant="overline" display="block" gutterBottom>
-            {props.sub_title}
+            {props.userName || 'this is default userName'}
           </Typography>
           <Typography variant="body2" gutterBottom>
-            {props.content}
+            {props.description}
           </Typography>
-          <div style={{ display: 'flex' }}>
-            <div style={{ flex: 1, color: '#44E371', fontWeight: '500', fontSize: '20px', lineHeight: '24px' }}>
-              <div>{props.progress}%</div>
-              <div>Raised</div>
-            </div>
-            <div style={{ flex: 1 }}>
+          <Box sx={{ display: 'flex', position: 'absolute', bottom: '24px', right: '24px', left: '24px' }}>
+            <Box sx={{ flex: 1, color: '#44E371', fontWeight: '500', fontSize: '20px', lineHeight: '24px' }}>
+              <Box>{props.progress}%</Box>
+              <Box>Raised</Box>
+            </Box>
+            <Box sx={{ flex: 1 }}>
               <Button
                 onClick={() => {
                   navigationServices.push(route.HELP_DETAIL);
                 }}
                 variant="contained"
-                style={{ width: '174px', height: '54px', background: '#44E371', borderRadius: '8px', color: 'white' }}
+                sx={{ width: '174px', height: '54px', background: '#44E371', borderRadius: '8px', color: 'white' }}
               >
                 Help Him
               </Button>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </CardContent>
       </Collapse>
     </Card>

@@ -50,7 +50,7 @@ export async function execute({
   ...params
 }: Options) {
   params.headers = params.headers || {};
-  const authorization = sessionStorage.getItem(sessionService.authorization);
+  const authorization = sessionService.authorization;
   // 自动添加 authorization
   if (authorization) {
     (params.headers as any).authorization = authorization;

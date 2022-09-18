@@ -26,7 +26,7 @@ export class UserProjectService {
    * 查询项目信息
    * @param args 服务端的查询参数
    */
-  async query(args: Record<string, any>) {
+  async query(args?: Record<string, any>) {
     if (this.loading) {
       return;
     }

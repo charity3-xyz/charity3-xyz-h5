@@ -1,24 +1,18 @@
 import React from 'react';
-import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import { styled } from '@mui/material/styles';
-import AImg from './demo-assets/1.png';
-import { Image } from '@mui/icons-material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-
+import ListItemText from '@mui/material/ListItemText';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import StatusRunning from './comps/status-running';
 import StatusPublicity from './comps/status-publicity';
-import StatusEnd from './comps/status-end';
 import StatusExamine from './comps/status-examine';
+import StatusEnd from './comps/status-end';
 import StatusReject from './comps/status-reject';
+import { styled } from '@mui/material/styles';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -32,15 +26,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const imgs = [
-  'https://img1.baidu.com/it/u=1467104210,934574726&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=340',
-  'https://img2.baidu.com/it/u=2264415310,4211971198&fm=253&fmt=auto&app=138&f=JPEG?w=501&h=333',
-  'https://img0.baidu.com/it/u=3988276798,1292402657&fm=253&fmt=auto&app=138&f=JPEG?w=600&h=315',
-  'https://img1.baidu.com/it/u=4258405241,2344256764&fm=253&fmt=auto&app=120&f=JPEG?w=950&h=634',
-  'https://img0.baidu.com/it/u=2595104819,1045674031&fm=253&fmt=auto&app=138&f=JPEG?w=1350&h=500',
-];
-
-const Item = ({ item, index }: { item: any; index: number }) => {
+export const ProjectListItem = ({ item }: { item: any }) => {
   return (
     <ListItem
       alignItems="flex-start"
@@ -58,10 +44,10 @@ const Item = ({ item, index }: { item: any; index: number }) => {
             height: '7.4375rem',
             borderRadius: '10px',
           }}
-          src={imgs[0]}
+          // src={imgs[0]}
         />
         <ImageList sx={{ width: '13.25rem', height: '2.25rem', marginTop: '.75rem' }} cols={3} rowHeight="auto">
-          {imgs.map((child: any, idx: number) => {
+          {[].map((child: any, idx: number) => {
             return (
               <ImageListItem key={idx}>
                 <img
@@ -119,20 +105,18 @@ const Item = ({ item, index }: { item: any; index: number }) => {
               is the This is the introductionThis is the introduction This is the introduction This is the introduction
               This is the introduction This is the This is the introductionThis is the
             </Typography>
-            {index === 0 && (
-              <BorderLinearProgress sx={{ marginTop: '1.625rem', width: '50%' }} variant="determinate" value={50} />
-            )}
+            {/*{index === 0 && (*/}
+            {/*  <BorderLinearProgress sx={{ marginTop: '1.625rem', width: '50%' }} variant="determinate" value={50} />*/}
+            {/*)}*/}
 
-            {index === 0 && <StatusRunning />}
-            {index === 1 && <StatusPublicity />}
-            {index === 2 && <StatusExamine />}
-            {index === 3 && <StatusEnd />}
-            {index === 4 && <StatusReject />}
+            {/*{index === 0 && <StatusRunning />}*/}
+            {/*{index === 1 && <StatusPublicity />}*/}
+            {/*{index === 2 && <StatusExamine />}*/}
+            {/*{index === 3 && <StatusEnd />}*/}
+            {/*{index === 4 && <StatusReject />}*/}
           </React.Fragment>
         }
       />
     </ListItem>
   );
 };
-
-export default Item;

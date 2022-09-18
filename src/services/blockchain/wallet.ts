@@ -1,14 +1,24 @@
 import { makeAutoObservable, observable } from 'mobx';
 import { providerService } from './provider';
+import { Contract } from 'ethers';
+import { formatEther, formatUnits, parseEther, parseUnits } from '@ethersproject/units';
+
+import ERC20_BASE_ABI from './erc20-base-abi.json';
+
+const networkTetherContract = {
+  mainnet: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+  rinkeby: '0x3B00Ef435fA4FcFF5C209a37d1f3dcff37c705aD',
+};
 
 export class WalletService {
-  @observable
-  accountAddress: string | null = null;
+  // @observable
+  // accountAddress: string | null = null;
 
   constructor() {
     makeAutoObservable(this, undefined, {
       autoBind: true,
     });
+    // this.loadConnectAccount();
   }
 
   /**
@@ -25,6 +35,22 @@ export class WalletService {
     return this.walletInstalled && (global as any).web3.currentProvider.isMetaMask;
   }
 
+  get accountAddress(): string | undefined {
+    return (global as any).ethereum.selectedAddress;
+  }
+
+  async usdtBalance() {
+    const contract = new Contract('', ERC20_BASE_ABI);
+    const balance = await contract.balanceOf(this.accountAddress);
+    return Number.parseFloat(formatUnits(balance, 6)).toFixed(4);
+  }
+
+  // async loadConnectAccount() {
+  //   const provider = providerService.get();
+  //   this.accountAddress = await provider.getSigner().getAddress();
+  //   console.log(`已连接的地址: ${this.accountAddress}`);
+  // }
+
   /**
    * 连接钱包
    */
@@ -35,8 +61,7 @@ export class WalletService {
     }
     const provider = providerService.get();
     try {
-      const accounts = await provider.send('eth_requestAccounts', []);
-      this.accountAddress = accounts[0];
+      await provider.send('eth_requestAccounts', []);
       console.log(`当前地址 ${this.accountAddress}`);
     } catch (e: any) {
       console.error(`钱包连接失败: ${e.message}`, e);

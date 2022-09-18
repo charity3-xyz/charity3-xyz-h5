@@ -7,5 +7,5 @@ import { Button as MButton, ButtonProps } from '@mui/material';
  * @constructor
  */
 export function Button(props: ButtonProps) {
-  return <MButton {...props} />;
+  return <MButton sx={{ height: 54, fontWeight: '700' }} {...props} />;
 }

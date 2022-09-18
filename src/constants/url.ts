@@ -17,6 +17,8 @@ export const Url = {
   workNode: `${api}/work-nodes`,
   workNodeProject: `${api}/work-nodes/projects`,
 
+  projectDonate: `${api}/project-donates`,
+
   loginIn: `${api}/system/session`,
   addProject: `${api}/projects/medicals`,
   hospital: `${api}/medicals/hospitals`,

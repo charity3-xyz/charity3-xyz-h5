@@ -35,6 +35,10 @@ import ApprovalIcon from '@mui/icons-material/Approval';
 import { navigationServices } from '@aomi/mobx-history';
 import { route } from '../../constants/route';
 import { donateProjectService } from '../../services/donate-project';
+import { observer } from 'mobx-react';
+import { sessionService } from '../../services/session';
+import { DonateDialog } from '../../components/donate-dialog';
+import { useSwitch } from '@mui/base';
 
 const itemData = [
   {
@@ -135,19 +139,37 @@ const censorList = [
 /**'
  * 求助者项目详情页面
  */
-export function Detail() {
+export const Detail = observer(function Detail() {
   const theme = useTheme();
+
+  const { authorization, isWorkNode, isWeb3User } = sessionService;
+  const {} = donateProjectService;
+
   const [bigImgUrl, setBigImgUrl] = useState('');
+  // 捐赠模态框
+  const [open, setOpen] = useState(false);
+  function switchOpen() {
+    setOpen(!open);
+  }
 
   useEffect(() => {
     setBigImgUrl(require('../../../public/pin1.webp'));
     // projectService.query({});
   }, []);
 
-  const smallImageClick = (_e, img: string) => {
+  const smallImageClick = (_: React.MouseEvent<HTMLLIElement, MouseEvent>, img: string) => {
     console.log(img);
     setBigImgUrl(img);
   };
+
+  /**
+   * 捐款💰
+   */
+  async function handlePreDonate() {
+    await donateProjectService.preDonate();
+    setOpen(true);
+  }
+
   return (
     <App RootComponent={Container} sx={{ mt: 5 }}>
       <Card sx={{ display: 'flex', background: '#010101', borderRadius: '12px', color: 'white' }}>
@@ -219,11 +241,11 @@ export function Detail() {
                 </Box>
               </Stack>
             </Box>
-            <Box>
+            <Box display={!authorization || (isWeb3User && !isWorkNode) ? undefined : 'none'}>
               <Button
                 variant="contained"
                 style={{ width: '193px', height: '54px', margin: '32px', fontWeight: '700', fontSize: '18px' }}
-                onClick={() => donateProjectService.donate('xxx')}
+                onClick={handlePreDonate}
               >
                 <VolunteerActivismIcon style={{ marginRight: '5px' }} />
                 Donate
@@ -304,6 +326,8 @@ export function Detail() {
           </Card>
         ))}
       </Stack>
+      {/*  捐赠弹框*/}
+      <DonateDialog open={open} onClose={switchOpen} projectId="xxx" />
     </App>
   );
-}
+});

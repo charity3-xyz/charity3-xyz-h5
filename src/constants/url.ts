@@ -20,6 +20,6 @@ export const Url = {
   projectDonate: `${api}/project-donates`,
 
   loginIn: `${api}/system/session`,
-  addProject: `${api}/projects/medicals`,
+  addProject: `${api}/users/projects/medicals`,
   hospital: `${api}/medicals/hospitals`,
 };

@@ -3,6 +3,8 @@ import { DEFAULT_PAGE, Page } from '@aomi/common-service/Page';
 import { execute } from '../core/Request';
 import { Url } from '../constants/url';
 import { HttpMethod } from '@aomi/common-service/constants/HttpMethod';
+import { navigationServices } from '@aomi/mobx-history';
+import { route } from '../constants/route';
 
 /**
  * 用户项目
@@ -69,10 +71,14 @@ export class UserProjectService {
     }
     this.loading = true;
     try {
-      await execute({
+      const project = await execute({
         url: `${Url.addProject}`,
         method: HttpMethod.POST,
         body: args,
+      });
+      navigationServices.push({
+        pathname: route.HELP_NEW_RESULT,
+        params: project,
       });
     } finally {
       this.loading = false;

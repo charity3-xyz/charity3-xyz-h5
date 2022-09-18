@@ -104,8 +104,6 @@ ${token.id}`;
         },
         successTip: false,
       });
-      // 登录成功 跳转到首页
-      navigationServices.push('/');
     } finally {
       this.loading = false;
     }
@@ -126,6 +124,7 @@ ${token.id}`;
         method: HttpMethod.POST,
         body: { ...args },
       });
+      navigationServices.push('/');
     } finally {
       this.loading = false;
     }

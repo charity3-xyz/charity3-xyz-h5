@@ -1,11 +1,13 @@
 // tmp
-const debug = process.env.NODE_ENV !== 'production';
+// const debug = process.env.NODE_ENV !== 'production';
 
-const api = debug
-  ? `http://${global.location.hostname}:${location.port}/api/v1`
-  : `${location.protocol}://${location.hostname}${location.port ?? ''}/api/v1`;
+// const api = debug
+//   ? `http://${global.location.hostname}:${location.port}/api/v1`
+//   : `${location.protocol}://${location.hostname}${location.port ?? ''}/api/v1`;
 
 // const api = 'http://localhost:3000/api';
+
+const { api = '' } = (window as any).config;
 
 export const Url = {
   web3Auth: `${api}/system/session/web3`,

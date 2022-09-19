@@ -1,26 +1,20 @@
-const AUTH_API = {};
-
 module.exports = function ({ htmlWebpackPlugin }) {
   const { debug, env } = htmlWebpackPlugin.options;
   const { PROFILE = 'development' } = env;
 
   const api = debug
-    ? `'http://' + location.hostname + ':' + location.port + '/api'`
+    ? `'http://' + location.hostname + ':' + location.port + '/api/v1'`
     : `location.protocol + '//' + location.hostname + (location.port ? ':'+location.port : '') + '/api/v1'`;
-  const authApi = AUTH_API[PROFILE];
   return `
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  <link rel="icon" href="/favicon.ico">
   <title></title>
   <script>
     window.config = {
       api: ${api},
-      authApi: '${authApi}',
-      clientId: 'pay-console-webapp'
     };
   </script>
 </head>

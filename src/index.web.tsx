@@ -51,6 +51,8 @@ import { UserSignUp } from './container/user/sign-up';
 import { ProjectNewResult } from './container/help/new-result';
 import { UserProjectList } from './container/help/list-user';
 
+import { Audit } from './container/audit';
+
 // mobx 配置
 configure({ enforceActions: 'never' });
 setErrMsg({});
@@ -102,6 +104,8 @@ bootstrap(() => {
           <Route path={`${route.ARBITRATION_LIST}`} component={ArbitrationList} />
           <Route path={`${route.ARBITRATION_DETAIL}`} component={ArbitrationDetail} exact />
           <Route path={`${route.ARBITRATION_SUBMIT}`} component={ArbitrationSubmit} />
+
+          <Route path={`${route.AUDIT}`} component={Audit} />
 
           <Route path={route.SIGN_IN} component={SignIn} />
           <Route path={route.SIGN_UP} component={UserSignUp} />

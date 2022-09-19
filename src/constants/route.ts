@@ -18,7 +18,7 @@ export const route = {
   ARBITRATION_LIST: '/arbitration/list',
   ARBITRATION_DETAIL: '/arbitration/detail',
   ARBITRATION_SUBMIT: '/arbitration/submit',
-
+  AUDIT: '/audit',
   SIGN_IN: '/user/sign-in',
   SIGN_UP: '/user/sign-up',
 };

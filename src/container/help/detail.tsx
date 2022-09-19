@@ -293,7 +293,7 @@ export const Detail = observer(
             width: '1200px',
           }}
         >
-          {censorList.map((item, index) => (
+          {project.workNodes.map((item: any, index: number) => (
             <Card
               sx={{ width: 224, height: 298, margin: '10px', flexShrink: 0, position: 'relative' }}
               key={`${index}`}
@@ -306,10 +306,10 @@ export const Detail = observer(
                   component="div"
                   sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
                 >
-                  {item.title}
+                  {item.workNode?.user?.web3Address}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {item.desc}
+                  {item.describe}
                 </Typography>
               </CardContent>
               <Box

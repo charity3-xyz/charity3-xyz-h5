@@ -106,9 +106,10 @@ export const Header = observer(function Header() {
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
+                minWidth: '164px',
               }}
             >
-              {'Charity3'}
+              <embed src={require('../assets/charity3_logo.svg')} type="image/svg+xml" style={{ height: '34px' }} />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -165,7 +166,7 @@ export const Header = observer(function Header() {
                 textDecoration: 'none',
               }}
             >
-              {'Charity3'}
+              <embed src={require('../assets/charity3_logo.svg')} type="image/svg+xml" style={{ height: '34px' }} />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', marginLeft: '45px' } }}>
               {pages.map((page, index) => (
@@ -174,7 +175,14 @@ export const Header = observer(function Header() {
                   onClick={() => {
                     handleCloseNavMenu(page.url);
                   }}
-                  sx={{ my: 2, display: 'block', color: '#000' }}
+                  sx={{
+                    my: 2,
+                    display: 'block',
+                    color: '#000',
+                    textTransform: 'none',
+                    padding: '6px 17px',
+                    fontWeight: 600,
+                  }}
                 >
                   {page.title}
                 </MButton>

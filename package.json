@@ -41,6 +41,7 @@
   "devDependencies": {
     "@aomi/eslint-config": "^1.0.2",
     "@aomi/webapp-cli": "^1.2.0",
+    "@types/react-router-dom": "^5.3.3",
     "cross-env": "^7.0.3"
   }
 }

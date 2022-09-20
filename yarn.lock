@@ -39,6 +39,11 @@
   resolved "https://registry.yarnpkg.com/@aomi/mobx-history/-/mobx-history-1.0.4.tgz#defdfd0f1ff1060efc544b3c24f7353f9a959048"
   integrity sha512-CYxJEK9isRddukWWc4nHMpnzBIB80s9VT7ghFbCgHYWJ9MNIXjnxRuWbGU0vj/QGySvP5YyzQb2LSF+xbN6TMw==
 
+"@aomi/react-mui@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@aomi/react-mui/-/react-mui-1.1.0.tgz#f79ace9675e7322fac840cd2a7a57fd860ac1157"
+  integrity sha512-Z7MKjPPyT+8t1kfTLcr8qR2FEaLkpz9IPySRKmYAA/KFdGlXtbmP4Ey1VyVZXTKtyJUzBvUO4ew6k0lnWyWg0Q==
+
 "@aomi/react@^1.0.0-Alpha.5":
   version "1.0.0-Alpha.5"
   resolved "https://registry.yarnpkg.com/@aomi/react/-/react-1.0.0-Alpha.5.tgz#3455b15f4d1434917f78dfa72812052071b0adb8"

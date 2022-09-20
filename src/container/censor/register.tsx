@@ -26,7 +26,7 @@ export class Register extends Component<any, any> {
     const { loading } = workNodeService;
     return (
       <App RootComponent={Container} loading={loading}>
-        <Stack bgcolor="#FFF" mt={3} borderRadius={3} padding={3}>
+        <Stack bgcolor="#FFF" my={3} borderRadius={3} padding={3}>
           <Typography textAlign="center">{'社工机构节点入驻 - 责任与义务'}</Typography>
           <Typography>{'参与审核项目真实、并获取一定的报酬. 每个项目成功后可以获得项目分红'}</Typography>
           <Button onClick={workNodeService.register}>{'同意并立即入住'}</Button>

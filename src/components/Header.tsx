@@ -26,7 +26,7 @@ const pages = [
   { title: 'Fund-raising Project', url: `${route.HELP}` },
   { title: 'Arbitrated Projects', url: `${route.DONATE}` },
   { title: 'Blacklist', url: '/' },
-  { title: 'Apply to be Auditor', url: `${route.CENSOR_LIST}` },
+  { title: 'Apply to be Auditor', url: `${route.CENSOR_REGISTER}` },
   { title: 'Arbitration Commission', url: `${route.ARBITRATION}` },
 ];
 

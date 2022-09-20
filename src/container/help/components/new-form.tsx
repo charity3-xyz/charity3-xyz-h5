@@ -45,8 +45,8 @@ export const NewForm = forwardRef(function NewForm(
   { loading, onFinish }: { loading?: boolean; onFinish?: (data: any) => void },
   ref: any,
 ) {
-  const { register, handleSubmit } = useForm();
-  const [errors, setErrors] = useState<Record<string, any>>({});
+  const { register, handleSubmit, formState } = useForm();
+  const errors: Record<string, any> = formState.errors;
 
   const [hospitalId, setHospitalId] = useState('');
 
@@ -56,7 +56,6 @@ export const NewForm = forwardRef(function NewForm(
       return;
     }
 
-    setErrors({});
     onFinish?.({
       ...d,
       // 图片资料
@@ -74,12 +73,8 @@ export const NewForm = forwardRef(function NewForm(
     });
   }
 
-  function handleError(e: any) {
-    setErrors(e);
-  }
-
   return (
-    <form onSubmit={handleSubmit(handleFinish, handleError)} ref={ref}>
+    <form onSubmit={handleSubmit(handleFinish)} ref={ref}>
       {/* 基本信息 */}
       <FormGroup sx={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
         <FormField label="患者姓名" placeholder="name" errors={errors} {...register('userName', { required: true })} />

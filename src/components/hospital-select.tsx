@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { autoBind } from 'jsdk/autoBind';
 import { observer } from 'mobx-react';
 import { MenuItem, TextField, TextFieldProps } from '@mui/material';
@@ -6,7 +6,7 @@ import { hospitalService } from '../services/hospital';
 
 @observer
 @autoBind
-export class HospitalSelect extends Component<TextFieldProps, any> {
+export class HospitalSelectComponent extends Component<TextFieldProps, any> {
   constructor(props: any) {
     super(props);
     hospitalService.query();
@@ -33,3 +33,9 @@ export class HospitalSelect extends Component<TextFieldProps, any> {
     );
   }
 }
+
+export const HospitalSelect: React.FC<TextFieldProps> = forwardRef<any, TextFieldProps>(
+  function HospitalSelectForwardRef(props, ref) {
+    return <HospitalSelectComponent {...(props as any)} inputRef={ref} />;
+  },
+);

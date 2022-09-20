@@ -3,12 +3,15 @@ import { App } from '../../components/App';
 import { Container, Stack, Typography } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Button } from '../../components/button';
+import { navigationServices } from '@aomi/mobx-history';
+import { route } from '../../constants/route';
+import { withRouter } from 'react-router-dom';
 
 /**
  * 新增项目结果
  * @constructor
  */
-export function ProjectNewResult() {
+export const ProjectNewResult = withRouter(function ProjectNewResult(props: any) {
   return (
     <App RootComponent={Container}>
       <Stack minHeight={500} bgcolor="#FFF" my={6} borderRadius={3} justifyContent="center" alignItems="center">
@@ -23,11 +26,20 @@ export function ProjectNewResult() {
             }
           </Typography>
 
-          <Button key="jump" variant="contained" onClick={() => console.log(123)}>
+          <Button
+            key="jump"
+            variant="contained"
+            onClick={() =>
+              navigationServices.push({
+                pathname: route.HELP_DETAIL,
+                params: props.location.params,
+              })
+            }
+          >
             Check My Project
           </Button>
         </Stack>
       </Stack>
     </App>
   );
-}
+});

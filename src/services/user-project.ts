@@ -31,6 +31,7 @@ export class UserProjectService {
         url: `${Url.addProject}`,
         method: HttpMethod.POST,
         body: args,
+        successTip: false,
       });
       navigationServices.push({
         pathname: route.HELP_NEW_RESULT,

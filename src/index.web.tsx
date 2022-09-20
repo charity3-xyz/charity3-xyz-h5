@@ -59,7 +59,7 @@ setErrMsg({});
 
 httpConfigure({
   getArgs: {
-    sort: 'id,desc',
+    sort: '_id,desc',
   },
 });
 
